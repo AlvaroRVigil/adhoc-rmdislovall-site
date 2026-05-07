@@ -1,0 +1,25 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl -s -H \"Authorization: Bearer gQAAAAAAAaQCAAIgcDExZWMyZjc5OGY2NTU0NDM2ODZiZDcyYzUyYWU0NmZmZA\" \"https://moral-gnat-107522.upstash.io/get/panel:v1:clientes\")",
+      "Bash(python3 -c \"import json,sys; d=json.load\\(sys.stdin\\); arr=json.loads\\(d['result']\\); [print\\(c.get\\('slug'\\), '|', c.get\\('nombre'\\), '|', c.get\\('id'\\)\\) for c in arr if 'dislo' in \\(c.get\\('nombre',''\\)+c.get\\('slug',''\\)\\).lower\\(\\) or 'rm' in \\(c.get\\('slug',''\\)\\).lower\\(\\)]\")",
+      "Bash(python3 -c \"import json,sys; d=json.load\\(sys.stdin\\); arr=json.loads\\(d['result']\\); [print\\(c.get\\('slug'\\), '|', c.get\\('nombre'\\)\\) for c in arr]\")",
+      "Bash(python3 -c \"import json,sys; d=json.load\\(sys.stdin\\); print\\(json.dumps\\(json.loads\\(d['result']\\), indent=2, ensure_ascii=False\\)[:3000]\\)\")",
+      "Bash(curl -s -H \"Authorization: Bearer gQAAAAAAAaQCAAIgcDExZWMyZjc5OGY2NTU0NDM2ZjcyYzUyYWU0NmZmZA\" \"https://moral-gnat-107522.upstash.io/get/panel:v1:proyectos\")",
+      "Bash(curl -s -H \"Authorization: Bearer gQAAAAAAAaQCAAIgcDExZWMyZjc5OGY2NTU0NDM2ODZiZDcyYzUyYWU0NmZmZA\" \"https://moral-gnat-107522.upstash.io/get/panel:v1:proyectos\")",
+      "Bash(python3 -c ' *)",
+      "Bash(curl -s -L -o /tmp/rm-dislovall-brief.txt \"https://docs.google.com/document/d/1xMvwZx-Zp_Hgf6pR25Q7h2RTUNCcneIH/export?format=txt\" -w \"%{http_code} %{size_download}\\\\n\")",
+      "Bash(cd \"/Users/alvarorodriguezvigil/Documents/Freelance/Proyectos/RM Dislovall/Site\" && rm -rf src public astro.config.mjs tsconfig.json package.json README.md && ls -la)",
+      "Bash(npx --yes create-next-app@14 . --js --tailwind --eslint --app --src-dir --import-alias \"@/*\" --use-npm --no-turbo)",
+      "Bash(rm -rf '/Users/alvarorodriguezvigil/Documents/Freelance/Proyectos/RM Dislovall/site-tmp/alvarovigil-rm-dislovall/.git')",
+      "Bash(shopt -s dotglob)",
+      "Bash(mv '/Users/alvarorodriguezvigil/Documents/Freelance/Proyectos/RM Dislovall/site-tmp/alvarovigil-rm-dislovall/*' '/Users/alvarorodriguezvigil/Documents/Freelance/Proyectos/RM Dislovall/Site/')",
+      "Bash(shopt -u dotglob)",
+      "Bash(rmdir '/Users/alvarorodriguezvigil/Documents/Freelance/Proyectos/RM Dislovall/site-tmp/alvarovigil-rm-dislovall')",
+      "Bash(git -c user.name=\"Alvaro Rodriguez Vigil\" -c user.email=\"alvaro.rodriguez.vigil@gmail.com\" commit -m \"chore: bootstrap Next.js 14 + Tailwind\")"
+    ],
+    "additionalDirectories": [
+      "/Users/alvarorodriguezvigil/Documents/Freelance/Proyectos/RM Dislovall/Site/src"
+    ]
+  }
+}
