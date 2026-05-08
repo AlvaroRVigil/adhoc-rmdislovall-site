@@ -47,14 +47,14 @@ export default function Hero() {
             <p className="text-[10px] uppercase tracking-[0.24em] text-inkSoft">
               · Expertos en embalaje de cartón ondulado
             </p>
-            <h1 className="font-display font-medium text-[2rem] sm:text-4xl md:text-[3.25rem] lg:text-[3.75rem] tracking-tighter leading-[1.05] text-balance">
-              Embalaje de cartón ondulado
-              <span className="block italic text-wood">para que nunca te falte.</span>
+            <h1 className="font-display font-medium text-[clamp(1.875rem,4.6vw,3rem)] tracking-tighter leading-[1.1] text-balance">
+              Embalaje industrial y manipulado
+              <span className="block italic text-wood">para empresas y entornos logísticos.</span>
             </h1>
             <p className="text-base text-inkSoft text-pretty max-w-md leading-[1.5]">
-              Respuesta inmediata, entregas urgentes y trato directo. Cajas a
-              medida, manipulados, transporte propio y almacenaje desde
-              Sentmenat (Barcelona).
+              Trabajamos con empresas que necesitan soluciones de embalaje
+              fiables, adaptadas a su operativa y capaces de responder al
+              ritmo real de producción y logística.
             </p>
             <div className="pt-2">
               <PillButton href="#nosotros">Conócenos</PillButton>

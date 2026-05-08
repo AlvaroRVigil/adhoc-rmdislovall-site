@@ -46,8 +46,8 @@ export default function Process() {
             </h2>
           </div>
           <p className="col-span-12 md:col-span-4 md:col-start-9 text-sm text-inkSoft text-pretty">
-            Cuatro pasos. Una sola persona al otro lado del teléfono. La
-            misma desde que pides hasta que recibes.
+            Una sola persona al otro lado del teléfono — la misma desde el
+            briefing hasta que el material entra en tu planta.
           </p>
         </div>
 

@@ -5,24 +5,19 @@ import StockImg from "./StockImg";
 
 const items = [
   {
+    title: "Adaptación a necesidades reales",
+    body:
+      "Cada cliente trabaja con un producto, un volumen y una operativa distintos. El embalaje y el manipulado se diseñan según producción, almacenaje y expedición — no al revés.",
+  },
+  {
     title: "Respuesta ágil",
     body:
-      "Atendemos el teléfono y resolvemos en horas, no en días. Si llamas en horario laboral, te contestamos. Si lo necesitas urgente, lo priorizamos.",
+      "Pedidos urgentes, ajustes en plazo o necesidades operativas no previstas: el servicio se gestiona en horas, con flota propia y stock disponible.",
   },
   {
-    title: "Flexibilidad real",
+    title: "Relación continua con el cliente",
     body:
-      "Pedidos urgentes, pequeños o estacionales: nos adaptamos. Sin imponer mínimos rígidos ni cláusulas que penalicen tu operativa.",
-  },
-  {
-    title: "Trato directo",
-    body:
-      "Hablas con la persona que toma la decisión. Sin intermediarios ni equipos comerciales que pasen el caso a producción y se pierdan los detalles.",
-  },
-  {
-    title: "Plazos que se cumplen",
-    body:
-      "Cuarenta años cumpliendo entregas — esa es la métrica. Lo que decimos en la propuesta es lo que llega a tu planta.",
+      "El servicio se plantea desde la continuidad y la interlocución directa. Una sola persona acompaña el pedido del briefing a la entrega, sin intermediarios.",
   },
 ];
 
@@ -35,15 +30,17 @@ export default function Material() {
         <div className="w-full max-w-xl mx-auto md:mx-0 md:mr-auto md:ml-12 lg:ml-20 space-y-8">
           <div className="space-y-4">
             <p className="text-[10px] uppercase tracking-[0.24em] text-inkSoft">
-              · Por qué nosotros
+              · Forma de trabajar
             </p>
             <h2 className="font-display font-medium text-3xl md:text-4xl tracking-tighter leading-tight text-balance">
-              El estándar
-              <span className="block italic text-wood">que no negociamos.</span>
+              Adaptación, respuesta
+              <span className="block italic text-wood">y relación continua.</span>
             </h2>
-            <p className="text-base text-inkSoft text-pretty max-w-md pt-2 leading-[1.4]">
-              No vendemos cajas. Vendemos tranquilidad operativa para empresas
-              industriales que no se pueden permitir una incidencia.
+            <p className="text-base text-inkSoft text-pretty max-w-md pt-2 leading-[1.45]">
+              Cada empresa trabaja con necesidades distintas de producción,
+              almacenaje y expedición. El servicio se plantea desde la
+              continuidad, la capacidad de adaptación y una respuesta alineada
+              con la operativa de cada cliente.
             </p>
           </div>
 

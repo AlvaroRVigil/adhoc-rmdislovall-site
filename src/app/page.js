@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
+import QueHacemos from "@/components/QueHacemos";
 import Statement from "@/components/Statement";
 import Sectors from "@/components/Sectors";
 import About from "@/components/About";
@@ -21,6 +22,7 @@ export default function Home() {
       <Header />
       <main className="relative z-10 bg-paper mb-[100svh] md:mb-[820px]">
         <Hero />
+        <QueHacemos />
         <Statement />
         <Sectors />
         <About />

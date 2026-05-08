@@ -31,23 +31,19 @@ export default function About() {
               Empresa familiar,
               <span className="block italic text-wood">mentalidad operativa.</span>
             </h2>
-            <p className="text-lg text-inkSoft text-pretty max-w-xl">
-              RM Dislovall S.L. lleva fabricando embalaje de cartón ondulado
-              en Sentmenat (Barcelona) desde 1984. Más de 40 años especializados
-              en soluciones a medida para empresas industriales y logísticas
-              que no pueden permitirse una rotura de stock.
+            <p className="text-base md:text-lg text-inkSoft text-pretty leading-[1.45] max-w-xl">
+              RM Dislovall trabaja con empresas industriales y logísticas que
+              necesitan un proveedor fiable para su operativa de embalaje.
             </p>
-            <p className="text-base text-inkSoft text-pretty max-w-xl">
-              Lo que diferencia a un buen proveedor industrial no es el
-              catálogo: es estar disponible cuando hace falta, cumplir el plazo
-              y resolver lo imprevisto. Eso es lo que hemos construido en estos
-              cuarenta años.
+            <p className="text-base text-inkSoft text-pretty leading-[1.45] max-w-xl">
+              El enfoque no está en ofrecer un catálogo genérico, sino en
+              adaptarse a las necesidades reales de producción, manipulado y
+              suministro de cada cliente.
             </p>
-            <p className="text-base text-inkSoft text-pretty max-w-xl">
-              Trabajamos con empresas de alimentación, automoción, logística,
-              e-commerce y farmacéutico. Lo que tienen en común es que
-              dependen del embalaje para no parar la línea — y por eso nos
-              llaman a nosotros.
+            <p className="text-base text-inkSoft text-pretty leading-[1.45] max-w-xl">
+              Trabajamos con sectores como alimentación, automoción, logística,
+              e-commerce y farmacéutico — donde el embalaje forma parte directa
+              de la operativa diaria.
             </p>
 
             <dl className="grid grid-cols-2 md:grid-cols-3 gap-y-6 gap-x-6 border-t border-border pt-8 mt-4">

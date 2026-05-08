@@ -42,9 +42,9 @@ export default function Works() {
             </h2>
           </div>
           <p className="col-span-12 md:col-span-5 md:col-start-8 text-sm text-inkSoft text-pretty">
-            Ejemplos representativos del trabajo que hacemos para empresas de
-            distintos sectores. Cada proyecto se diseña de cero según producto,
-            volumen y operativa.
+            Ejemplos del trabajo en distintos sectores. Cada caso se plantea
+            según producto, volumen, operativa de envasado y ritmo de
+            expediciones.
           </p>
         </div>
 
