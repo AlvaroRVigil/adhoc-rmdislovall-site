@@ -27,7 +27,7 @@ export default function About() {
 
           <div className="col-span-12 md:col-span-7 lg:col-span-7 lg:col-start-6 space-y-6">
             <p className="text-[10px] uppercase tracking-[0.24em] text-inkSoft">· Quiénes somos</p>
-            <h2 className="font-display text-display-lg text-balance">
+            <h2 className="font-display font-medium text-3xl md:text-4xl tracking-tighter leading-tight text-balance">
               Empresa familiar,
               <span className="block italic text-wood">mentalidad operativa.</span>
             </h2>
@@ -42,6 +42,12 @@ export default function About() {
               catálogo: es estar disponible cuando hace falta, cumplir el plazo
               y resolver lo imprevisto. Eso es lo que hemos construido en estos
               cuarenta años.
+            </p>
+            <p className="text-base text-inkSoft text-pretty max-w-xl">
+              Trabajamos con empresas de alimentación, automoción, logística,
+              e-commerce y farmacéutico. Lo que tienen en común es que
+              dependen del embalaje para no parar la línea — y por eso nos
+              llaman a nosotros.
             </p>
 
             <dl className="grid grid-cols-2 md:grid-cols-3 gap-y-6 gap-x-6 border-t border-border pt-8 mt-4">

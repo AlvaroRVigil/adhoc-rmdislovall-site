@@ -41,8 +41,8 @@ export default function Process() {
               · Cómo trabajamos
             </p>
             <h2 className="font-display font-medium text-3xl md:text-4xl tracking-tighter leading-tight text-balance">
-              Fácil, rápido,
-              <span className="italic text-wood"> sin complicaciones.</span>
+              Una sola interlocución,
+              <span className="italic text-wood"> del pedido a la entrega.</span>
             </h2>
           </div>
           <p className="col-span-12 md:col-span-4 md:col-start-9 text-sm text-inkSoft text-pretty">

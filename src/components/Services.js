@@ -18,7 +18,7 @@ const items = [
       "Cajas troqueladas",
       "Tipo box y especial",
     ],
-    closer: "Te ayudamos a encontrar la solución más eficiente para tu operativa.",
+    closer: "Diseñamos cada caja para tu producto y tu línea.",
     img: "https://images.unsplash.com/photo-1771848194068-169d817a1d6f",
     alt: "Caja de cartón ondulado fabricada a medida",
     featured: true,
@@ -56,7 +56,7 @@ const items = [
     body:
       "Gestionamos las entregas con transporte propio, lo que nos permite responder con rapidez y cumplir los plazos en cada pedido.",
     tags: ["Flota propia", "Urgencias 24-48h", "Trazabilidad real", "Plazos cumplidos"],
-    closer: "Buscamos la mejor solución para que el material llegue cuando lo necesitas.",
+    closer: "Si lo necesitas hoy, sale hoy.",
     img: "https://images.unsplash.com/photo-1645736315000-6f788915923b",
     alt: "Carretilla y entregas",
   },

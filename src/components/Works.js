@@ -37,8 +37,8 @@ export default function Works() {
           <div className="col-span-12 md:col-span-6 space-y-4">
             <p className="text-[10px] uppercase tracking-[0.24em] text-inkSoft">· Trabajos recientes</p>
             <h2 className="font-display font-medium text-3xl md:text-4xl tracking-tighter leading-tight text-balance">
-              Cada caja,
-              <span className="italic text-wood"> un encaje propio.</span>
+              Cada sector,
+              <span className="italic text-wood"> una operativa distinta.</span>
             </h2>
           </div>
           <p className="col-span-12 md:col-span-5 md:col-start-8 text-sm text-inkSoft text-pretty">

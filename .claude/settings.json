@@ -28,7 +28,11 @@
       "Bash(ffmpeg -hide_banner -loglevel error -i '/Users/alvarorodriguezvigil/Desktop/Grabación de pantalla 2026-05-08 a las 8.41.31.mov' -vf fps=4 /tmp/footer_frames/frame_%03d.png)",
       "Bash(python3 -)",
       "Bash(python3 /tmp/update_brief.py)",
-      "Bash(lsof -i :3010 -sTCP:LISTEN)"
+      "Bash(lsof -i :3010 -sTCP:LISTEN)",
+      "Bash(kill 26637)",
+      "Bash(rm -rf .next/cache)",
+      "Bash(curl -s http://localhost:3010/ -o /tmp/check.html -w \"%{http_code}\\\\n\")",
+      "Bash(git -c 'user.name=Alvaro Rodriguez Vigil' -c user.email=alvaro.rodriguez.vigil@gmail.com commit -m ' *)"
     ],
     "additionalDirectories": [
       "/Users/alvarorodriguezvigil/Documents/Freelance/Proyectos/RM Dislovall/Site/src"

@@ -36,9 +36,9 @@ export default function Statement() {
             }}
             className="col-span-12 md:col-start-3 md:col-end-11 font-normal tracking-normal text-pretty"
           >
-            Cuarenta años fabricando embalaje a medida para empresas que no
-            pueden permitirse un error. No vendemos cajas: vendemos
-            tranquilidad operativa.
+            Cuarenta años fabricando, manipulando y entregando embalaje a
+            empresas industriales que no pueden parar. No vendemos cajas:
+            damos continuidad a tu operativa.
           </p>
         </div>
       </div>

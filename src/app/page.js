@@ -24,8 +24,8 @@ export default function Home() {
         <Statement />
         <Sectors />
         <About />
-        <Services />
         <Process />
+        <Services />
         <Material />
         <Works />
         <Faq />
