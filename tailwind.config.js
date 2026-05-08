@@ -1,5 +1,8 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  future: {
+    hoverOnlyWhenSupported: true,
+  },
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -29,7 +32,7 @@ module.exports = {
       },
       spacing: {
         // Escala 4/8 — Tailwind ya la trae, añadimos sólo los grandes
-        "section-y": "clamp(5rem, 10vw, 9rem)",
+        "section-y": "clamp(6rem, 10vw, 9rem)",
         "section-x": "clamp(1.25rem, 5vw, 4rem)",
       },
       maxWidth: {

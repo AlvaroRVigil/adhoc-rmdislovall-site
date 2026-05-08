@@ -21,10 +21,10 @@ function Track({ ariaHidden = false }) {
           key={`${s}-${i}`}
           className="flex items-center whitespace-nowrap"
         >
-          <span className="px-8 md:px-12 text-sm md:text-base font-medium uppercase tracking-[0.22em] text-ink">
+          <span className="px-7 md:px-12 text-[11px] md:text-base font-medium uppercase tracking-[0.18em] md:tracking-[0.22em] text-ink">
             {s}
           </span>
-          <span aria-hidden className="text-wood/70 font-light text-2xl md:text-3xl select-none">
+          <span aria-hidden className="text-wood/70 font-light text-lg md:text-3xl select-none">
             /
           </span>
         </li>

@@ -10,7 +10,7 @@ const items = [
 export default function ImpactStrip() {
   return (
     <section className="bg-paperSoft border-y border-border">
-      <Container className="py-10 md:py-14">
+      <Container className="py-14 md:py-14">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-8">
           <h2 className="font-display font-bold text-display-md max-w-md text-balance">
             Cuando lo necesitas, respondemos.

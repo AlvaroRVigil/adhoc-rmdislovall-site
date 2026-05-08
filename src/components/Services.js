@@ -80,18 +80,19 @@ const items = [
 function BoxIcon() {
   return (
     <svg
-      viewBox="0 0 16 14"
-      className="w-3.5 h-3 text-wood shrink-0 mt-1"
+      viewBox="0 0 24 24"
+      className="w-4 h-4 text-wood shrink-0 mt-0.5"
       fill="none"
       stroke="currentColor"
-      strokeWidth="1.4"
+      strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
       aria-hidden
     >
-      <rect x="1" y="1" width="14" height="12" />
-      <path d="M1 4.5 H15" />
-      <path d="M8 1 V4.5" />
+      <path d="M12 22v-9" />
+      <path d="M15.17 2.21a1.67 1.67 0 0 1 1.63 0L21 4.57a1.93 1.93 0 0 1 0 3.36L8.82 14.79a1.655 1.655 0 0 1-1.64 0L3 12.43a1.93 1.93 0 0 1 0-3.36z" />
+      <path d="M20 13v3.87a2.06 2.06 0 0 1-1.11 1.83l-6 3.08a1.93 1.93 0 0 1-1.78 0l-6-3.08A2.06 2.06 0 0 1 4 16.87V13" />
+      <path d="M21 12.43a1.93 1.93 0 0 0 0-3.36L8.83 2.2a1.64 1.64 0 0 0-1.63 0L3 4.57a1.93 1.93 0 0 0 0 3.36l12.18 6.86a1.636 1.636 0 0 0 1.63 0z" />
     </svg>
   );
 }
@@ -204,16 +205,16 @@ export default function Services() {
       className="relative bg-paper md:overflow-hidden"
     >
       <div className="md:h-screen md:flex md:flex-col">
-        <Container className="pt-16 md:pt-28 pb-2">
+        <Container className="pt-section-y md:pt-28 pb-2">
           <div className="grid grid-cols-12 gap-x-4 md:gap-x-8 gap-y-6 items-end">
-            <div className="col-span-12 md:col-span-7 space-y-3">
+            <div className="col-span-12 md:col-span-7 space-y-3 text-center md:text-left">
               <p className="text-[10px] uppercase tracking-[0.24em] text-inkSoft">· Servicios</p>
-              <h2 className="font-display font-medium text-3xl md:text-4xl text-balance leading-tight tracking-tighter">
+              <h2 className="font-display font-medium text-[2.125rem] md:text-4xl text-balance leading-[1.05] tracking-tighter">
                 Todo lo que necesita tu operativa,
                 <span className="italic text-wood"> en un solo proveedor.</span>
               </h2>
             </div>
-            <p className="col-span-12 md:col-span-4 md:col-start-9 text-sm text-inkSoft text-pretty">
+            <p className="col-span-12 md:col-span-4 md:col-start-9 text-sm text-inkSoft text-pretty text-center md:text-left max-w-sm mx-auto md:mx-0 md:max-w-none">
               Cinco servicios coordinados desde Sentmenat. Desliza para
               recorrerlos.
             </p>
@@ -236,7 +237,7 @@ export default function Services() {
                   <StockImg src={it.img} alt={it.alt} w={1400} />
                 </div>
 
-                <div className="p-6 md:p-10 flex flex-col gap-5 overflow-y-auto">
+                <div className="p-6 md:p-8 flex flex-col gap-4 overflow-hidden min-h-0">
                   <div className="flex items-center justify-between">
                     <span className="font-mono text-xs tracking-widest text-inkSoft">{it.n}</span>
                   </div>
@@ -245,7 +246,10 @@ export default function Services() {
                     {it.title}
                   </h3>
 
-                  <p className="text-sm md:text-base text-inkSoft text-pretty leading-[1.4]">
+                  <p
+                    style={{ lineHeight: 1.2 }}
+                    className="text-sm md:text-base text-inkSoft text-pretty"
+                  >
                     {it.body}
                   </p>
 
@@ -259,7 +263,10 @@ export default function Services() {
                   </ul>
 
                   {it.closer && (
-                    <p className="font-display italic text-base md:text-lg text-wood text-pretty leading-[1.25] mt-auto pt-4">
+                    <p
+                      style={{ lineHeight: 1.05 }}
+                      className="font-display italic text-base md:text-lg text-wood text-pretty mt-auto pt-4"
+                    >
                       {it.closer}
                     </p>
                   )}

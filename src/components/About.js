@@ -2,12 +2,12 @@ import Container from "./Container";
 import StockImg from "./StockImg";
 
 const facts = [
-  { k: "Año fundación", v: "1984" },
-  { k: "Sede", v: "Sentmenat (Barcelona)" },
-  { k: "Instalaciones", v: "2.000 m²" },
-  { k: "Equipo", v: "Familiar, propio" },
+  { k: "Experiencia", v: "Desde 1984" },
+  { k: "Instalaciones productivas", v: "2.000 m²" },
   { k: "Cobertura", v: "Cataluña y resto de España" },
-  { k: "Horario", v: "L–V · 7:00–15:00" },
+  { k: "Servicios integrados", v: "Diseño · Producción · Manipulado · Logística" },
+  { k: "Respuesta a urgencias", v: "24–48 h" },
+  { k: "Modelo", v: "Empresa familiar, interlocución directa" },
 ];
 
 export default function About() {
@@ -25,9 +25,9 @@ export default function About() {
             </div>
           </div>
 
-          <div className="col-span-12 md:col-span-7 lg:col-span-7 lg:col-start-6 space-y-6">
+          <div className="col-span-12 md:col-span-7 lg:col-span-7 lg:col-start-6 space-y-6 text-center md:text-left">
             <p className="text-[10px] uppercase tracking-[0.24em] text-inkSoft">· Quiénes somos</p>
-            <h2 className="font-display font-medium text-3xl md:text-4xl tracking-tighter leading-tight text-balance">
+            <h2 className="font-display font-medium text-[2.125rem] md:text-4xl tracking-tighter leading-[1.05] text-balance">
               Empresa familiar,
               <span className="block italic text-wood">mentalidad operativa.</span>
             </h2>
@@ -35,21 +35,26 @@ export default function About() {
               RM Dislovall trabaja con empresas industriales y logísticas que
               necesitan un proveedor fiable para su operativa de embalaje.
             </p>
-            <p className="text-base text-inkSoft text-pretty leading-[1.45] max-w-xl">
+            <p className="text-base text-inkSoft text-pretty leading-[1.45] max-w-xl mx-auto md:mx-0">
               El enfoque no está en ofrecer un catálogo genérico, sino en
               adaptarse a las necesidades reales de producción, manipulado y
               suministro de cada cliente.
             </p>
-            <p className="text-base text-inkSoft text-pretty leading-[1.45] max-w-xl">
+            <p className="text-base text-inkSoft text-pretty leading-[1.45] max-w-xl mx-auto md:mx-0">
               Trabajamos con sectores como alimentación, automoción, logística,
               e-commerce y farmacéutico — donde el embalaje forma parte directa
               de la operativa diaria.
             </p>
 
-            <dl className="grid grid-cols-2 md:grid-cols-3 gap-y-6 gap-x-6 border-t border-border pt-8 mt-4">
-              {facts.map((f) => (
-                <div key={f.k}>
-                  <dt className="text-[10px] uppercase tracking-[0.22em] text-inkSoft mb-1">
+            <dl className="grid grid-cols-2 md:grid-cols-3 mt-4 border border-border md:border-0 md:border-t md:gap-y-6 md:gap-x-6 md:pt-8 [&>*:nth-last-child(-n+2)]:border-b-0 md:[&>*]:border-0">
+              {facts.map((f, i) => (
+                <div
+                  key={f.k}
+                  className={`p-5 text-left border-b border-border md:p-0 md:border-0 ${
+                    i % 2 === 0 ? "border-r border-border md:border-r-0" : ""
+                  }`}
+                >
+                  <dt className="text-[10px] uppercase tracking-[0.22em] text-inkSoft mb-2 md:mb-1">
                     {f.k}
                   </dt>
                   <dd className="text-base text-ink">{f.v}</dd>

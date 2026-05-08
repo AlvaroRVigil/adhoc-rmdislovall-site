@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import Container from "./Container";
 
 const faqs = [
@@ -28,6 +31,8 @@ const faqs = [
 ];
 
 export default function Faq() {
+  const [openIndex, setOpenIndex] = useState(-1);
+
   return (
     <section
       id="faq"
@@ -36,23 +41,29 @@ export default function Faq() {
     >
       <Container>
         <div className="grid grid-cols-12 gap-x-4 md:gap-x-8 gap-y-8 items-start">
-          <div className="col-span-12 md:col-span-4 space-y-4 md:sticky md:top-28">
+          <div className="col-span-12 md:col-span-4 space-y-4 md:sticky md:top-28 text-center md:text-left">
             <p className="text-[10px] uppercase tracking-[0.24em] text-inkSoft">· Preguntas frecuentes</p>
-            <h2 id="faq-title" className="font-display font-medium text-3xl md:text-4xl tracking-tighter leading-tight text-balance">
+            <h2 id="faq-title" className="font-display font-medium text-[2.125rem] md:text-4xl tracking-tighter leading-[1.05] text-balance">
               Las dudas más comunes,
               <span className="block italic text-wood">resueltas.</span>
             </h2>
-            <p className="text-base text-inkSoft text-pretty max-w-sm">
+            <p className="text-base text-inkSoft text-pretty max-w-sm mx-auto md:mx-0">
               Si tu pregunta no está aquí, llámanos al 937 153 920 o
               escríbenos. Contestamos en horas, no en días.
             </p>
           </div>
 
           <ul className="col-span-12 md:col-span-7 md:col-start-6 lg:col-span-7 lg:col-start-6">
-            {faqs.map((f, i) => (
-              <li key={f.q} className="border-t border-border last:border-b">
-                <details className="group">
-                  <summary className="flex items-start justify-between gap-8 py-6 md:py-7 cursor-pointer list-none">
+            {faqs.map((f, i) => {
+              const isOpen = openIndex === i;
+              return (
+                <li key={f.q} className="border-t border-border last:border-b">
+                  <button
+                    type="button"
+                    onClick={() => setOpenIndex(isOpen ? -1 : i)}
+                    aria-expanded={isOpen}
+                    className="w-full flex items-start justify-between gap-8 py-6 md:py-7 text-left"
+                  >
                     <div className="flex items-start gap-6">
                       <span className="font-mono text-xs text-inkSoft tracking-widest shrink-0 mt-1">
                         0{i + 1}
@@ -63,17 +74,35 @@ export default function Faq() {
                     </div>
                     <span
                       aria-hidden
-                      className="shrink-0 text-2xl text-inkSoft transition-transform duration-300 ease-out group-open:rotate-45"
+                      className={`shrink-0 text-2xl text-inkSoft transition-transform duration-500 ease-out ${
+                        isOpen ? "rotate-45" : ""
+                      }`}
                     >
                       +
                     </span>
-                  </summary>
-                  <p className="pb-7 pl-12 pr-12 md:pr-16 text-base text-inkSoft text-pretty">
-                    {f.a}
-                  </p>
-                </details>
-              </li>
-            ))}
+                  </button>
+
+                  <div
+                    className="grid"
+                    style={{
+                      gridTemplateRows: isOpen ? "1fr" : "0fr",
+                      transition:
+                        "grid-template-rows 500ms cubic-bezier(0.16, 1, 0.3, 1)",
+                    }}
+                  >
+                    <div className="overflow-hidden">
+                      <p
+                        className={`pb-7 pl-12 pr-12 md:pr-16 text-base text-inkSoft text-pretty transition-opacity duration-500 ${
+                          isOpen ? "opacity-100" : "opacity-0"
+                        }`}
+                      >
+                        {f.a}
+                      </p>
+                    </div>
+                  </div>
+                </li>
+              );
+            })}
           </ul>
         </div>
       </Container>

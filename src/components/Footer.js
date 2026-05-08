@@ -2,9 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Container from "./Container";
-
-const fieldClass =
-  "w-full bg-transparent border-b border-woodSoft/25 focus:border-woodSoft outline-none py-3 text-sm text-woodSoft placeholder:text-woodSoft/40 transition-colors";
+import ContactModal from "./ContactModal";
 
 const easeOut = "cubic-bezier(0.16, 1, 0.3, 1)";
 
@@ -19,6 +17,7 @@ function revealStyle(revealed, delayMs) {
 
 export default function Footer() {
   const [revealed, setRevealed] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -50,111 +49,90 @@ export default function Footer() {
       id="contacto"
       className="fixed inset-x-0 bottom-0 bg-ink text-woodSoft z-0 flex flex-col overflow-hidden max-h-[100svh]"
     >
-      <Container className="pt-10 md:pt-16 flex flex-col">
+      <Container className="pt-section-y md:pt-16 flex flex-col">
         <div className="grid grid-cols-12 gap-x-4 md:gap-x-12 gap-y-12">
-          <aside className="col-span-12 md:col-span-5 space-y-8" style={revealStyle(revealed, 0)}>
+          <aside className="col-span-12 md:col-span-5 space-y-8 text-center md:text-left" style={revealStyle(revealed, 0)}>
             <p className="text-[10px] uppercase tracking-[0.24em] text-woodSoft/55">
-              · Empezamos a trabajar
+              · ¿Empezamos a trabajar?
             </p>
-            <h2 className="font-display font-medium text-3xl md:text-4xl tracking-tighter leading-tight text-balance">
+            <h2 className="font-display font-medium text-[2.125rem] md:text-4xl tracking-tighter leading-[1.05] text-balance">
               Cuéntanos qué necesitas
               <span className="block italic text-woodSoft">y nos ponemos a ello.</span>
             </h2>
 
-            <dl className="grid grid-cols-2 gap-x-6 gap-y-8 border-t border-woodSoft/15 pt-6">
-              <div>
-                <dt className="text-[10px] uppercase tracking-[0.22em] text-woodSoft/55 mb-1">Llámanos</dt>
-                <dd>
-                  <a
-                    href="tel:+34937153920"
-                    className="font-display font-medium text-2xl tracking-tighter hover:text-woodSoft/80 transition-colors"
-                  >
-                    937 153 920
-                  </a>
-                </dd>
-              </div>
-              <div>
-                <dt className="text-[10px] uppercase tracking-[0.22em] text-woodSoft/55 mb-1">Escríbenos</dt>
-                <dd>
-                  <a
-                    href="mailto:info@rmdislovall.com"
-                    className="text-base hover:text-woodSoft/80 transition-colors break-all"
-                  >
-                    info@rmdislovall.com
-                  </a>
-                </dd>
-              </div>
-              <div>
-                <dt className="text-[10px] uppercase tracking-[0.22em] text-woodSoft/55 mb-1">Dónde estamos</dt>
-                <dd className="text-base">
-                  Sentmenat
-                  <span className="block text-woodSoft/65">Barcelona</span>
-                  <a
-                    href="https://www.openstreetmap.org/?mlat=41.6125&mlon=2.1320#map=15/41.6125/2.1320"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-block mt-1 text-xs underline underline-offset-4 decoration-1 hover:text-woodSoft/80 hover:decoration-woodSoft/80 transition"
-                  >
-                    Cómo llegar →
-                  </a>
-                </dd>
-              </div>
-              <div>
-                <dt className="text-[10px] uppercase tracking-[0.22em] text-woodSoft/55 mb-1">Horario</dt>
-                <dd className="text-base">
-                  Lunes a viernes
-                  <span className="block text-woodSoft/65">7:00 — 15:00</span>
-                </dd>
-              </div>
-            </dl>
+            <button
+              type="button"
+              onClick={() => setModalOpen(true)}
+              className="inline-flex items-center justify-center bg-woodSoft text-ink px-7 h-12 text-sm tracking-wide hover:bg-paper transition-colors"
+            >
+              Solicitar presupuesto
+            </button>
           </aside>
 
-          <form
-            className="col-span-12 md:col-span-7 md:pl-8 md:border-l md:border-woodSoft/15 space-y-6"
+          <dl
+            className="col-span-12 md:col-span-7 md:pl-8 md:border-l md:border-woodSoft/15 grid grid-cols-2 text-center md:text-left border border-woodSoft/15 md:border-0 md:gap-x-6 md:gap-y-8 [&>*:nth-last-child(-n+2)]:border-b-0 md:[&>*]:border-0"
             style={revealStyle(revealed, 120)}
           >
-            <p className="text-[10px] uppercase tracking-[0.24em] text-woodSoft/55">· Solicita presupuesto</p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-1">
-              <label className="block">
-                <span className="sr-only">Nombre</span>
-                <input className={fieldClass} type="text" name="nombre" placeholder="Nombre" required />
-              </label>
-              <label className="block">
-                <span className="sr-only">Empresa</span>
-                <input className={fieldClass} type="text" name="empresa" placeholder="Empresa" />
-              </label>
-              <label className="block">
-                <span className="sr-only">Teléfono</span>
-                <input className={fieldClass} type="tel" name="telefono" placeholder="Teléfono" required />
-              </label>
-              <label className="block">
-                <span className="sr-only">Email</span>
-                <input className={fieldClass} type="email" name="email" placeholder="Email (opcional)" />
-              </label>
+            <div className="p-5 md:p-0 border-b border-r border-woodSoft/15 md:border-0">
+              <dt className="text-[10px] uppercase tracking-[0.22em] text-woodSoft/55 mb-1">Llámanos</dt>
+              <dd>
+                <a
+                  href="tel:+34937153920"
+                  className="font-display font-medium text-2xl tracking-tighter hover:text-woodSoft/80 transition-colors"
+                >
+                  937 153 920
+                </a>
+              </dd>
             </div>
-            <label className="block">
-              <span className="sr-only">Mensaje</span>
-              <textarea
-                className="w-full bg-transparent border border-woodSoft/25 focus:border-woodSoft outline-none p-4 text-sm text-woodSoft placeholder:text-woodSoft/40 transition-colors resize-none mt-3"
-                rows={4}
-                name="mensaje"
-                placeholder="Cuéntanos qué necesitas — producto, volumen, plazo"
-                required
-              />
-            </label>
-            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pt-2">
-              <p className="text-[11px] text-woodSoft/55 max-w-xs leading-[1.5]">
-                Al enviar aceptas nuestra política de privacidad. Te respondemos
-                en menos de 24 horas laborables.
-              </p>
-              <button
-                type="submit"
-                className="inline-flex items-center justify-center bg-woodSoft text-ink px-7 py-3.5 text-sm tracking-wide hover:bg-woodSoft transition-colors shrink-0"
-              >
-                Enviar solicitud
-              </button>
+            <div className="p-5 md:p-0 border-b border-woodSoft/15 md:border-0">
+              <dt className="text-[10px] uppercase tracking-[0.22em] text-woodSoft/55 mb-1">Escríbenos</dt>
+              <dd>
+                <a
+                  href="mailto:info@rmdislovall.com"
+                  className="text-base hover:text-woodSoft/80 transition-colors break-all"
+                >
+                  info@rmdislovall.com
+                </a>
+              </dd>
             </div>
-          </form>
+            <div className="p-5 md:p-0 border-b border-r border-woodSoft/15 md:border-0">
+              <dt className="text-[10px] uppercase tracking-[0.22em] text-woodSoft/55 mb-1">Dónde estamos</dt>
+              <dd className="text-base">
+                <a
+                  href="https://www.openstreetmap.org/?mlat=41.6125&mlon=2.1320#map=15/41.6125/2.1320"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="Cómo llegar a Sentmenat (Barcelona)"
+                  className="inline-flex items-center gap-1.5 hover:text-woodSoft/80 transition"
+                >
+                  Sentmenat
+                  <svg
+                    viewBox="0 0 24 24"
+                    width="13"
+                    height="13"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.8"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    aria-hidden
+                    className="-mt-0.5"
+                  >
+                    <path d="M7 17 L17 7" />
+                    <path d="M8 7 H17 V16" />
+                  </svg>
+                </a>
+                <span className="block text-woodSoft/65">Barcelona</span>
+              </dd>
+            </div>
+            <div className="p-5 md:p-0 border-b border-woodSoft/15 md:border-0">
+              <dt className="text-[10px] uppercase tracking-[0.22em] text-woodSoft/55 mb-1">Horario</dt>
+              <dd className="text-base">
+                Lunes a viernes
+                <span className="block text-woodSoft/65">7:00 — 15:00</span>
+              </dd>
+            </div>
+          </dl>
         </div>
       </Container>
 
@@ -174,16 +152,18 @@ export default function Footer() {
         className="pb-6 flex flex-col md:flex-row md:justify-between gap-2 text-xs text-woodSoft/55 border-t border-woodSoft/15 pt-4"
         style={revealStyle(revealed, 320)}
       >
-        <div className="flex flex-wrap gap-x-4 gap-y-1">
+        <div className="flex flex-wrap gap-x-4 gap-y-1 justify-center md:justify-start">
           <span>© {new Date().getFullYear()} RM Dislovall S.L.</span>
           <span className="text-woodSoft/40">Sentmenat, Barcelona — desde 1984</span>
         </div>
-        <div className="flex flex-wrap gap-x-4 gap-y-1">
+        <div className="flex flex-wrap gap-x-4 gap-y-1 justify-center md:justify-start">
           <a href="/aviso-legal" className="hover:text-woodSoft transition-colors">Aviso legal</a>
           <a href="/privacidad" className="hover:text-woodSoft transition-colors">Privacidad</a>
           <a href="/cookies" className="hover:text-woodSoft transition-colors">Cookies</a>
         </div>
       </Container>
+
+      <ContactModal open={modalOpen} onClose={() => setModalOpen(false)} />
     </footer>
   );
 }

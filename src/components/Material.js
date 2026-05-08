@@ -25,18 +25,18 @@ export default function Material() {
   const [openIndex, setOpenIndex] = useState(-1);
 
   return (
-    <section className="grid grid-cols-1 md:grid-cols-2 min-h-[100svh] items-stretch md:overflow-hidden">
-      <div className="bg-paperSoft text-ink flex items-center px-section-x py-12 md:py-16 order-2 overflow-y-auto">
-        <div className="w-full max-w-xl mx-auto md:mx-0 md:mr-auto md:ml-12 lg:ml-20 space-y-8">
-          <div className="space-y-4">
+    <section className="grid grid-cols-1 md:grid-cols-2 md:h-[100svh] md:max-h-[100svh] items-stretch md:overflow-hidden">
+      <div className="bg-paperSoft text-ink flex items-center px-section-x py-section-y md:py-16 order-2 overflow-y-auto">
+        <div className="w-full max-w-xl mx-auto space-y-8">
+          <div className="space-y-4 text-center md:text-left">
             <p className="text-[10px] uppercase tracking-[0.24em] text-inkSoft">
               · Forma de trabajar
             </p>
-            <h2 className="font-display font-medium text-3xl md:text-4xl tracking-tighter leading-tight text-balance">
+            <h2 className="font-display font-medium text-[2.125rem] md:text-4xl tracking-tighter leading-[1.05] text-balance">
               Adaptación, respuesta
               <span className="block italic text-wood">y relación continua.</span>
             </h2>
-            <p className="text-base text-inkSoft text-pretty max-w-md pt-2 leading-[1.45]">
+            <p className="text-base text-inkSoft text-pretty max-w-md pt-2 leading-[1.45] mx-auto md:mx-0">
               Cada empresa trabaja con necesidades distintas de producción,
               almacenaje y expedición. El servicio se plantea desde la
               continuidad, la capacidad de adaptación y una respuesta alineada
@@ -44,19 +44,17 @@ export default function Material() {
             </p>
           </div>
 
-          <ul onMouseLeave={() => setOpenIndex(-1)}>
+          <ul>
             {items.map((it, i) => {
               const isOpen = openIndex === i;
               return (
                 <li
                   key={it.title}
-                  onMouseEnter={() => setOpenIndex(i)}
-                  onFocus={() => setOpenIndex(i)}
                   className="border-t border-border last:border-b"
                 >
                   <button
                     type="button"
-                    onClick={() => setOpenIndex(i)}
+                    onClick={() => setOpenIndex(isOpen ? -1 : i)}
                     aria-expanded={isOpen}
                     className="w-full flex items-baseline justify-between gap-8 py-7 md:py-8 text-left"
                   >
@@ -98,10 +96,10 @@ export default function Material() {
         </div>
       </div>
 
-      <div className="relative bg-wood h-[40vh] md:h-full min-h-[280px] overflow-hidden order-1 md:order-1">
+      <div className="relative bg-wood h-[60vh] md:h-full min-h-[420px] md:min-h-[280px] overflow-hidden order-1 md:order-1">
         <StockImg
-          src="https://images.unsplash.com/photo-1770354992725-41c4acac94eb"
-          alt="Detalle de la fibra de cartón ondulado"
+          src="https://images.unsplash.com/photo-1553413077-190dd305871c"
+          alt="Almacén logístico con estanterías de cajas de cartón"
           w={1800}
           q={85}
         />
