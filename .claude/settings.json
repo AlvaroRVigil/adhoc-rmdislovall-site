@@ -16,7 +16,19 @@
       "Bash(mv '/Users/alvarorodriguezvigil/Documents/Freelance/Proyectos/RM Dislovall/site-tmp/alvarovigil-rm-dislovall/*' '/Users/alvarorodriguezvigil/Documents/Freelance/Proyectos/RM Dislovall/Site/')",
       "Bash(shopt -u dotglob)",
       "Bash(rmdir '/Users/alvarorodriguezvigil/Documents/Freelance/Proyectos/RM Dislovall/site-tmp/alvarovigil-rm-dislovall')",
-      "Bash(git -c user.name=\"Alvaro Rodriguez Vigil\" -c user.email=\"alvaro.rodriguez.vigil@gmail.com\" commit -m \"chore: bootstrap Next.js 14 + Tailwind\")"
+      "Bash(git -c user.name=\"Alvaro Rodriguez Vigil\" -c user.email=\"alvaro.rodriguez.vigil@gmail.com\" commit -m \"chore: bootstrap Next.js 14 + Tailwind\")",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:3010/)",
+      "WebFetch(domain:menuiserie-perret.bihua.fr)",
+      "Bash(curl -s -L \"https://menuiserie-perret.bihua.fr/\" -o /tmp/perret.html -w \"%{http_code} %{size_download}\\\\n\")",
+      "WebFetch(domain:unsplash.com)",
+      "Bash(curl -s -L https://unsplash.com/photos/__TRACKED_VAR__)",
+      "Bash(curl -s http://localhost:3010/ -o /dev/null -w \"%{http_code}\\\\n\")",
+      "Bash(ffprobe -v error -show_entries format=duration,size -show_entries stream=width,height,r_frame_rate -of default=nw=1 '/Users/alvarorodriguezvigil/Desktop/Grabación de pantalla 2026-05-08 a las 8.41.31.mov')",
+      "Bash(rm -f /tmp/footer_frames/*.png)",
+      "Bash(ffmpeg -hide_banner -loglevel error -i '/Users/alvarorodriguezvigil/Desktop/Grabación de pantalla 2026-05-08 a las 8.41.31.mov' -vf fps=4 /tmp/footer_frames/frame_%03d.png)",
+      "Bash(python3 -)",
+      "Bash(python3 /tmp/update_brief.py)",
+      "Bash(lsof -i :3010 -sTCP:LISTEN)"
     ],
     "additionalDirectories": [
       "/Users/alvarorodriguezvigil/Documents/Freelance/Proyectos/RM Dislovall/Site/src"
