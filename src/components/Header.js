@@ -60,7 +60,7 @@ export default function Header() {
           <span className="font-display text-base tracking-tight uppercase">
             RM Dislovall
           </span>
-          <span className="hidden md:inline text-[10px] uppercase tracking-[0.24em] text-inkSoft">
+          <span className="eyebrow hidden md:inline">
             desde 1984
           </span>
         </a>

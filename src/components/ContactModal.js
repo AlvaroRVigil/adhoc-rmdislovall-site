@@ -2,9 +2,6 @@
 
 import { useEffect } from "react";
 
-const fieldClass =
-  "w-full bg-transparent border-b border-woodSoft/25 focus:border-woodSoft outline-none py-3 text-base text-woodSoft placeholder:text-woodSoft/40 transition-colors";
-
 export default function ContactModal({ open, onClose }) {
   useEffect(() => {
     if (typeof document === "undefined") return;
@@ -65,13 +62,8 @@ export default function ContactModal({ open, onClose }) {
           <div className="min-h-full flex items-center justify-center px-section-x py-16 md:py-20">
             <div className="w-full max-w-xl mx-auto">
               <div className="text-center mb-8 md:mb-10">
-                <p className="text-[10px] uppercase tracking-[0.24em] text-woodSoft/55 mb-3">
-                  · Solicita presupuesto
-                </p>
-                <h2
-                  id="contact-modal-title"
-                  className="font-display font-medium text-[2.125rem] md:text-4xl tracking-tighter leading-[1.05] text-balance"
-                >
+                <p className="eyebrow-dark mb-3">· Solicita presupuesto</p>
+                <h2 id="contact-modal-title" className="heading-section">
                   Cuéntanos qué necesitas
                   <span className="block italic text-woodSoft/80">y nos ponemos a ello.</span>
                 </h2>
@@ -81,25 +73,25 @@ export default function ContactModal({ open, onClose }) {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1">
                   <label className="block">
                     <span className="sr-only">Nombre</span>
-                    <input className={fieldClass} type="text" name="nombre" placeholder="Nombre" required />
+                    <input className="field-dark" type="text" name="nombre" placeholder="Nombre" required />
                   </label>
                   <label className="block">
                     <span className="sr-only">Empresa</span>
-                    <input className={fieldClass} type="text" name="empresa" placeholder="Empresa" />
+                    <input className="field-dark" type="text" name="empresa" placeholder="Empresa" />
                   </label>
                   <label className="block">
                     <span className="sr-only">Teléfono</span>
-                    <input className={fieldClass} type="tel" name="telefono" placeholder="Teléfono" required />
+                    <input className="field-dark" type="tel" name="telefono" placeholder="Teléfono" required />
                   </label>
                   <label className="block">
                     <span className="sr-only">Email</span>
-                    <input className={fieldClass} type="email" name="email" placeholder="Email (opcional)" />
+                    <input className="field-dark" type="email" name="email" placeholder="Email (opcional)" />
                   </label>
                 </div>
                 <label className="block">
                   <span className="sr-only">Mensaje</span>
                   <textarea
-                    className="w-full bg-transparent border border-woodSoft/25 focus:border-woodSoft outline-none p-4 text-base text-woodSoft placeholder:text-woodSoft/40 transition-colors resize-none"
+                    className="textarea-dark"
                     rows={4}
                     name="mensaje"
                     placeholder="Cuéntanos qué necesitas — producto, volumen, plazo"
@@ -112,7 +104,7 @@ export default function ContactModal({ open, onClose }) {
                 </p>
                 <button
                   type="submit"
-                  className="w-full inline-flex items-center justify-center bg-woodSoft text-ink px-7 h-14 text-base font-medium tracking-wide hover:bg-paper transition-colors"
+                  className="btn-light w-full h-14 text-base font-medium"
                 >
                   Enviar solicitud
                 </button>

@@ -29,10 +29,10 @@ export default function Material() {
       <div className="bg-paperSoft text-ink flex items-center px-section-x py-section-y md:py-16 order-2 overflow-y-auto">
         <div className="w-full max-w-xl mx-auto space-y-8">
           <div className="space-y-4 text-center md:text-left">
-            <p className="text-[10px] uppercase tracking-[0.24em] text-inkSoft">
+            <p className="eyebrow">
               · Forma de trabajar
             </p>
-            <h2 className="font-display font-medium text-[2.125rem] md:text-4xl tracking-tighter leading-[1.05] text-balance">
+            <h2 className="heading-section">
               Adaptación, respuesta
               <span className="block italic text-wood">y relación continua.</span>
             </h2>

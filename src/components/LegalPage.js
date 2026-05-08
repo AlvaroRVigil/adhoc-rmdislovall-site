@@ -8,7 +8,7 @@ export default function LegalPage({ eyebrow, title, lastUpdated, children }) {
       <Header />
       <main className="relative z-10 bg-paper mb-[100svh] md:mb-[820px] pt-16 md:pt-24 pb-section-y">
         <Container className="max-w-3xl">
-          <p className="text-[10px] uppercase tracking-[0.24em] text-inkSoft mb-4">
+          <p className="eyebrow mb-4">
             · {eyebrow}
           </p>
           <h1 className="font-display font-medium text-[2.125rem] md:text-4xl tracking-tighter leading-[1.05] text-balance mb-6">

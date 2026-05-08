@@ -83,7 +83,7 @@ export default function Hero() {
       <Container className="pt-10 md:pt-12 pb-6 flex-1 flex flex-col">
         <div className="grid grid-cols-12 gap-x-4 md:gap-x-8 gap-y-8 md:gap-y-12 items-start flex-1">
           <div className="col-span-12 md:col-span-7 lg:col-span-6 space-y-5 md:space-y-7 text-center md:text-left">
-            <p className="text-[10px] uppercase tracking-[0.24em] text-inkSoft">
+            <p className="eyebrow">
               · Fabricación, transporte y stock propios
             </p>
             <h1 className="font-display font-medium text-[clamp(2.25rem,7vw,3rem)] tracking-tighter leading-[1.05] text-balance">
@@ -91,15 +91,16 @@ export default function Hero() {
               <span className="block italic text-wood">para empresas y entornos logísticos.</span>
             </h1>
             <p className="text-base text-inkSoft text-pretty max-w-md leading-[1.5] mx-auto md:mx-0">
-              Trabajamos con empresas que necesitan soluciones de embalaje
-              fiables, adaptadas a su operativa y capaces de responder al
-              ritmo real de producción y logística.
+              Trabajamos con empresas industriales y logísticas que necesitan
+              soluciones de embalaje fiables, adaptadas a su operativa y
+              preparadas para responder al ritmo real de producción,
+              almacenaje y expedición.
             </p>
             <div className="pt-2 flex flex-wrap items-center justify-center md:justify-start gap-x-5 gap-y-3">
               <PillButton href="#contacto">Pide presupuesto</PillButton>
               <a
                 href="#servicios"
-                className="inline-flex items-center gap-2 h-11 px-5 text-sm tracking-wide border border-ink text-ink hover:bg-ink hover:text-paper transition-colors"
+                className="btn-outline gap-2"
               >
                 Ver servicios →
               </a>

@@ -41,6 +41,42 @@ body {
   .text-pretty { text-wrap: pretty; }
 }
 
+@layer components {
+  .eyebrow {
+    @apply text-eyebrow uppercase text-inkSoft;
+  }
+  .eyebrow-dark {
+    @apply text-eyebrow uppercase text-woodSoft/55;
+  }
+
+  .heading-section {
+    @apply font-display font-medium text-h2-section md:text-4xl tracking-tighter leading-[1.05] text-balance;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center text-sm tracking-wide transition-colors;
+  }
+  .btn-primary {
+    @apply btn h-12 px-7 bg-ink text-paper hover:bg-wood;
+  }
+  .btn-light {
+    @apply btn h-12 px-7 bg-woodSoft text-ink hover:bg-paper;
+  }
+  .btn-outline {
+    @apply btn h-11 px-5 border border-ink text-ink hover:bg-ink hover:text-paper;
+  }
+
+  .field-light {
+    @apply w-full bg-transparent border-b border-ink/20 focus:border-ink outline-none py-3 text-base text-ink placeholder:text-inkSoft/60 transition-colors;
+  }
+  .field-dark {
+    @apply w-full bg-transparent border-b border-woodSoft/25 focus:border-woodSoft outline-none py-3 text-base text-woodSoft placeholder:text-woodSoft/40 transition-colors;
+  }
+  .textarea-dark {
+    @apply w-full bg-transparent border border-woodSoft/25 focus:border-woodSoft outline-none p-4 text-base text-woodSoft placeholder:text-woodSoft/40 transition-colors resize-none;
+  }
+}
+
 @keyframes marquee {
   from { transform: translateX(0); }
   to   { transform: translateX(-50%); }

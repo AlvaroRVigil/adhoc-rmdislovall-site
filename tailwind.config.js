@@ -29,6 +29,16 @@ module.exports = {
         "display-xl": ["clamp(3.25rem, 8vw, 7rem)", { lineHeight: "1", letterSpacing: "-0.02em" }],
         "display-lg": ["clamp(2.5rem, 5.5vw, 4.5rem)", { lineHeight: "1.02", letterSpacing: "-0.015em" }],
         "display-md": ["clamp(1.875rem, 3.5vw, 2.75rem)", { lineHeight: "1.08", letterSpacing: "-0.01em" }],
+        eyebrow: ["10px", { lineHeight: "1.4", letterSpacing: "0.24em" }],
+        "h1-hero": ["clamp(2.25rem, 7vw, 3rem)", { lineHeight: "1.05", letterSpacing: "-0.02em" }],
+        "h2-section": ["2.125rem", { lineHeight: "1.05", letterSpacing: "-0.02em" }],
+        "h2-section-md": ["2.25rem", { lineHeight: "1.05", letterSpacing: "-0.02em" }],
+      },
+      letterSpacing: {
+        eyebrow: "0.24em",
+        marquee: "0.22em",
+        "marquee-sm": "0.18em",
+        label: "0.22em",
       },
       spacing: {
         // Escala 4/8 — Tailwind ya la trae, añadimos sólo los grandes

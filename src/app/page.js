@@ -6,6 +6,7 @@ import About from "@/components/About";
 import Services from "@/components/Services";
 import Process from "@/components/Process";
 import Material from "@/components/Material";
+import Continuity from "@/components/Continuity";
 import Works from "@/components/Works";
 import Faq from "@/components/Faq";
 import Footer from "@/components/Footer";
@@ -26,6 +27,7 @@ export default function Home() {
         <About />
         <Process />
         <Services />
+        <Continuity />
         <Material />
         <Works />
         <Faq />

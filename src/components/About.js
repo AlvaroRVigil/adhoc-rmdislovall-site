@@ -26,8 +26,8 @@ export default function About() {
           </div>
 
           <div className="col-span-12 md:col-span-7 lg:col-span-7 lg:col-start-6 space-y-6 text-center md:text-left">
-            <p className="text-[10px] uppercase tracking-[0.24em] text-inkSoft">· Quiénes somos</p>
-            <h2 className="font-display font-medium text-[2.125rem] md:text-4xl tracking-tighter leading-[1.05] text-balance">
+            <p className="eyebrow">· Quiénes somos</p>
+            <h2 className="heading-section">
               Empresa familiar,
               <span className="block italic text-wood">mentalidad operativa.</span>
             </h2>

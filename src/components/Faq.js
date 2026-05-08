@@ -42,8 +42,8 @@ export default function Faq() {
       <Container>
         <div className="grid grid-cols-12 gap-x-4 md:gap-x-8 gap-y-8 items-start">
           <div className="col-span-12 md:col-span-4 space-y-4 md:sticky md:top-28 text-center md:text-left">
-            <p className="text-[10px] uppercase tracking-[0.24em] text-inkSoft">· Preguntas frecuentes</p>
-            <h2 id="faq-title" className="font-display font-medium text-[2.125rem] md:text-4xl tracking-tighter leading-[1.05] text-balance">
+            <p className="eyebrow">· Preguntas frecuentes</p>
+            <h2 id="faq-title" className="heading-section">
               Las dudas más comunes,
               <span className="block italic text-wood">resueltas.</span>
             </h2>

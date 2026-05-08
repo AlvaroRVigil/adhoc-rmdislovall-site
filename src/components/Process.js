@@ -37,10 +37,10 @@ export default function Process() {
       <Container>
         <div className="grid grid-cols-12 gap-x-4 md:gap-x-8 gap-y-6 md:gap-y-8 items-end mb-16 md:mb-20">
           <div className="col-span-12 md:col-span-7 space-y-4 text-center md:text-left">
-            <p className="text-[10px] uppercase tracking-[0.24em] text-inkSoft">
+            <p className="eyebrow">
               · Cómo trabajamos
             </p>
-            <h2 className="font-display font-medium text-[2.125rem] md:text-4xl tracking-tighter leading-[1.05] text-balance">
+            <h2 className="heading-section">
               Una sola interlocución,
               <span className="italic text-wood"> del pedido a la entrega.</span>
             </h2>

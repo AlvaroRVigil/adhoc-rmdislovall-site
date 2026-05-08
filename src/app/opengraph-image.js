@@ -46,6 +46,8 @@ export default async function Image() {
         <div style={{ display: "flex", flexDirection: "column", gap: 28 }}>
           <div
             style={{
+              display: "flex",
+              flexDirection: "column",
               fontSize: 92,
               fontWeight: 600,
               lineHeight: 0.96,
@@ -53,8 +55,8 @@ export default async function Image() {
               color: "#ECEBE3",
             }}
           >
-            Embalaje industrial
-            <br />y manipulado.
+            <span>Embalaje industrial</span>
+            <span>y manipulado.</span>
           </div>
           <div
             style={{

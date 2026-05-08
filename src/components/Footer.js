@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Container from "./Container";
 import ContactModal from "./ContactModal";
+import { siteConfig } from "@/lib/siteConfig";
 
 const easeOut = "cubic-bezier(0.16, 1, 0.3, 1)";
 
@@ -14,6 +15,8 @@ function revealStyle(revealed, delayMs) {
     willChange: "opacity, transform",
   };
 }
+
+const cellLabel = "text-eyebrow uppercase text-woodSoft/55 mb-1 tracking-label";
 
 export default function Footer() {
   const [revealed, setRevealed] = useState(false);
@@ -52,10 +55,8 @@ export default function Footer() {
       <Container className="pt-section-y md:pt-16 flex flex-col">
         <div className="grid grid-cols-12 gap-x-4 md:gap-x-12 gap-y-12">
           <aside className="col-span-12 md:col-span-5 space-y-8 text-center md:text-left" style={revealStyle(revealed, 0)}>
-            <p className="text-[10px] uppercase tracking-[0.24em] text-woodSoft/55">
-              · ¿Empezamos a trabajar?
-            </p>
-            <h2 className="font-display font-medium text-[2.125rem] md:text-4xl tracking-tighter leading-[1.05] text-balance">
+            <p className="eyebrow-dark">· ¿Empezamos a trabajar?</p>
+            <h2 className="heading-section">
               Cuéntanos qué necesitas
               <span className="block italic text-woodSoft">y nos ponemos a ello.</span>
             </h2>
@@ -63,7 +64,7 @@ export default function Footer() {
             <button
               type="button"
               onClick={() => setModalOpen(true)}
-              className="inline-flex items-center justify-center bg-woodSoft text-ink px-7 h-12 text-sm tracking-wide hover:bg-paper transition-colors"
+              className="btn-light"
             >
               Solicitar presupuesto
             </button>
@@ -74,38 +75,38 @@ export default function Footer() {
             style={revealStyle(revealed, 120)}
           >
             <div className="p-5 md:p-0 border-b border-r border-woodSoft/15 md:border-0">
-              <dt className="text-[10px] uppercase tracking-[0.22em] text-woodSoft/55 mb-1">Llámanos</dt>
+              <dt className={cellLabel}>Llámanos</dt>
               <dd>
                 <a
-                  href="tel:+34937153920"
+                  href={siteConfig.phone.href}
                   className="font-display font-medium text-2xl tracking-tighter hover:text-woodSoft/80 transition-colors"
                 >
-                  937 153 920
+                  {siteConfig.phone.label}
                 </a>
               </dd>
             </div>
             <div className="p-5 md:p-0 border-b border-woodSoft/15 md:border-0">
-              <dt className="text-[10px] uppercase tracking-[0.22em] text-woodSoft/55 mb-1">Escríbenos</dt>
+              <dt className={cellLabel}>Escríbenos</dt>
               <dd>
                 <a
-                  href="mailto:info@rmdislovall.com"
+                  href={siteConfig.email.href}
                   className="text-base hover:text-woodSoft/80 transition-colors break-all"
                 >
-                  info@rmdislovall.com
+                  {siteConfig.email.label}
                 </a>
               </dd>
             </div>
             <div className="p-5 md:p-0 border-b border-r border-woodSoft/15 md:border-0">
-              <dt className="text-[10px] uppercase tracking-[0.22em] text-woodSoft/55 mb-1">Dónde estamos</dt>
+              <dt className={cellLabel}>Dónde estamos</dt>
               <dd className="text-base">
                 <a
-                  href="https://www.openstreetmap.org/?mlat=41.6125&mlon=2.1320#map=15/41.6125/2.1320"
+                  href={siteConfig.location.mapUrl}
                   target="_blank"
                   rel="noreferrer"
-                  aria-label="Cómo llegar a Sentmenat (Barcelona)"
+                  aria-label={`Cómo llegar a ${siteConfig.city} (${siteConfig.region})`}
                   className="inline-flex items-center gap-1.5 hover:text-woodSoft/80 transition"
                 >
-                  Sentmenat
+                  {siteConfig.city}
                   <svg
                     viewBox="0 0 24 24"
                     width="13"
@@ -122,14 +123,14 @@ export default function Footer() {
                     <path d="M8 7 H17 V16" />
                   </svg>
                 </a>
-                <span className="block text-woodSoft/65">Barcelona</span>
+                <span className="block text-woodSoft/65">{siteConfig.region}</span>
               </dd>
             </div>
             <div className="p-5 md:p-0 border-b border-woodSoft/15 md:border-0">
-              <dt className="text-[10px] uppercase tracking-[0.22em] text-woodSoft/55 mb-1">Horario</dt>
+              <dt className={cellLabel}>Horario</dt>
               <dd className="text-base">
-                Lunes a viernes
-                <span className="block text-woodSoft/65">7:00 — 15:00</span>
+                {siteConfig.hours.days}
+                <span className="block text-woodSoft/65">{siteConfig.hours.range}</span>
               </dd>
             </div>
           </dl>
@@ -137,7 +138,7 @@ export default function Footer() {
       </Container>
 
       <div
-        className="w-full px-2 md:px-4 text-center overflow-hidden mt-10 md:mt-14"
+        className="hidden md:block w-full px-2 md:px-4 text-center overflow-hidden mt-10 md:mt-14"
         style={revealStyle(revealed, 240)}
       >
         <p
@@ -153,8 +154,10 @@ export default function Footer() {
         style={revealStyle(revealed, 320)}
       >
         <div className="flex flex-wrap gap-x-4 gap-y-1 justify-center md:justify-start">
-          <span>© {new Date().getFullYear()} RM Dislovall S.L.</span>
-          <span className="text-woodSoft/40">Sentmenat, Barcelona — desde 1984</span>
+          <span>© {new Date().getFullYear()} {siteConfig.legalName}</span>
+          <span className="text-woodSoft/40">
+            {siteConfig.city}, {siteConfig.region} — desde {siteConfig.foundedYear}
+          </span>
         </div>
         <div className="flex flex-wrap gap-x-4 gap-y-1 justify-center md:justify-start">
           <a href="/aviso-legal" className="hover:text-woodSoft transition-colors">Aviso legal</a>

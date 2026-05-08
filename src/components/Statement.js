@@ -96,10 +96,10 @@ export default function Statement() {
 
       <div className="relative z-10 min-h-[100svh] flex items-start md:items-center justify-center px-section-x pt-24 pb-16 md:py-16 pointer-events-none">
         <div className="w-full max-w-5xl mx-auto">
-          <p className="text-center text-[10px] uppercase tracking-[0.24em] text-inkSoft mb-5">
+          <p className="text-center eyebrow mb-5">
             Expertos en embalaje industrial · Desde 1984
           </p>
-          <h2 className="text-center mx-auto max-w-4xl mb-10 md:mb-14 font-display font-medium text-[2.125rem] md:text-4xl tracking-tighter leading-[1.05] text-balance">
+          <h2 className="text-center mx-auto max-w-4xl mb-10 md:mb-14 heading-section">
             40 años fabricando, manipulando y entregando embalaje a empresas
             industriales y logísticas.
           </h2>
