@@ -32,7 +32,7 @@ export default function Faq() {
     <section
       id="faq"
       aria-labelledby="faq-title"
-      className="py-section-y bg-paperSoft border-y border-border"
+      className="py-section-y bg-paperSoft border-t border-border"
     >
       <Container>
         <div className="grid grid-cols-12 gap-x-4 md:gap-x-8 gap-y-8 items-start">

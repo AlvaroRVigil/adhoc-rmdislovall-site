@@ -45,7 +45,8 @@
       "Bash(vercel logout *)",
       "Bash(curl -s -o /dev/null -w \"alvarovigil-rm-dislovall.vercel.app: %{http_code}\\\\n\" https://alvarovigil-rm-dislovall.vercel.app)",
       "Bash(curl -sI https://alvarovigil-rm-dislovall.vercel.app)",
-      "Bash(curl -s https://alvarovigil-rm-dislovall.vercel.app)"
+      "Bash(curl -s https://alvarovigil-rm-dislovall.vercel.app)",
+      "Bash(git -c 'user.name=Alvaro Rodriguez Vigil' -c user.email=alvaro.rodriguez.vigil@gmail.com commit -m 'fix: recalcular distancia carrusel en resize + quitar border-bottom FAQ *)"
     ],
     "additionalDirectories": [
       "/Users/alvarorodriguezvigil/Documents/Freelance/Proyectos/RM Dislovall/Site/src"

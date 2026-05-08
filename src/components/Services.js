@@ -170,9 +170,11 @@ export default function Services() {
       const track = trackRef.current;
       if (!track) return;
 
-      const distance = track.scrollWidth - window.innerWidth;
+      const getDistance = () =>
+        Math.max(0, track.scrollWidth - window.innerWidth);
+
       gsap.to(track, {
-        x: -distance,
+        x: () => -getDistance(),
         ease: "none",
         scrollTrigger: {
           trigger: sectionRef.current,
@@ -181,7 +183,7 @@ export default function Services() {
           anticipatePin: 1,
           scrub: true,
           start: "top top",
-          end: () => `+=${distance}`,
+          end: () => `+=${getDistance()}`,
           invalidateOnRefresh: true,
         },
       });
