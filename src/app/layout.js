@@ -10,7 +10,7 @@ const SITE_NAME = "RM Dislovall";
 const TITLE_DEFAULT =
   "RM Dislovall — Embalaje industrial y manipulado en Sentmenat (Barcelona)";
 const DESCRIPTION =
-  "Fabricantes de embalaje de cartón ondulado, manipulado y suministro logístico en Sentmenat (Barcelona) desde 1984. Soluciones a medida para empresas industriales y entornos logísticos. Pide presupuesto.";
+  "Fabricantes de embalaje de cartón ondulado, manipulado y suministro logístico en Sentmenat (Barcelona). Soluciones a medida para empresas industriales y entornos logísticos.";
 
 /*
   PENDIENTES DE ACTIVOS DEL CLIENTE
