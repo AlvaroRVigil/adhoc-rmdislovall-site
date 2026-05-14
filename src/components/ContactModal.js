@@ -62,7 +62,7 @@ export default function ContactModal({ open, onClose }) {
           <div className="min-h-full flex items-center justify-center px-section-x py-16 md:py-20">
             <div className="w-full max-w-xl mx-auto">
               <div className="text-center mb-8 md:mb-10">
-                <p className="eyebrow-dark mb-3">· Solicita presupuesto</p>
+                <p className="eyebrow-dark mb-3">Solicita presupuesto</p>
                 <h2 id="contact-modal-title" className="heading-section">
                   Cuéntanos qué necesitas
                   <span className="block italic text-woodSoft/80">y nos ponemos a ello.</span>

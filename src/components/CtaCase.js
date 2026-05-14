@@ -8,7 +8,7 @@ export default function CtaCase() {
         <div className="grid grid-cols-12 gap-x-4 md:gap-x-8 gap-y-12 items-center">
           <div className="col-span-12 md:col-span-7 space-y-6 md:space-y-8">
             <p className="text-[10px] uppercase tracking-[0.24em] text-paper/60">
-              · ¿Tienes un proyecto?
+              ¿Tienes un proyecto?
             </p>
             <h2 className="font-display font-medium text-display-xl tracking-tighter leading-[1.02] text-balance">
               Descubre cómo tu

@@ -2,8 +2,8 @@ export default function PillButton({ href, children, dark = true, className = ""
   const base =
     "inline-flex items-center gap-3 pl-2 pr-6 py-2 text-sm tracking-wide transition-colors";
   const variant = dark
-    ? "bg-ink text-paper hover:bg-woodDeep"
-    : "bg-paper text-ink border border-ink hover:bg-ink hover:text-paper";
+    ? "bg-ink text-paper hover:bg-wood"
+    : "bg-paper text-ink border border-ink hover:bg-wood hover:text-paper hover:border-wood";
   return (
     <a href={href} className={`${base} ${variant} ${className}`}>
       <span

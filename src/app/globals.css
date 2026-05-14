@@ -62,10 +62,10 @@ body {
     @apply btn h-12 px-7 bg-ink text-paper hover:bg-wood;
   }
   .btn-light {
-    @apply btn h-12 px-7 bg-woodSoft text-ink hover:bg-paper;
+    @apply btn h-12 px-7 bg-woodSoft text-ink hover:bg-wood hover:text-paper;
   }
   .btn-outline {
-    @apply btn h-11 px-5 border border-ink text-ink hover:bg-ink hover:text-paper;
+    @apply btn h-11 px-5 border border-ink text-ink hover:bg-wood hover:text-paper hover:border-wood;
   }
 
   .field-light {
@@ -76,6 +76,14 @@ body {
   }
   .textarea-dark {
     @apply w-full bg-transparent border border-woodSoft/25 focus:border-woodSoft outline-none p-4 text-base text-woodSoft placeholder:text-woodSoft/40 transition-colors resize-none;
+  }
+}
+
+@media (pointer: fine) {
+  html.cursor-none,
+  html.cursor-none body,
+  html.cursor-none * {
+    cursor: none !important;
   }
 }
 

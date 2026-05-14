@@ -56,7 +56,7 @@ export default function Footer() {
       <Container className="pt-section-y md:pt-16 flex flex-col">
         <div className="grid grid-cols-12 gap-x-4 md:gap-x-12 gap-y-12">
           <aside className="col-span-12 md:col-span-5 space-y-8 text-center md:text-left" style={revealStyle(revealed, 0)}>
-            <p className="eyebrow-dark">· ¿Empezamos a trabajar?</p>
+            <p className="eyebrow-dark">¿Empezamos a trabajar?</p>
             <h2 className="heading-section">
               Cuéntanos qué necesitas
               <span className="block italic text-woodSoft">y nos ponemos a ello.</span>

@@ -79,7 +79,7 @@ export default function NotFound() {
         <Container>
           <div className="flex flex-col items-center text-center max-w-2xl mx-auto gap-8 md:gap-10">
             <p className="eyebrow">
-              · 404 — Página no encontrada
+              404 — Página no encontrada
             </p>
 
             <EmptyBox />

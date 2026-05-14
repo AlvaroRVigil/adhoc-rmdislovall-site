@@ -208,7 +208,7 @@ export default function Services() {
         <Container className="pt-section-y md:pt-28 pb-2">
           <div className="grid grid-cols-12 gap-x-4 md:gap-x-8 gap-y-6 items-end">
             <div className="col-span-12 md:col-span-7 space-y-3 text-center md:text-left">
-              <p className="eyebrow">· Servicios</p>
+              <p className="eyebrow">Servicios</p>
               <h2 className="font-display font-medium text-[2.125rem] md:text-4xl text-balance leading-[1.05] tracking-tighter">
                 Todo lo que necesita tu operativa,
                 <span className="italic text-wood"> en un solo proveedor.</span>

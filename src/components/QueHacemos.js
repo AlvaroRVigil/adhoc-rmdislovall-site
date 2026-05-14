@@ -27,7 +27,7 @@ export default function QueHacemos() {
       <Container>
         <div className="grid grid-cols-12 gap-x-4 md:gap-x-8 gap-y-4 md:gap-y-10 items-end mb-12 text-center md:text-left">
           <p className="col-span-12 md:col-span-3 eyebrow">
-            · Qué hacemos
+            Qué hacemos
           </p>
           <h2
             id="que-hacemos"

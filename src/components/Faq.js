@@ -42,7 +42,7 @@ export default function Faq() {
       <Container>
         <div className="grid grid-cols-12 gap-x-4 md:gap-x-8 gap-y-8 items-start">
           <div className="col-span-12 md:col-span-4 space-y-4 md:sticky md:top-28 text-center md:text-left">
-            <p className="eyebrow">· Preguntas frecuentes</p>
+            <p className="eyebrow">Preguntas frecuentes</p>
             <h2 id="faq-title" className="heading-section">
               Las dudas más comunes,
               <span className="block italic text-wood">resueltas.</span>
@@ -57,7 +57,10 @@ export default function Faq() {
             {faqs.map((f, i) => {
               const isOpen = openIndex === i;
               return (
-                <li key={f.q} className="border-t border-border last:border-b">
+                <li
+                  key={f.q}
+                  className="group/faq border-t border-border last:border-b"
+                >
                   <button
                     type="button"
                     onClick={() => setOpenIndex(isOpen ? -1 : i)}
@@ -74,7 +77,7 @@ export default function Faq() {
                     </div>
                     <span
                       aria-hidden
-                      className={`shrink-0 text-2xl text-inkSoft transition-transform duration-500 ease-out ${
+                      className={`shrink-0 text-2xl text-inkSoft transition-transform duration-500 ease-out md:group-hover/faq:rotate-45 ${
                         isOpen ? "rotate-45" : ""
                       }`}
                     >
@@ -83,16 +86,13 @@ export default function Faq() {
                   </button>
 
                   <div
-                    className="grid"
-                    style={{
-                      gridTemplateRows: isOpen ? "1fr" : "0fr",
-                      transition:
-                        "grid-template-rows 500ms cubic-bezier(0.16, 1, 0.3, 1)",
-                    }}
+                    className={`grid transition-[grid-template-rows] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] md:group-hover/faq:grid-rows-[1fr] ${
+                      isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+                    }`}
                   >
                     <div className="overflow-hidden">
                       <p
-                        className={`pb-7 pl-12 pr-12 md:pr-16 text-base text-inkSoft text-pretty transition-opacity duration-500 ${
+                        className={`pb-7 pl-12 pr-12 md:pr-16 text-base text-inkSoft text-pretty transition-opacity duration-500 md:group-hover/faq:opacity-100 ${
                           isOpen ? "opacity-100" : "opacity-0"
                         }`}
                       >

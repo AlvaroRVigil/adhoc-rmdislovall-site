@@ -38,7 +38,7 @@ export default function Process() {
         <div className="grid grid-cols-12 gap-x-4 md:gap-x-8 gap-y-6 md:gap-y-8 items-end mb-16 md:mb-20">
           <div className="col-span-12 md:col-span-7 space-y-4 text-center md:text-left">
             <p className="eyebrow">
-              · Cómo trabajamos
+              Cómo trabajamos
             </p>
             <h2 className="heading-section">
               Una sola interlocución,

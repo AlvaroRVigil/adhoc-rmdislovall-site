@@ -11,7 +11,7 @@ export default function Contact() {
         <div className="grid grid-cols-12 gap-x-4 md:gap-x-8 gap-y-8 items-end mb-16 md:mb-24">
           <div className="col-span-12 md:col-span-8 space-y-5">
             <p className="eyebrow">
-              · Empezamos a trabajar
+              Empezamos a trabajar
             </p>
             <h2 className="font-display font-medium text-display-xl tracking-tighter leading-[1.02] text-balance">
               Cuéntanos qué necesitas
@@ -88,7 +88,7 @@ export default function Contact() {
 
           <form className="col-span-12 md:col-span-7 md:col-start-7 lg:col-span-7 lg:col-start-6 space-y-8 md:pl-8 md:border-l md:border-border">
             <p className="text-[10px] uppercase tracking-[0.22em] text-inkSoft">
-              · Solicita presupuesto
+              Solicita presupuesto
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-2">
               <label className="block">

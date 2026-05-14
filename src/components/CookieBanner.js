@@ -65,7 +65,7 @@ export default function CookieBanner() {
           <button
             type="button"
             onClick={() => dismiss("accept")}
-            className="flex-1 inline-flex items-center justify-center bg-paper text-ink px-5 py-3 text-sm tracking-wide hover:bg-woodSoft transition-colors"
+            className="flex-1 inline-flex items-center justify-center bg-paper text-ink px-5 py-3 text-sm tracking-wide hover:bg-wood hover:text-paper transition-colors"
           >
             Aceptar
           </button>

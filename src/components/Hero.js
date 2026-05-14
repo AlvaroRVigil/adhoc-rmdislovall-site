@@ -79,25 +79,25 @@ export default function Hero() {
   return (
     <section
       ref={sectionRef}
-      className="hero-parallax relative bg-paper overflow-hidden md:h-[100svh] md:flex md:flex-col"
+      className="hero-parallax relative bg-paper overflow-hidden xl:h-[calc(100svh-5rem)] xl:flex xl:flex-col"
     >
-      <Container className="pt-10 md:pt-12 pb-10 md:pb-6 md:flex-1 md:flex md:flex-col md:justify-center">
+      <Container className="pt-10 md:pt-12 pb-10 xl:pb-6 xl:flex-1 xl:min-h-0 xl:flex xl:flex-col xl:justify-center">
         <div className="grid grid-cols-12 gap-x-4 md:gap-x-8 gap-y-8 md:gap-y-12 items-start">
-          <div className="col-span-12 md:col-span-7 lg:col-span-5 space-y-5 md:space-y-7 text-center md:text-left">
+          <div className="col-span-12 xl:col-span-5 space-y-5 md:space-y-7 text-center xl:text-left">
             <p className="eyebrow">
-              · Fabricación, transporte y stock propios
+              Fabricación, transporte y stock propios
             </p>
-            <h1 className="font-display font-medium text-display-lg tracking-tighter leading-[1.02] text-balance">
+            <h1 className="font-display font-medium text-4xl md:text-5xl lg:text-6xl xl:text-5xl 2xl:text-[4.5rem] tracking-tighter leading-[1.02] text-balance">
               Embalaje industrial
               <span className="block italic text-wood">para empresas y entornos logísticos.</span>
             </h1>
-            <p className="text-base text-inkSoft text-pretty max-w-md leading-[1.5] mx-auto md:mx-0">
+            <p className="text-base text-inkSoft text-pretty max-w-md leading-[1.5] mx-auto xl:mx-0">
               Trabajamos con empresas industriales y logísticas que necesitan
               soluciones de embalaje fiables, adaptadas a su operativa y
               preparadas para responder al ritmo real de producción,
               almacenaje y expedición.
             </p>
-            <div className="pt-2 flex flex-wrap items-center justify-center md:justify-start gap-x-5 gap-y-3">
+            <div className="pt-2 flex flex-wrap items-center justify-center xl:justify-start gap-x-5 gap-y-3">
               <PillButton href="#contacto">Pide presupuesto</PillButton>
               <a
                 href="#servicios"
@@ -108,7 +108,7 @@ export default function Hero() {
             </div>
           </div>
 
-          <div className="col-span-12 md:col-span-5 lg:col-span-6 lg:col-start-7 relative aspect-[5/4] md:aspect-[4/5] md:max-h-[58vh] lg:max-h-[64vh]">
+          <div className="col-span-12 xl:col-span-6 xl:col-start-7 relative aspect-[5/4] xl:aspect-[4/5] xl:h-[76vh] xl:max-h-none">
             <div className="absolute top-0 right-0 w-[60%] aspect-[3/4] bg-paperDeep overflow-hidden">
               <StockImg
                 src="https://images.unsplash.com/photo-1773125929765-99d4d67e831d"

@@ -7,7 +7,7 @@ export default function CtaFinal() {
       <Container>
         <div className="grid grid-cols-12 gap-x-4 md:gap-x-8 gap-y-10 items-end">
           <div className="col-span-12 md:col-span-8 space-y-8">
-            <p className="text-[10px] uppercase tracking-[0.24em] text-paper/60">· Empezamos</p>
+            <p className="text-[10px] uppercase tracking-[0.24em] text-paper/60">Empezamos</p>
             <h2 className="font-display font-extrabold text-display-xl tracking-tight text-balance">
               ¿Necesitas embalaje
               <span className="block text-woodSoft">hoy?</span>

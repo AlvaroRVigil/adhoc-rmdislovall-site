@@ -35,7 +35,7 @@ export default function Works() {
       <Container>
         <div className="grid grid-cols-12 gap-x-4 md:gap-x-8 gap-y-6 md:gap-y-8 items-end mb-12 md:mb-16">
           <div className="col-span-12 md:col-span-6 space-y-4 text-center md:text-left">
-            <p className="eyebrow">· Trabajos recientes</p>
+            <p className="eyebrow">Trabajos recientes</p>
             <h2 className="heading-section">
               Cada sector,
               <span className="italic text-wood"> una operativa distinta.</span>

@@ -2,6 +2,7 @@ import { GeistSans } from "geist/font/sans";
 import "./globals.css";
 import CookieBanner from "@/components/CookieBanner";
 import FooterHeightSync from "@/components/FooterHeightSync";
+import Cursor from "@/components/Cursor";
 
 const SITE_URL = "https://rmdislovall.com";
 const SITE_NAME = "RM Dislovall";
@@ -105,6 +106,7 @@ export default function RootLayout({ children }) {
     >
       <body>
         {children}
+        <Cursor />
         <CookieBanner />
         <FooterHeightSync />
       </body>

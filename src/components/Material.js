@@ -30,7 +30,7 @@ export default function Material() {
         <div className="w-full max-w-xl mx-auto space-y-8">
           <div className="space-y-4 text-center md:text-left">
             <p className="eyebrow">
-              · Forma de trabajar
+              Forma de trabajar
             </p>
             <h2 className="heading-section">
               Adaptación, respuesta

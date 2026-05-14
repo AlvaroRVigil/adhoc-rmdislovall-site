@@ -30,7 +30,7 @@ export default function Differential() {
         <div className="grid grid-cols-12 gap-x-4 md:gap-x-8 gap-y-12">
           <div className="col-span-12 md:col-span-5">
             <p className="eyebrow mb-6">
-              · Por qué nosotros
+              Por qué nosotros
             </p>
             <h2 className="font-display font-extrabold text-display-lg tracking-tight text-balance">
               Lo que no se rompe,

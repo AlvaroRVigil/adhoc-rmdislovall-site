@@ -15,7 +15,7 @@ export default function About() {
     <section id="nosotros" className="py-section-y">
       <Container>
         <div className="grid grid-cols-12 gap-x-4 md:gap-x-8 gap-y-12 items-start">
-          <div className="col-span-12 md:col-span-5 lg:col-span-4">
+          <div className="col-span-12 xl:col-span-4">
             <div className="relative aspect-[4/5] bg-paperDeep overflow-hidden">
               <StockImg
                 src="https://images.unsplash.com/photo-1672552226380-486fe900b322"
@@ -25,8 +25,8 @@ export default function About() {
             </div>
           </div>
 
-          <div className="col-span-12 md:col-span-7 lg:col-span-7 lg:col-start-6 space-y-6 text-center md:text-left">
-            <p className="eyebrow">· Quiénes somos</p>
+          <div className="col-span-12 xl:col-span-7 xl:col-start-6 space-y-6 text-center xl:text-left">
+            <p className="eyebrow">Quiénes somos</p>
             <h2 className="heading-section">
               Empresa familiar,
               <span className="block italic text-wood">mentalidad operativa.</span>
@@ -35,12 +35,12 @@ export default function About() {
               RM Dislovall trabaja con empresas industriales y logísticas que
               necesitan un proveedor fiable para su operativa de embalaje.
             </p>
-            <p className="text-base text-inkSoft text-pretty leading-[1.45] max-w-xl mx-auto md:mx-0">
+            <p className="text-base text-inkSoft text-pretty leading-[1.45] max-w-xl mx-auto xl:mx-0">
               El enfoque no está en ofrecer un catálogo genérico, sino en
               adaptarse a las necesidades reales de producción, manipulado y
               suministro de cada cliente.
             </p>
-            <p className="text-base text-inkSoft text-pretty leading-[1.45] max-w-xl mx-auto md:mx-0">
+            <p className="text-base text-inkSoft text-pretty leading-[1.45] max-w-xl mx-auto xl:mx-0">
               Trabajamos con sectores como alimentación, automoción, logística,
               e-commerce y farmacéutico — donde el embalaje forma parte directa
               de la operativa diaria.
