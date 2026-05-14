@@ -25,7 +25,7 @@ export default function LegalPage({ eyebrow, title, lastUpdated, children }) {
           <div className="mt-16 pt-8 border-t border-border">
             <a
               href="/"
-              className="text-sm text-inkSoft underline underline-offset-4 decoration-1 hover:text-wood hover:decoration-wood transition"
+              className="text-sm text-inkSoft underline underline-offset-4 decoration-1 hover:text-accent hover:decoration-wood transition"
             >
               ← Volver al inicio
             </a>

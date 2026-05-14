@@ -11,7 +11,7 @@ export default function Closing() {
           </h2>
           <a
             href="#contacto"
-            className="col-span-12 md:col-span-2 md:justify-self-end inline-flex text-base text-paper underline underline-offset-[6px] decoration-1 hover:text-woodSoft hover:decoration-woodSoft transition-colors"
+            className="col-span-12 md:col-span-2 md:justify-self-end inline-flex text-base text-paper underline underline-offset-[6px] decoration-1 hover:text-accentSoft hover:decoration-woodSoft transition-colors"
           >
             Contáctanos →
           </a>

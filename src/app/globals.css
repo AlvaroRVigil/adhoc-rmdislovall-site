@@ -9,7 +9,9 @@
   --ink: #30271D;
   --ink-soft: #5E4F3F;
   --border: #CDBFAA;
-  --wood: #A89279;
+  --wood: #9B2F23;
+  --accent: #9B2F23;
+  --accent-soft: #B85949;
   --wood-soft: #DBC8B6;
   --wood-deep: #6E5945;
 }
@@ -43,14 +45,14 @@ body {
 
 @layer components {
   .eyebrow {
-    @apply text-eyebrow uppercase text-inkSoft;
+    @apply text-eyebrow uppercase text-inkSoft pt-1;
   }
   .eyebrow-dark {
-    @apply text-eyebrow uppercase text-woodSoft/55;
+    @apply text-eyebrow uppercase text-woodSoft/55 pt-1;
   }
 
   .heading-section {
-    @apply font-display font-medium text-h2-section md:text-4xl tracking-tighter leading-[1.05] text-balance;
+    @apply font-display font-medium text-display-md tracking-tighter leading-[1.05] text-balance;
   }
 
   .btn {
@@ -80,6 +82,20 @@ body {
 @keyframes marquee {
   from { transform: translateX(0); }
   to   { transform: translateX(-50%); }
+}
+
+@keyframes badge-spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes badge-spin-reverse {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(-360deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [style*="badge-spin"] { animation: none !important; }
 }
 
 .marquee-track {

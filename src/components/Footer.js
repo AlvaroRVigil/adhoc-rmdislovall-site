@@ -48,9 +48,10 @@ export default function Footer() {
   }, []);
 
   return (
+    <>
     <footer
       id="contacto"
-      className="fixed inset-x-0 bottom-0 bg-ink text-woodSoft z-0 flex flex-col overflow-hidden max-h-[100svh]"
+      className="fixed inset-x-0 bottom-0 bg-wood text-woodSoft z-0 flex flex-col overflow-hidden max-h-[100svh]"
     >
       <Container className="pt-section-y md:pt-16 flex flex-col">
         <div className="grid grid-cols-12 gap-x-4 md:gap-x-12 gap-y-12">
@@ -79,7 +80,7 @@ export default function Footer() {
               <dd>
                 <a
                   href={siteConfig.phone.href}
-                  className="font-display font-medium text-2xl tracking-tighter hover:text-woodSoft/80 transition-colors"
+                  className="font-display font-medium text-2xl tracking-tighter hover:text-paper transition-colors"
                 >
                   {siteConfig.phone.label}
                 </a>
@@ -87,12 +88,24 @@ export default function Footer() {
             </div>
             <div className="p-5 md:p-0 border-b border-woodSoft/15 md:border-0">
               <dt className={cellLabel}>Escríbenos</dt>
-              <dd>
+              <dd className="flex flex-col items-center md:items-start gap-2">
                 <a
                   href={siteConfig.email.href}
-                  className="text-base hover:text-woodSoft/80 transition-colors break-all"
+                  className="text-base hover:text-paper transition-colors break-all"
                 >
                   {siteConfig.email.label}
+                </a>
+                <a
+                  href={siteConfig.whatsapp.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 px-4 h-9 border border-woodSoft/40 text-xs uppercase tracking-[0.18em] text-woodSoft hover:bg-woodSoft hover:text-wood transition-colors"
+                  aria-label="Escribir por WhatsApp"
+                >
+                  <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor" aria-hidden>
+                    <path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.4-.1-.6.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.2-1.4-.8-.7-1.4-1.6-1.6-1.9-.2-.3 0-.4.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.1-.6-1.5-.9-2.1-.2-.5-.5-.5-.6-.5h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2 0 1.3.9 2.5 1.1 2.7.1.2 1.8 2.8 4.3 3.9.6.3 1.1.4 1.5.5.6.2 1.2.2 1.7.1.5-.1 1.7-.7 1.9-1.3.2-.6.2-1.2.2-1.3-.1-.1-.3-.2-.6-.3M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.4 5L2 22l5.2-1.4c1.5.8 3.1 1.2 4.8 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2"/>
+                  </svg>
+                  WhatsApp
                 </a>
               </dd>
             </div>
@@ -104,7 +117,7 @@ export default function Footer() {
                   target="_blank"
                   rel="noreferrer"
                   aria-label={`Cómo llegar a ${siteConfig.city} (${siteConfig.region})`}
-                  className="inline-flex items-center gap-1.5 hover:text-woodSoft/80 transition"
+                  className="inline-flex items-center gap-1.5 hover:text-accentSoft/80 transition"
                 >
                   {siteConfig.city}
                   <svg
@@ -138,15 +151,17 @@ export default function Footer() {
       </Container>
 
       <div
-        className="hidden md:block w-full px-2 md:px-4 text-center overflow-hidden mt-10 md:mt-14"
+        className="hidden md:block mx-auto w-full max-w-container px-section-x overflow-hidden mt-10 md:mt-14 pb-6 md:pb-8"
         style={revealStyle(revealed, 240)}
       >
-        <p
-          className="font-display font-medium tracking-[-0.05em] leading-none whitespace-nowrap text-woodSoft select-none"
-          style={{ fontSize: "14.3vw" }}
-        >
-          RM DISLOVALL
-        </p>
+        <img
+          src="/brand/logo-tipografico.svg"
+          alt="RM Dislovall"
+          width={806}
+          height={95}
+          className="block w-full h-auto select-none pointer-events-none"
+          draggable={false}
+        />
       </div>
 
       <Container
@@ -160,13 +175,14 @@ export default function Footer() {
           </span>
         </div>
         <div className="flex flex-wrap gap-x-4 gap-y-1 justify-center md:justify-start">
-          <a href="/aviso-legal" className="hover:text-woodSoft transition-colors">Aviso legal</a>
-          <a href="/privacidad" className="hover:text-woodSoft transition-colors">Privacidad</a>
-          <a href="/cookies" className="hover:text-woodSoft transition-colors">Cookies</a>
+          <a href="/aviso-legal" className="hover:text-accentSoft transition-colors">Aviso legal</a>
+          <a href="/privacidad" className="hover:text-accentSoft transition-colors">Privacidad</a>
+          <a href="/cookies" className="hover:text-accentSoft transition-colors">Cookies</a>
         </div>
       </Container>
 
-      <ContactModal open={modalOpen} onClose={() => setModalOpen(false)} />
     </footer>
+    <ContactModal open={modalOpen} onClose={() => setModalOpen(false)} />
+    </>
   );
 }

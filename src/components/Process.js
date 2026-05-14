@@ -56,7 +56,7 @@ export default function Process() {
         {steps.map((s) => (
           <li
             key={s.n}
-            className="border-b border-border px-section-x py-9 md:py-9 md:grid md:grid-cols-12 md:gap-x-8 md:gap-y-3 md:items-baseline group md:hover:bg-paperSoft md:transition-colors"
+            className="border-b border-border px-section-x py-9 md:py-9 md:grid md:grid-cols-12 md:gap-x-8 md:gap-y-3 md:items-center group md:hover:bg-paperSoft md:transition-colors"
           >
               <div className="flex items-center justify-between mb-4 md:hidden">
                 <span className="font-mono text-xs tracking-widest text-inkSoft">
@@ -67,7 +67,7 @@ export default function Process() {
                 </span>
               </div>
 
-              <span className="hidden md:block md:col-span-1 font-mono text-xs tracking-widest text-inkSoft pt-1">
+              <span className="hidden md:block md:col-span-1 font-mono text-xs tracking-widest text-inkSoft">
                 {s.n}
               </span>
 
@@ -79,7 +79,7 @@ export default function Process() {
                 {s.body}
               </p>
 
-              <span className="hidden md:block md:col-span-2 md:col-start-11 text-[10px] uppercase tracking-[0.22em] text-inkSoft md:text-right pt-1">
+              <span className="hidden md:block md:col-span-2 md:col-start-11 text-[10px] uppercase tracking-[0.22em] text-inkSoft md:text-right">
                 {s.tag}
               </span>
             </li>

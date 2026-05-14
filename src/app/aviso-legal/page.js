@@ -1,4 +1,5 @@
 import LegalPage from "@/components/LegalPage";
+import { siteConfig } from "@/lib/siteConfig";
 
 export const metadata = {
   title: "Aviso legal",
@@ -24,37 +25,33 @@ export default function AvisoLegal() {
       </p>
       <ul className="list-disc pl-5 space-y-1 text-inkSoft">
         <li>
-          <strong className="text-ink">Razón social:</strong> RM Dislovall S.L.
+          <strong className="text-ink">Razón social:</strong> {siteConfig.legalName}
         </li>
         <li>
-          <strong className="text-ink">CIF:</strong>{" "}
-          <span className="bg-paperDeep/40 px-1 rounded text-inkSoft">
-            [pendiente: aportar CIF]
-          </span>
+          <strong className="text-ink">CIF:</strong> {siteConfig.cif}
         </li>
         <li>
           <strong className="text-ink">Domicilio social:</strong>{" "}
-          <span className="bg-paperDeep/40 px-1 rounded text-inkSoft">
-            [pendiente: dirección postal completa, Sentmenat (Barcelona)]
-          </span>
+          {siteConfig.address.street}, {siteConfig.address.postalCode}{" "}
+          {siteConfig.address.locality} ({siteConfig.address.region}),{" "}
+          {siteConfig.address.country}
         </li>
         <li>
           <strong className="text-ink">Email:</strong>{" "}
-          <a href="mailto:info@rmdislovall.com" className="underline underline-offset-4 decoration-1 hover:text-wood">
-            info@rmdislovall.com
+          <a href={siteConfig.email.href} className="underline underline-offset-4 decoration-1 hover:text-accent">
+            {siteConfig.email.label}
           </a>
         </li>
         <li>
           <strong className="text-ink">Teléfono:</strong>{" "}
-          <a href="tel:+34937153920" className="underline underline-offset-4 decoration-1 hover:text-wood">
-            937 153 920
+          <a href={siteConfig.phone.href} className="underline underline-offset-4 decoration-1 hover:text-accent">
+            {siteConfig.phone.label}
           </a>
         </li>
         <li>
           <strong className="text-ink">Datos registrales:</strong>{" "}
-          <span className="bg-paperDeep/40 px-1 rounded text-inkSoft">
-            [pendiente: tomo, folio, hoja e inscripción del Registro Mercantil de Barcelona]
-          </span>
+          {siteConfig.registry.office} · Tomo {siteConfig.registry.tomo} · Folio{" "}
+          {siteConfig.registry.folio} · Sección {siteConfig.registry.section}
         </li>
       </ul>
 

@@ -54,12 +54,16 @@ export default function Header() {
       <Container className="flex items-center justify-center md:justify-between h-16 md:h-20 gap-8">
         <a
           href="/"
-          className="flex items-baseline gap-3 shrink-0"
+          className="flex items-center gap-3 shrink-0"
           aria-label="RM Dislovall — inicio"
         >
-          <span className="font-display text-base tracking-tight uppercase">
-            RM Dislovall
-          </span>
+          <img
+            src="/brand/logo-horizontal.svg"
+            alt="RM Dislovall"
+            width={1000}
+            height={217}
+            className="h-7 md:h-8 w-auto"
+          />
           <span className="eyebrow hidden md:inline">
             desde 1984
           </span>
@@ -80,7 +84,7 @@ export default function Header() {
                 className={`${baseClasses} transition-colors ${
                   isActive
                     ? "text-wood decoration-wood"
-                    : "text-ink hover:text-wood hover:decoration-wood"
+                    : "text-ink hover:text-accent hover:decoration-wood"
                 }`}
               >
                 {n.label}

@@ -55,7 +55,7 @@ export default function CookieBanner() {
           Sin seguimiento ni publicidad.{" "}
           <a
             href="/cookies"
-            className="underline underline-offset-4 decoration-1 hover:text-woodSoft hover:decoration-woodSoft transition"
+            className="underline underline-offset-4 decoration-1 hover:text-accentSoft hover:decoration-woodSoft transition"
           >
             Más información
           </a>

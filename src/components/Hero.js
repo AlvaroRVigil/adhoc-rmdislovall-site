@@ -6,6 +6,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Container from "./Container";
 import PillButton from "./PillButton";
 import StockImg from "./StockImg";
+import Badge from "./Badge";
 
 const FACTS = [
   { text: "Cartón ondulado a medida", service: true },
@@ -78,16 +79,16 @@ export default function Hero() {
   return (
     <section
       ref={sectionRef}
-      className="hero-parallax relative md:h-auto lg:h-[calc(100svh-5rem)] min-h-[calc(100svh-4rem)] md:min-h-0 lg:min-h-[680px] bg-paper overflow-hidden flex flex-col"
+      className="hero-parallax relative bg-paper overflow-hidden md:h-[100svh] md:flex md:flex-col"
     >
-      <Container className="pt-10 md:pt-12 pb-6 flex-1 flex flex-col">
-        <div className="grid grid-cols-12 gap-x-4 md:gap-x-8 gap-y-8 md:gap-y-12 items-start flex-1">
-          <div className="col-span-12 md:col-span-7 lg:col-span-6 space-y-5 md:space-y-7 text-center md:text-left">
+      <Container className="pt-10 md:pt-12 pb-10 md:pb-6 md:flex-1 md:flex md:flex-col md:justify-center">
+        <div className="grid grid-cols-12 gap-x-4 md:gap-x-8 gap-y-8 md:gap-y-12 items-start">
+          <div className="col-span-12 md:col-span-7 lg:col-span-5 space-y-5 md:space-y-7 text-center md:text-left">
             <p className="eyebrow">
               · Fabricación, transporte y stock propios
             </p>
-            <h1 className="font-display font-medium text-[clamp(2.25rem,7vw,3rem)] tracking-tighter leading-[1.05] text-balance">
-              Embalaje industrial y manipulado
+            <h1 className="font-display font-medium text-display-lg tracking-tighter leading-[1.02] text-balance">
+              Embalaje industrial
               <span className="block italic text-wood">para empresas y entornos logísticos.</span>
             </h1>
             <p className="text-base text-inkSoft text-pretty max-w-md leading-[1.5] mx-auto md:mx-0">
@@ -107,8 +108,8 @@ export default function Hero() {
             </div>
           </div>
 
-          <div className="col-span-12 md:col-span-5 lg:col-span-6 relative aspect-[5/4] md:aspect-[4/5] md:max-h-[60vh] lg:max-h-[64vh]">
-            <div className="absolute top-0 right-[2%] w-[58%] aspect-[3/4] bg-paperDeep overflow-hidden">
+          <div className="col-span-12 md:col-span-5 lg:col-span-6 lg:col-start-7 relative aspect-[5/4] md:aspect-[4/5] md:max-h-[58vh] lg:max-h-[64vh]">
+            <div className="absolute top-0 right-0 w-[60%] aspect-[3/4] bg-paperDeep overflow-hidden">
               <StockImg
                 src="https://images.unsplash.com/photo-1773125929765-99d4d67e831d"
                 alt="Cajas de cartón ondulado en almacén de RM Dislovall"
@@ -132,12 +133,13 @@ export default function Hero() {
                 q={85}
               />
             </div>
+            <Badge className="absolute z-10 top-[70%] left-1/2 w-24 sm:w-28 md:w-32 lg:w-36 aspect-square -translate-x-1/2 -translate-y-1/2" />
           </div>
         </div>
 
       </Container>
 
-      <div className="relative border-t border-border py-7 md:py-5 overflow-hidden">
+      <div className="relative border-t border-border py-7 md:py-5 overflow-hidden md:shrink-0">
         <div className="marquee-track" style={{ animationDuration: "70s" }}>
           <HeroFactsTrack />
           <HeroFactsTrack ariaHidden />

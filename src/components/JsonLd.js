@@ -11,8 +11,12 @@ export default function JsonLd() {
     telephone: "+34937153920",
     email: "info@rmdislovall.com",
     foundingDate: "1984",
+    vatID: "ESB66048273",
+    taxID: "B66048273",
     address: {
       "@type": "PostalAddress",
+      streetAddress: "Calle Cementiri Nou, 8",
+      postalCode: "08181",
       addressLocality: "Sentmenat",
       addressRegion: "Barcelona",
       addressCountry: "ES",

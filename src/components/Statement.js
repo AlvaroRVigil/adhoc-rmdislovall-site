@@ -99,7 +99,7 @@ export default function Statement() {
           <p className="text-center eyebrow mb-5">
             Expertos en embalaje industrial · Desde 1984
           </p>
-          <h2 className="text-center mx-auto max-w-4xl mb-10 md:mb-14 heading-section">
+          <h2 className="text-center mx-auto max-w-4xl mb-10 md:mb-14 font-display font-medium text-display-md tracking-tighter leading-[1.08] text-balance">
             40 años fabricando, manipulando y entregando embalaje a empresas
             industriales y logísticas.
           </h2>
@@ -130,7 +130,7 @@ export default function Statement() {
           <div className="mt-8 md:mt-10 text-center">
             <a
               href="#servicios"
-              className="pointer-events-auto inline-flex items-center text-sm uppercase tracking-[0.18em] text-ink underline underline-offset-[6px] decoration-1 hover:text-wood hover:decoration-wood transition-colors"
+              className="pointer-events-auto inline-flex items-center text-sm uppercase tracking-[0.18em] text-ink underline underline-offset-[6px] decoration-1 hover:text-accent hover:decoration-wood transition-colors"
             >
               Ver todos los servicios →
             </a>

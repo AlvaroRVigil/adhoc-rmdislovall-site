@@ -46,20 +46,28 @@ export default function About() {
               de la operativa diaria.
             </p>
 
-            <dl className="grid grid-cols-2 md:grid-cols-3 mt-4 border border-border md:border-0 md:border-t md:gap-y-6 md:gap-x-6 md:pt-8 [&>*:nth-last-child(-n+2)]:border-b-0 md:[&>*]:border-0">
-              {facts.map((f, i) => (
-                <div
-                  key={f.k}
-                  className={`p-5 text-left border-b border-border md:p-0 md:border-0 ${
-                    i % 2 === 0 ? "border-r border-border md:border-r-0" : ""
-                  }`}
-                >
-                  <dt className="text-[10px] uppercase tracking-[0.22em] text-inkSoft mb-2 md:mb-1">
-                    {f.k}
-                  </dt>
-                  <dd className="text-base text-ink">{f.v}</dd>
-                </div>
-              ))}
+            <dl className="grid grid-cols-1 md:grid-cols-3 mt-10 md:mt-14 border-t border-border">
+              {facts.map((f, i) => {
+                const classes = [
+                  "py-7 md:py-9 text-left",
+                  "border-b border-border md:border-b-0",
+                  i % 3 !== 0 ? "md:border-l md:border-border md:pl-8" : "",
+                  i % 3 !== 2 ? "md:pr-8" : "",
+                  i >= 3 ? "md:border-t md:border-border" : "",
+                ]
+                  .filter(Boolean)
+                  .join(" ");
+                return (
+                  <div key={f.k} className={classes}>
+                    <dt className="text-[10px] uppercase tracking-[0.22em] text-inkSoft mb-4">
+                      {f.k}
+                    </dt>
+                    <dd className="font-display font-medium text-lg md:text-xl tracking-tight leading-[1.2] text-ink text-balance">
+                      {f.v}
+                    </dd>
+                  </div>
+                );
+              })}
             </dl>
           </div>
         </div>

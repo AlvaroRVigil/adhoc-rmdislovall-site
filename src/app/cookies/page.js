@@ -48,7 +48,7 @@ export default function Cookies() {
                 href="https://wiki.osmfoundation.org/wiki/Privacy_Policy"
                 target="_blank"
                 rel="noreferrer"
-                className="underline underline-offset-4 decoration-1 hover:text-wood"
+                className="underline underline-offset-4 decoration-1 hover:text-accent"
               >
                 osmfoundation.org
               </a>
@@ -61,7 +61,7 @@ export default function Cookies() {
                 href="https://unsplash.com/privacy"
                 target="_blank"
                 rel="noreferrer"
-                className="underline underline-offset-4 decoration-1 hover:text-wood"
+                className="underline underline-offset-4 decoration-1 hover:text-accent"
               >
                 unsplash.com/privacy
               </a>
@@ -88,7 +88,7 @@ export default function Cookies() {
             href="https://support.google.com/chrome/answer/95647"
             target="_blank"
             rel="noreferrer"
-            className="underline underline-offset-4 decoration-1 hover:text-wood"
+            className="underline underline-offset-4 decoration-1 hover:text-accent"
           >
             Google Chrome
           </a>
@@ -98,7 +98,7 @@ export default function Cookies() {
             href="https://support.mozilla.org/es/kb/habilitar-y-deshabilitar-cookies-sitios-web-rastrear-preferencias"
             target="_blank"
             rel="noreferrer"
-            className="underline underline-offset-4 decoration-1 hover:text-wood"
+            className="underline underline-offset-4 decoration-1 hover:text-accent"
           >
             Mozilla Firefox
           </a>
@@ -108,7 +108,7 @@ export default function Cookies() {
             href="https://support.apple.com/es-es/guide/safari/sfri11471/mac"
             target="_blank"
             rel="noreferrer"
-            className="underline underline-offset-4 decoration-1 hover:text-wood"
+            className="underline underline-offset-4 decoration-1 hover:text-accent"
           >
             Safari
           </a>
@@ -118,7 +118,7 @@ export default function Cookies() {
             href="https://support.microsoft.com/es-es/microsoft-edge/eliminar-las-cookies-en-microsoft-edge-63947406-40ac-c3b8-57b9-2a946a29ae09"
             target="_blank"
             rel="noreferrer"
-            className="underline underline-offset-4 decoration-1 hover:text-wood"
+            className="underline underline-offset-4 decoration-1 hover:text-accent"
           >
             Microsoft Edge
           </a>

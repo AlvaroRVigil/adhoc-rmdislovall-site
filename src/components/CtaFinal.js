@@ -23,7 +23,7 @@ export default function CtaFinal() {
               </PillButton>
               <a
                 href="#contacto"
-                className="text-sm text-paper/70 underline underline-offset-4 decoration-1 hover:text-woodSoft hover:decoration-woodSoft transition"
+                className="text-sm text-paper/70 underline underline-offset-4 decoration-1 hover:text-accentSoft hover:decoration-woodSoft transition"
               >
                 Pedir presupuesto →
               </a>

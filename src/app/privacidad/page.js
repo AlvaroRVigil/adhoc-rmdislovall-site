@@ -1,4 +1,5 @@
 import LegalPage from "@/components/LegalPage";
+import { siteConfig } from "@/lib/siteConfig";
 
 export const metadata = {
   title: "Política de privacidad",
@@ -26,24 +27,21 @@ export default function Privacidad() {
       </h2>
       <ul className="list-disc pl-5 space-y-1 text-inkSoft">
         <li>
-          <strong className="text-ink">Titular:</strong> RM Dislovall S.L.
+          <strong className="text-ink">Titular:</strong> {siteConfig.legalName}
         </li>
         <li>
-          <strong className="text-ink">CIF:</strong>{" "}
-          <span className="bg-paperDeep/40 px-1 rounded text-inkSoft">
-            [pendiente: aportar CIF]
-          </span>
+          <strong className="text-ink">CIF:</strong> {siteConfig.cif}
         </li>
         <li>
           <strong className="text-ink">Domicilio:</strong>{" "}
-          <span className="bg-paperDeep/40 px-1 rounded text-inkSoft">
-            [pendiente: dirección completa]
-          </span>
+          {siteConfig.address.street}, {siteConfig.address.postalCode}{" "}
+          {siteConfig.address.locality} ({siteConfig.address.region}),{" "}
+          {siteConfig.address.country}
         </li>
         <li>
           <strong className="text-ink">Contacto:</strong>{" "}
-          <a href="mailto:info@rmdislovall.com" className="underline underline-offset-4 decoration-1 hover:text-wood">
-            info@rmdislovall.com
+          <a href={siteConfig.email.href} className="underline underline-offset-4 decoration-1 hover:text-accent">
+            {siteConfig.email.label}
           </a>
         </li>
       </ul>
@@ -102,7 +100,7 @@ export default function Privacidad() {
         El usuario podrá ejercer en cualquier momento los derechos de acceso,
         rectificación, supresión, oposición, limitación del tratamiento y
         portabilidad de sus datos, dirigiéndose por escrito a{" "}
-        <a href="mailto:info@rmdislovall.com" className="underline underline-offset-4 decoration-1 hover:text-wood">
+        <a href="mailto:info@rmdislovall.com" className="underline underline-offset-4 decoration-1 hover:text-accent">
           info@rmdislovall.com
         </a>{" "}
         acompañando copia de su documento de identidad.
@@ -114,7 +112,7 @@ export default function Privacidad() {
           href="https://www.aepd.es"
           target="_blank"
           rel="noreferrer"
-          className="underline underline-offset-4 decoration-1 hover:text-wood"
+          className="underline underline-offset-4 decoration-1 hover:text-accent"
         >
           aepd.es
         </a>

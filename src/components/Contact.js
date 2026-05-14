@@ -1,4 +1,5 @@
 import Container from "./Container";
+import { siteConfig } from "@/lib/siteConfig";
 
 const fieldClass =
   "w-full bg-transparent border-b border-border focus:border-ink outline-none py-3 text-base placeholder:text-inkSoft/50 transition-colors";
@@ -31,13 +32,25 @@ export default function Contact() {
                   Llámanos
                 </p>
                 <a
-                  href="tel:+34937153920"
-                  className="block font-display font-medium text-[clamp(2rem,4.5vw,3.25rem)] tracking-tighter leading-none hover:text-wood transition-colors"
+                  href={siteConfig.phone.href}
+                  className="block font-display font-medium text-[clamp(2rem,4.5vw,3.25rem)] tracking-tighter leading-none hover:text-accent transition-colors"
                 >
-                  937 153 920
+                  {siteConfig.phone.label}
+                </a>
+                <a
+                  href={siteConfig.whatsapp.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="mt-3 inline-flex items-center gap-1.5 text-sm text-inkSoft hover:text-accent transition-colors"
+                  aria-label={`WhatsApp ${siteConfig.whatsapp.label}`}
+                >
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden>
+                    <path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.4-.1-.6.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.2-1.4-.8-.7-1.4-1.6-1.6-1.9-.2-.3 0-.4.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.1-.6-1.5-.9-2.1-.2-.5-.5-.5-.6-.5h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2 0 1.3.9 2.5 1.1 2.7.1.2 1.8 2.8 4.3 3.9.6.3 1.1.4 1.5.5.6.2 1.2.2 1.7.1.5-.1 1.7-.7 1.9-1.3.2-.6.2-1.2.2-1.3-.1-.1-.3-.2-.6-.3M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.4 5L2 22l5.2-1.4c1.5.8 3.1 1.2 4.8 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2"/>
+                  </svg>
+                  WhatsApp · {siteConfig.whatsapp.label}
                 </a>
                 <p className="text-sm text-inkSoft mt-3">
-                  L–V · 7:00 — 15:00
+                  L–V · {siteConfig.hours.range}
                 </p>
               </div>
 
@@ -47,7 +60,7 @@ export default function Contact() {
                 </p>
                 <a
                   href="mailto:info@rmdislovall.com"
-                  className="block font-display font-medium text-xl md:text-2xl tracking-tight hover:text-wood transition-colors break-all"
+                  className="block font-display font-medium text-xl md:text-2xl tracking-tight hover:text-accent transition-colors break-all"
                 >
                   info@rmdislovall.com
                 </a>
@@ -58,14 +71,14 @@ export default function Contact() {
                   Visítanos
                 </p>
                 <p className="font-display font-medium text-xl md:text-2xl tracking-tight">
-                  Sentmenat
-                  <span className="block text-inkSoft">Barcelona</span>
+                  Calle Cementiri Nou, 8
+                  <span className="block text-inkSoft">08181 Sentmenat · Barcelona</span>
                 </p>
                 <a
-                  href="https://www.openstreetmap.org/?mlat=41.6125&mlon=2.1320#map=15/41.6125/2.1320"
+                  href={siteConfig.location.mapUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-block mt-3 text-sm underline underline-offset-4 decoration-1 hover:text-wood hover:decoration-wood transition"
+                  className="inline-block mt-3 text-sm underline underline-offset-4 decoration-1 hover:text-accent hover:decoration-wood transition"
                 >
                   Cómo llegar →
                 </a>

@@ -17,9 +17,11 @@ module.exports = {
         ink: "#30271D",
         inkSoft: "#5E4F3F",
         border: "#CDBFAA",
-        wood: "#A89279",
+        wood: "#9B2F23",
         woodSoft: "#DBC8B6",
         woodDeep: "#6E5945",
+        accent: "#9B2F23",
+        accentSoft: "#B85949",
       },
       fontFamily: {
         sans: ["var(--font-sans)", "ui-sans-serif", "system-ui", "sans-serif"],
@@ -46,7 +48,7 @@ module.exports = {
         "section-x": "clamp(1.25rem, 5vw, 4rem)",
       },
       maxWidth: {
-        container: "1440px",
+        container: "1800px",
       },
       borderRadius: {
         xs: "2px",
