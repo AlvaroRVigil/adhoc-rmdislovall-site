@@ -4,6 +4,27 @@ Información y assets que necesitamos de Ruth / Ricard para sustituir los placeh
 
 ---
 
+## Revisión de copy completo (pendiente del cliente)
+
+El cliente debe pasar **ajustes/revisión del copy** de toda la web antes de cierre. Cuando lleguen, repasar y actualizar:
+
+- **Meta description** en [src/app/layout.js](src/app/layout.js) — afecta a Google y a previews de WhatsApp, LinkedIn, Twitter, etc.
+- **Title default** en [src/app/layout.js](src/app/layout.js).
+- **H1 del Hero** y todos los headlines de sección (Statement, About, Services, Material, Process, Faq, Footer).
+- **Cuerpos de párrafo** en Hero, About, Material, Process.
+- **FAQ** completa — preguntas y respuestas en [src/components/Faq.js](src/components/Faq.js).
+- **Lista de servicios y descripciones** en [src/components/Services.js](src/components/Services.js).
+- **Facts del About** en [src/components/About.js](src/components/About.js).
+- **Marquee del Hero** con los facts en [src/components/Hero.js](src/components/Hero.js).
+- **Copy del Badge** ("DESDE 1984 · EXPERIENCIA Y CONFIANZA") en [src/components/Badge.js](src/components/Badge.js).
+- **Card del botón flotante** en [src/components/FloatingCall.js](src/components/FloatingCall.js).
+- **Textos del ContactModal** y formulario.
+- **Páginas legales** (`/aviso-legal`, `/privacidad`, `/cookies`) — pendientes de validación legal final.
+
+Refrescar previews en redes tras subir cambios usando el debugger de Facebook (`developers.facebook.com/tools/debug`) o `linkedin.com/post-inspector`.
+
+---
+
 ## Identidad visual
 
 ### Logo
