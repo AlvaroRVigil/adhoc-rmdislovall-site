@@ -3,6 +3,7 @@ import "./globals.css";
 import CookieBanner from "@/components/CookieBanner";
 import FooterHeightSync from "@/components/FooterHeightSync";
 import Cursor from "@/components/Cursor";
+import Loader from "@/components/Loader";
 
 const SITE_URL = "https://rmdislovall.com";
 const SITE_NAME = "RM Dislovall";
@@ -105,6 +106,7 @@ export default function RootLayout({ children }) {
           style={{ "--font-sans": "var(--font-geist-sans)" }}
     >
       <body>
+        <Loader />
         {children}
         <Cursor />
         <CookieBanner />

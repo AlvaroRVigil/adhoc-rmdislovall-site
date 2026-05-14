@@ -62,7 +62,7 @@ body {
     @apply btn h-12 px-7 bg-ink text-paper hover:bg-wood;
   }
   .btn-light {
-    @apply btn h-12 px-7 bg-woodSoft text-ink hover:bg-wood hover:text-paper;
+    @apply btn h-12 px-7 bg-woodSoft text-ink hover:bg-border;
   }
   .btn-outline {
     @apply btn h-11 px-5 border border-ink text-ink hover:bg-wood hover:text-paper hover:border-wood;
