@@ -68,7 +68,7 @@ const TruckIcon = () => (
 
 const blocks = [
   {
-    title: "Embalaje industrial",
+    title: "Embalaje de cartón ondulado",
     body: "Cartón ondulado adaptado a protección, transporte y almacenaje.",
     Icon: PackageIcon,
   },
@@ -94,17 +94,17 @@ export default function Statement() {
         <ImageTrail items={trailItems} variant={1} />
       </div>
 
-      <div className="relative z-10 min-h-[100svh] flex items-start md:items-center justify-center px-section-x pt-24 pb-16 md:py-16 pointer-events-none">
+      <div className="relative z-10 min-h-[100svh] flex items-start desk:items-center justify-center px-section-x pt-24 pb-16 md:py-16 pointer-events-none">
         <div className="w-full max-w-5xl mx-auto">
           <p className="text-center eyebrow mb-5">
-            Expertos en embalaje industrial · Desde 1984
+            Embalaje de cartón ondulado · +40 años de experiencia
           </p>
           <h2 className="text-center mx-auto max-w-4xl mb-10 md:mb-14 font-display font-medium text-display-md tracking-tighter leading-[1.08] text-balance">
-            40 años fabricando, manipulando y entregando embalaje a empresas
-            industriales y logísticas.
+            Más de 40 años de experiencia en embalaje, manipulado y suministro
+            para empresas industriales y logísticas.
           </h2>
 
-          <ul className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5 md:auto-rows-fr">
+          <ul className="grid grid-cols-1 desk:grid-cols-3 gap-4 md:gap-5 desk:auto-rows-fr">
             {blocks.map((b) => {
               const IconComp = b.Icon;
               return (

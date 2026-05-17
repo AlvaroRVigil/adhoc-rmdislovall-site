@@ -2,7 +2,6 @@ export const siteConfig = {
   name: "RM Dislovall",
   legalName: "RM Dislovall S.L.",
   cif: "B66048273",
-  foundedYear: 1984,
   city: "Sentmenat",
   region: "Barcelona",
   country: "España",

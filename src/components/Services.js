@@ -11,20 +11,64 @@ const items = [
     n: "01",
     title: "Cartón ondulado a medida",
     body:
-      "Diseño y fabricación de cajas y embalaje de cartón ondulado adaptado al producto, al pallet y a la línea de manipulación. Estándar, a medida, troquelado o tipo box.",
+      "Cajas y embalaje de cartón ondulado adaptados al producto, al pallet y a la línea de manipulación. Trabajamos una amplitud real de soluciones, no un catálogo cerrado.",
     tags: [
-      "Cajas estándar",
-      "Cajas a medida",
+      "Cajas estándar y a medida",
       "Cajas troqueladas",
-      "Tipo box y especial",
+      "Tipo box y embalaje",
+      "Separadores e interiores",
+      "Planchas y formatos",
+      "Distintos canales y calidades",
     ],
-    closer: "Cada caja se diseña según protección, volumen de pallet y compatibilidad con la operativa de envasado.",
+    closer: "Cada caja se plantea según protección, volumen de pallet y compatibilidad con la operativa de envasado.",
     img: "https://images.unsplash.com/photo-1771848194068-169d817a1d6f",
-    alt: "Caja de cartón ondulado fabricada a medida",
+    alt: "Caja de cartón ondulado a medida",
     featured: true,
   },
   {
     n: "02",
+    title: "Almacenaje y gestión de stock",
+    body:
+      "Guardamos el stock de cada cliente en más de 2.000 m² de instalaciones y lo servimos según necesidad. Reposición y entregas recurrentes sin comprar de golpe ni inmovilizar capital.",
+    tags: [
+      "Stock para clientes",
+      "Entregas bajo demanda",
+      "Continuidad de suministro",
+      "Reposición recurrente",
+    ],
+    closer: "Stock guardado y servido al ritmo de tu operativa.",
+    img: "https://images.unsplash.com/photo-1672552226380-486fe900b322",
+    alt: "Almacén con palets de cajas",
+  },
+  {
+    n: "03",
+    title: "Transporte y entregas",
+    body:
+      "Flota propia para entregas en Cataluña y red logística para el resto de España. Cobertura regional como base, con capacidad de respuesta ágil cuando el material está disponible.",
+    tags: ["Flota propia", "Cobertura regional", "Envíos a toda España", "Entregas programadas"],
+    closer: "Si está en stock, puede salir el mismo día.",
+    img: "https://images.unsplash.com/photo-1645736315000-6f788915923b",
+    alt: "Carretilla y entregas",
+  },
+  {
+    n: "04",
+    title: "Manipulado y preparación",
+    body:
+      "Preparamos el material para que llegue listo para usar — en línea, en almacenaje o en expedición. Un servicio flexible que se adapta a la necesidad de cada cliente.",
+    tags: [
+      "Corte y acondicionamiento",
+      "Montaje de kits",
+      "Encolado de cajas",
+      "Etiquetado y reempaquetado",
+      "Configuración de packs",
+      "Paletizado y enfardado",
+    ],
+    closer: "El material llega listo para usar.",
+    img: "https://images.unsplash.com/photo-1772920908589-d6264e5d987f",
+    alt: "Procesos de manipulado de cartón",
+  },
+  {
+    n: "05",
     title: "Material auxiliar",
     body:
       "Precinto, film estirable, fleje y consumibles para cierre, paletizado y expedición. Suministrado en el mismo pedido y la misma entrega que el embalaje principal.",
@@ -32,48 +76,6 @@ const items = [
     closer: "Un solo proveedor para todo el material que necesita la línea.",
     img: "https://images.unsplash.com/photo-1709804945989-c8be542e04db",
     alt: "Material auxiliar para embalaje",
-  },
-  {
-    n: "03",
-    title: "Manipulados y procesos especiales",
-    body:
-      "Montaje, encolado, picking, etiquetado, paletizado y enfardado realizados antes de que el material entre en tu planta. Adaptado al ritmo de producción y expedición.",
-    tags: [
-      "Montaje y encolado",
-      "Corte y preparación",
-      "Picking",
-      "Etiquetado y reempaquetado",
-      "Packs y agrupaciones",
-      "Paletizado y enfardado",
-    ],
-    closer: "El material llega listo para entrar en línea.",
-    img: "https://images.unsplash.com/photo-1772920908589-d6264e5d987f",
-    alt: "Procesos de manipulado de cartón",
-  },
-  {
-    n: "04",
-    title: "Transporte y entregas",
-    body:
-      "Flota propia para entregas en Cataluña y red logística para todo el territorio nacional. Plazos cumplidos, urgencias resueltas y trazabilidad real.",
-    tags: ["Flota propia", "Urgencias 24-48h", "Trazabilidad real", "Cobertura nacional"],
-    closer: "Si lo necesitas hoy, sale hoy.",
-    img: "https://images.unsplash.com/photo-1645736315000-6f788915923b",
-    alt: "Carretilla y entregas",
-  },
-  {
-    n: "05",
-    title: "Almacenaje y gestión de stock",
-    body:
-      "Más de 2.000 m² de instalaciones para almacenaje bajo demanda. Continuidad de suministro sin obligar al cliente a compras de golpe ni a inmovilizar capital.",
-    tags: [
-      "Disponibilidad inmediata",
-      "Entregas bajo demanda",
-      "Continuidad de suministro",
-      "Stock dedicado",
-    ],
-    closer: "Stock guardado y servido al ritmo de tu operativa.",
-    img: "https://images.unsplash.com/photo-1672552226380-486fe900b322",
-    alt: "Almacén con palets de cajas",
   },
 ];
 
@@ -164,10 +166,11 @@ export default function Services() {
     if (typeof window === "undefined") return;
     gsap.registerPlugin(ScrollTrigger);
 
-    const isMobile = window.matchMedia("(max-width: 767px)").matches;
-    if (isMobile) return;
-
-    const ctx = gsap.context(() => {
+    // El scroll horizontal con pin solo existe en el layout desktop (≥1280px).
+    // gsap.matchMedia monta y revierte la animación de forma limpia al cruzar
+    // el breakpoint — sin transform residual que desborde en vertical.
+    const mm = gsap.matchMedia();
+    mm.add("(min-width: 1280px)", () => {
       const track = trackRef.current;
       if (!track) return;
 
@@ -193,47 +196,47 @@ export default function Services() {
       refresh();
       window.addEventListener("load", refresh);
       return () => window.removeEventListener("load", refresh);
-    }, sectionRef);
+    });
 
-    return () => ctx.revert();
+    return () => mm.revert();
   }, []);
 
   return (
     <section
       id="servicios"
       ref={sectionRef}
-      className="relative bg-paper md:overflow-hidden"
+      className="relative bg-paper overflow-hidden"
     >
-      <div className="md:h-screen md:flex md:flex-col">
+      <div className="desk:h-screen desk:flex desk:flex-col">
         <Container className="pt-section-y md:pt-28 pb-2">
           <div className="grid grid-cols-12 gap-x-4 md:gap-x-8 gap-y-6 items-end">
-            <div className="col-span-12 md:col-span-7 space-y-3 text-center md:text-left">
+            <div className="col-span-12 desk:col-span-7 space-y-3 text-center desk:text-left">
               <p className="eyebrow">Servicios</p>
               <h2 className="font-display font-medium text-[2.125rem] md:text-4xl text-balance leading-[1.05] tracking-tighter">
                 Todo lo que necesita tu operativa,
                 <span className="italic text-wood"> en un solo proveedor.</span>
               </h2>
             </div>
-            <p className="col-span-12 md:col-span-4 md:col-start-9 text-sm text-inkSoft text-pretty text-center md:text-left max-w-sm mx-auto md:mx-0 md:max-w-none">
-              Cinco servicios coordinados desde Sentmenat. Desliza para
-              recorrerlos.
+            <p className="col-span-12 desk:col-span-4 desk:col-start-9 text-sm text-inkSoft text-pretty text-center desk:text-left max-w-sm mx-auto desk:mx-0 desk:max-w-none">
+              Cinco servicios coordinados desde Sentmenat.
+              <span className="hidden desk:inline"> Desliza para recorrerlos.</span>
             </p>
           </div>
         </Container>
 
-        <div className="md:flex-1 md:flex md:items-center md:overflow-hidden md:pb-[2vh] pb-16">
+        <div className="desk:flex-1 desk:flex desk:items-center desk:overflow-hidden desk:pb-[2vh] pb-16">
           <div
             ref={trackRef}
-            className="flex flex-col md:flex-row gap-6 md:gap-8 px-section-x md:px-0 md:pl-section-x md:pr-section-x md:h-[64vh] will-change-transform"
+            className="flex flex-col desk:flex-row gap-6 md:gap-8 px-section-x desk:px-0 desk:pl-section-x desk:pr-section-x desk:h-[64vh] will-change-transform"
           >
             {items.map((it) => (
               <article
                 key={it.n}
-                className="relative shrink-0 w-full md:w-[72vw] lg:w-[58vw] md:h-full bg-paperSoft border border-border flex flex-col md:grid md:grid-cols-2"
+                className="relative shrink-0 w-full desk:w-[58vw] desk:h-full bg-paperSoft border border-border flex flex-col desk:grid desk:grid-cols-2"
               >
                 {it.featured && <StarSticker />}
 
-                <div className="relative bg-paperDeep min-h-[220px] md:min-h-0 overflow-hidden">
+                <div className="relative bg-paperDeep min-h-[220px] desk:min-h-0 overflow-hidden">
                   <StockImg src={it.img} alt={it.alt} w={1400} />
                 </div>
 

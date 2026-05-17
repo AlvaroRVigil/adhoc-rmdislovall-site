@@ -1,5 +1,5 @@
 export default function Badge({ className = "" }) {
-  const text = "DESDE 1984 · EXPERIENCIA Y CONFIANZA · ";
+  const text = "EXPERIENCIA Y CONFIANZA · TRATO CERCANO · ";
   return (
     <div
       className={`pointer-events-none select-none ${className}`}
@@ -33,8 +33,13 @@ export default function Badge({ className = "" }) {
               d="M 100,100 m -78,0 a 78,78 0 1,1 156,0 a 78,78 0 1,1 -156,0"
             />
           </defs>
+          {/* textLength = perímetro del círculo (2π·78 ≈ 490): fuerza al texto
+              a ocupar exactamente una vuelta, sin solaparse ni dejar hueco,
+              aunque la fuente tarde en cargar. */}
           <text
             fill="currentColor"
+            textLength="490"
+            lengthAdjust="spacing"
             style={{
               fontFamily: "var(--font-sans), system-ui, sans-serif",
               fontSize: "16px",
@@ -43,7 +48,7 @@ export default function Badge({ className = "" }) {
             }}
           >
             <textPath href="#badge-arc" startOffset="0">
-              {text + text}
+              {text}
             </textPath>
           </text>
         </svg>

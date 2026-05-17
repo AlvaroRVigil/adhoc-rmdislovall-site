@@ -2,8 +2,8 @@
 
 import { useEffect, useState } from "react";
 import Container from "./Container";
-import ContactModal from "./ContactModal";
 import { siteConfig } from "@/lib/siteConfig";
+import { openContactModal } from "@/lib/contactModal";
 
 const easeOut = "cubic-bezier(0.16, 1, 0.3, 1)";
 
@@ -20,7 +20,6 @@ const cellLabel = "text-eyebrow uppercase text-woodSoft/55 mb-1 tracking-label";
 
 export default function Footer() {
   const [revealed, setRevealed] = useState(false);
-  const [modalOpen, setModalOpen] = useState(false);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -48,7 +47,6 @@ export default function Footer() {
   }, []);
 
   return (
-    <>
     <footer
       id="contacto"
       className="fixed inset-x-0 bottom-0 bg-wood text-woodSoft z-0 flex flex-col overflow-hidden max-h-[100svh]"
@@ -64,7 +62,7 @@ export default function Footer() {
 
             <button
               type="button"
-              onClick={() => setModalOpen(true)}
+              onClick={openContactModal}
               className="btn-light"
             >
               Solicitar presupuesto
@@ -171,7 +169,7 @@ export default function Footer() {
         <div className="flex flex-wrap gap-x-4 gap-y-1 justify-center md:justify-start">
           <span>© {new Date().getFullYear()} {siteConfig.legalName}</span>
           <span className="text-woodSoft/40">
-            {siteConfig.city}, {siteConfig.region} — desde {siteConfig.foundedYear}
+            {siteConfig.city}, {siteConfig.region}
           </span>
         </div>
         <div className="flex flex-wrap gap-x-4 gap-y-1 justify-center md:justify-start">
@@ -182,7 +180,5 @@ export default function Footer() {
       </Container>
 
     </footer>
-    <ContactModal open={modalOpen} onClose={() => setModalOpen(false)} />
-    </>
   );
 }

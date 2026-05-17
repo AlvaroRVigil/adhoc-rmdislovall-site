@@ -10,6 +10,7 @@ import Works from "@/components/Works";
 import Faq from "@/components/Faq";
 import Footer from "@/components/Footer";
 import FloatingCall from "@/components/FloatingCall";
+import ContactModalHost from "@/components/ContactModalHost";
 import JsonLd from "@/components/JsonLd";
 import SmoothScroll from "@/components/SmoothScroll";
 
@@ -32,6 +33,7 @@ export default function Home() {
       </main>
       <Footer />
       <FloatingCall />
+      <ContactModalHost />
     </>
   );
 }

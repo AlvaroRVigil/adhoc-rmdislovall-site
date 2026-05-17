@@ -7,17 +7,17 @@ const items = [
   {
     title: "Adaptación a necesidades reales",
     body:
-      "Cada cliente trabaja con un producto, un volumen y una operativa distintos. El embalaje y el manipulado se diseñan según producción, almacenaje y expedición — no al revés.",
+      "Cada cliente trabaja con un producto, volumen y operativa distintos. El embalaje y los servicios se diseñan según producción, almacenaje y expedición — no al revés.",
   },
   {
     title: "Respuesta ágil",
     body:
-      "Pedidos urgentes, ajustes en plazo o necesidades operativas no previstas: el servicio se gestiona en horas, con flota propia y stock disponible.",
+      "Capacidad de reacción ante urgencias, ajustes de entrega y necesidades operativas del cliente.",
   },
   {
     title: "Relación continua con el cliente",
     body:
-      "El servicio se plantea desde la continuidad y la interlocución directa. Una sola persona acompaña el pedido del briefing a la entrega, sin intermediarios.",
+      "El servicio se plantea desde la continuidad y la interlocución directa. Una sola persona acompaña el pedido desde la primera consulta hasta la entrega.",
   },
 ];
 
@@ -25,10 +25,10 @@ export default function Material() {
   const [openIndex, setOpenIndex] = useState(-1);
 
   return (
-    <section className="grid grid-cols-1 md:grid-cols-2 md:h-[100svh] md:max-h-[100svh] items-stretch md:overflow-hidden">
+    <section className="grid grid-cols-1 desk:grid-cols-2 desk:h-[100svh] desk:max-h-[100svh] items-stretch desk:overflow-hidden">
       <div className="bg-paperSoft text-ink flex items-center px-section-x py-section-y md:py-16 order-2 overflow-y-auto">
         <div className="w-full max-w-xl mx-auto space-y-8">
-          <div className="space-y-4 text-center md:text-left">
+          <div className="space-y-4 text-center desk:text-left">
             <p className="eyebrow">
               Forma de trabajar
             </p>
@@ -36,11 +36,11 @@ export default function Material() {
               Adaptación, respuesta
               <span className="block italic text-wood">y relación continua.</span>
             </h2>
-            <p className="text-base text-inkSoft text-pretty max-w-md pt-2 leading-[1.45] mx-auto md:mx-0">
+            <p className="text-base text-inkSoft text-pretty max-w-md pt-2 leading-[1.45] mx-auto desk:mx-0">
               Cada empresa trabaja con necesidades distintas de producción,
               almacenaje y expedición. El servicio se plantea desde la
-              continuidad, la capacidad de adaptación y una respuesta alineada
-              con la operativa de cada cliente.
+              continuidad, la capacidad de adaptación y una atención cercana
+              durante todo el suministro.
             </p>
           </div>
 
@@ -96,7 +96,7 @@ export default function Material() {
         </div>
       </div>
 
-      <div className="relative bg-wood h-[60vh] md:h-full min-h-[420px] md:min-h-[280px] overflow-hidden order-1 md:order-1">
+      <div className="relative bg-wood h-[42vh] max-h-[480px] min-h-[300px] desk:h-full desk:max-h-none desk:min-h-[280px] overflow-hidden order-1">
         <StockImg
           src="https://images.unsplash.com/photo-1553413077-190dd305871c"
           alt="Almacén logístico con estanterías de cajas de cartón"

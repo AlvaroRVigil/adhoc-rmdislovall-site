@@ -60,8 +60,8 @@ export default function AvisoLegal() {
       </h2>
       <p>
         El presente sitio web tiene por objeto presentar las actividades,
-        servicios e información comercial de RM Dislovall S.L., dedicada a la
-        fabricación de embalaje de cartón ondulado, manipulado, transporte y
+        servicios e información comercial de RM Dislovall S.L., dedicada a
+        soluciones de embalaje de cartón ondulado, manipulado, transporte y
         almacenaje para empresas industriales y logísticas.
       </p>
 

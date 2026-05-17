@@ -10,6 +10,12 @@ module.exports = {
   ],
   theme: {
     extend: {
+      // Breakpoint del layout desktop: por encima de 1280px se mantiene la
+      // versión horizontal; por debajo, la web pasa a vertical. 1280 cubre
+      // todo portátil estándar (1366, 1280, 1536...) sin caer a tablet.
+      screens: {
+        desk: "1280px",
+      },
       colors: {
         paper: "#ECEBE3",
         paperSoft: "#F5F3EB",

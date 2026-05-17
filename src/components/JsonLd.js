@@ -6,11 +6,10 @@ export default function JsonLd() {
     name: "RM Dislovall S.L.",
     legalName: "RM Dislovall S.L.",
     description:
-      "Fabricación de embalaje de cartón ondulado a medida, manipulados, transporte propio y almacenaje. Más de 40 años sirviendo a empresas industriales en Cataluña.",
+      "Soluciones de embalaje de cartón ondulado a medida, manipulados, transporte propio y almacenaje. Más de 40 años de experiencia sirviendo a empresas industriales en Cataluña.",
     url: "https://rmdislovall.com",
     telephone: "+34937153920",
     email: "info@rmdislovall.com",
-    foundingDate: "1984",
     vatID: "ESB66048273",
     taxID: "B66048273",
     address: {
