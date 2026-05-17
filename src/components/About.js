@@ -31,7 +31,7 @@ export default function About() {
               Empresa familiar,
               <span className="block italic text-wood">mentalidad operativa.</span>
             </h2>
-            <p className="text-base md:text-lg text-inkSoft text-pretty leading-[1.45] max-w-xl">
+            <p className="text-base md:text-lg text-inkSoft text-pretty leading-[1.45] max-w-xl mx-auto desk:mx-0">
               RM Dislovall trabaja con empresas industriales y logísticas que
               necesitan un proveedor fiable para su operativa de embalaje.
             </p>

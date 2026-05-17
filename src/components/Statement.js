@@ -94,10 +94,10 @@ export default function Statement() {
         <ImageTrail items={trailItems} variant={1} />
       </div>
 
-      <div className="relative z-10 min-h-[100svh] flex items-start desk:items-center justify-center px-section-x pt-24 pb-16 md:py-16 pointer-events-none">
+      <div className="relative z-10 min-h-[100svh] flex items-center justify-center px-section-x pt-24 pb-16 md:py-16 pointer-events-none">
         <div className="w-full max-w-5xl mx-auto">
           <p className="text-center eyebrow mb-5">
-            Embalaje de cartón ondulado · +40 años de experiencia
+            A qué nos dedicamos
           </p>
           <h2 className="text-center mx-auto max-w-4xl mb-10 md:mb-14 font-display font-medium text-display-md tracking-tighter leading-[1.08] text-balance">
             Más de 40 años de experiencia en embalaje, manipulado y suministro

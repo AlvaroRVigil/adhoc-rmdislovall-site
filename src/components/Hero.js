@@ -80,11 +80,11 @@ export default function Hero() {
             <p className="eyebrow">
               Soluciones de embalaje · Logística · Gestión de stock
             </p>
-            <h1 className="font-display font-medium text-4xl md:text-5xl 2xl:text-[4.5rem] tracking-tighter leading-[1.02] text-balance">
+            <h1 className="font-display font-medium text-4xl md:text-[4rem] 2xl:text-[4.5rem] tracking-tighter leading-[1.02] text-balance">
               Embalaje de cartón ondulado
               <span className="block italic text-wood">y soluciones de suministro.</span>
             </h1>
-            <p className="text-base text-inkSoft text-pretty max-w-md leading-[1.5] mx-auto desk:mx-0">
+            <p className="text-base text-inkSoft text-pretty max-w-[34rem] leading-[1.5] mx-auto desk:mx-0">
               Ayudamos a empresas industriales y logísticas a optimizar su
               embalaje y su suministro con soluciones a medida de cada producto
               y cada operativa. Nos adaptamos a tu forma de trabajar, no al revés.
@@ -110,14 +110,15 @@ export default function Hero() {
               />
             </div>
             <div className="absolute bottom-[14%] left-[10%] w-[28%] aspect-square bg-woodSoft overflow-hidden desk:bottom-auto desk:top-[22%] desk:left-[18%] desk:w-[44%]">
-              <StockImg
-                src="https://images.unsplash.com/photo-1591648241334-ce4ae86f3e9c"
+              <img
+                src="/img/textura-carton.webp"
                 alt="Detalle de fibra de cartón ondulado"
-                w={900}
-                q={85}
+                loading="lazy"
+                decoding="async"
+                className="absolute inset-0 w-full h-full object-cover"
               />
             </div>
-            <div className="absolute bottom-0 right-0 w-[42%] aspect-[3/4] bg-wood overflow-hidden desk:bottom-[10%] desk:left-0 desk:right-auto">
+            <div className="absolute bottom-0 right-[10%] w-[42%] aspect-[3/4] bg-wood overflow-hidden desk:bottom-[10%] desk:left-0 desk:right-auto">
               <StockImg
                 src="https://images.unsplash.com/photo-1587293852726-70cdb56c2866"
                 alt="Cajas de cartón en estanterías"

@@ -18,15 +18,6 @@ export default function Badge({ className = "" }) {
           fill="currentColor"
         >
           <circle cx="100" cy="100" r="98" fill="#9B2F23" />
-          <circle
-            cx="100"
-            cy="100"
-            r="88"
-            fill="none"
-            stroke="currentColor"
-            strokeOpacity="0.4"
-            strokeWidth="0.8"
-          />
           <defs>
             <path
               id="badge-arc"
