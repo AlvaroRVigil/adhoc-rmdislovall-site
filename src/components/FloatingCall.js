@@ -63,9 +63,12 @@ export default function FloatingCall() {
 
   return (
     <>
+      {/* El contenedor no captura toques en su zona vacía (si no, su caja
+          invisible de ~320px bloquearía los CTAs que quedan debajo en móvil).
+          Solo el botón flotante y la tarjeta abierta reactivan pointer-events. */}
       <div
         ref={wrapperRef}
-        className={`fixed right-5 md:right-6 bottom-5 md:bottom-6 z-40 flex flex-col items-end gap-3 transition-[opacity,transform] duration-500 ease-out ${wrapperState}`}
+        className={`fixed right-5 md:right-6 bottom-5 md:bottom-6 z-40 flex flex-col items-end gap-3 transition-[opacity,transform] duration-500 ease-out pointer-events-none ${wrapperState}`}
       >
         <div
           role="dialog"
@@ -197,7 +200,7 @@ export default function FloatingCall() {
           aria-expanded={expanded}
           aria-label={expanded ? "Cerrar opciones de contacto" : "Abrir opciones de contacto"}
           data-scroll-fade
-          className="w-14 h-14 md:w-16 md:h-16 rounded-full bg-ink text-paper shadow-lg shadow-ink/30 flex items-center justify-center hover:bg-wood transition-colors"
+          className="pointer-events-auto w-14 h-14 md:w-16 md:h-16 rounded-full bg-ink text-paper shadow-lg shadow-ink/30 flex items-center justify-center hover:bg-wood transition-colors"
         >
           <svg
             viewBox="0 0 24 24"
