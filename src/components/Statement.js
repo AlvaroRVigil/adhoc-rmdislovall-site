@@ -104,7 +104,7 @@ export default function Statement() {
             para empresas industriales y logísticas.
           </h2>
 
-          <ul className="grid grid-cols-1 desk:grid-cols-3 gap-4 md:gap-5 desk:auto-rows-fr">
+          <ul className="grid grid-cols-1 lg:grid-cols-3 gap-4 md:gap-5 lg:auto-rows-fr">
             {blocks.map((b) => {
               const IconComp = b.Icon;
               return (

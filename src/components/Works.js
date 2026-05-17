@@ -54,7 +54,7 @@ export default function Works() {
           {works.map((w, i) => (
             <article
               key={w.title}
-              className="snap-start shrink-0 w-[78%] space-y-4"
+              className="snap-start shrink-0 w-[78%] sm:w-[400px] space-y-4"
             >
               <div className="relative aspect-[4/5] bg-paperDeep overflow-hidden">
                 <StockImg src={w.src} alt={w.alt} w={1100} />

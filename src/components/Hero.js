@@ -9,38 +9,31 @@ import StockImg from "./StockImg";
 import Badge from "./Badge";
 
 const FACTS = [
-  { text: "Cartón ondulado a medida", service: true },
+  { text: "Soluciones a medida", service: true },
   { text: "+40 años de experiencia" },
-  { text: "Almacenaje y gestión de stock", service: true },
-  { text: "+2.000 m² de instalaciones" },
-  { text: "Manipulado y preparación", service: true },
-  { text: "Transporte propio" },
-  { text: "Transporte y entregas", service: true },
-  { text: "Cobertura regional" },
-  { text: "Material auxiliar", service: true },
-  { text: "Respuesta ágil" },
-  { text: "Suministro continuo", service: true },
+  { text: "Gestión de stock", service: true },
   { text: "Trato directo" },
+  { text: "Respuesta ágil", service: true },
+  { text: "Transporte propio" },
+  { text: "Suministro continuo", service: true },
+  { text: "Cobertura regional" },
+  { text: "Manipulado y preparación", service: true },
+  { text: "Entregas bajo demanda" },
+  { text: "Flexibilidad operativa", service: true },
+  { text: "+2.000 m² de instalaciones" },
+  { text: "Logística y suministro", service: true },
+  { text: "Stock para clientes" },
 ];
 
 function HeroFactsTrack({ ariaHidden = false }) {
   return (
-    <ul
-      aria-hidden={ariaHidden}
-      className="flex shrink-0 items-center"
-    >
+    <ul aria-hidden={ariaHidden} className="flex shrink-0 items-center">
       {FACTS.map((f, i) => (
         <li key={`${f.text}-${i}`} className="flex items-center whitespace-nowrap">
-          <span
-            className={`px-7 md:px-12 text-[11px] md:text-base uppercase tracking-[0.18em] md:tracking-[0.22em] text-ink ${
-              f.service ? "font-bold" : "font-medium"
-            }`}
-          >
+          <span className="px-6 md:px-9 text-[11px] md:text-[13px] uppercase tracking-[0.2em] font-medium text-ink">
             {f.text}
           </span>
-          <span aria-hidden className="text-wood/70 font-light text-lg md:text-3xl select-none">
-            /
-          </span>
+          <span aria-hidden className="h-[6px] w-[6px] shrink-0 rotate-45 bg-wood/50" />
         </li>
       ))}
     </ul>
@@ -87,7 +80,7 @@ export default function Hero() {
             <p className="eyebrow">
               Soluciones de embalaje · Logística · Gestión de stock
             </p>
-            <h1 className="font-display font-medium text-4xl md:text-5xl lg:text-6xl desk:text-5xl 2xl:text-[4.5rem] tracking-tighter leading-[1.02] text-balance">
+            <h1 className="font-display font-medium text-4xl md:text-5xl 2xl:text-[4.5rem] tracking-tighter leading-[1.02] text-balance">
               Embalaje de cartón ondulado
               <span className="block italic text-wood">y soluciones de suministro.</span>
             </h1>
@@ -108,7 +101,7 @@ export default function Hero() {
           </div>
 
           <div className="col-span-12 desk:col-span-6 desk:col-start-7 relative aspect-[5/4] desk:aspect-[4/5] desk:h-[76vh] desk:max-h-none">
-            <div className="absolute top-0 right-0 w-[60%] aspect-[3/4] bg-paperDeep overflow-hidden">
+            <div className="absolute top-0 left-0 w-[60%] aspect-[4/3] bg-paperDeep overflow-hidden desk:left-auto desk:right-0 desk:w-[60%] desk:aspect-[3/4]">
               <StockImg
                 src="https://images.unsplash.com/photo-1773125929765-99d4d67e831d"
                 alt="Cajas de cartón ondulado en almacén de RM Dislovall"
@@ -116,7 +109,7 @@ export default function Hero() {
                 q={85}
               />
             </div>
-            <div className="absolute top-[22%] left-[18%] w-[44%] aspect-square bg-woodSoft overflow-hidden">
+            <div className="absolute bottom-[14%] left-[10%] w-[28%] aspect-square bg-woodSoft overflow-hidden desk:bottom-auto desk:top-[22%] desk:left-[18%] desk:w-[44%]">
               <StockImg
                 src="https://images.unsplash.com/photo-1591648241334-ce4ae86f3e9c"
                 alt="Detalle de fibra de cartón ondulado"
@@ -124,7 +117,7 @@ export default function Hero() {
                 q={85}
               />
             </div>
-            <div className="absolute bottom-[10%] left-0 w-[42%] aspect-[3/4] bg-wood overflow-hidden">
+            <div className="absolute bottom-0 right-0 w-[42%] aspect-[3/4] bg-wood overflow-hidden desk:bottom-[10%] desk:left-0 desk:right-auto">
               <StockImg
                 src="https://images.unsplash.com/photo-1587293852726-70cdb56c2866"
                 alt="Cajas de cartón en estanterías"
@@ -132,13 +125,13 @@ export default function Hero() {
                 q={85}
               />
             </div>
-            <Badge className="absolute z-10 top-[70%] left-1/2 w-24 sm:w-28 md:w-32 lg:w-36 aspect-square -translate-x-1/2 -translate-y-1/2" />
+            <Badge className="absolute z-10 top-[12%] right-[4%] w-24 sm:w-28 md:w-32 lg:w-36 aspect-square desk:top-[70%] desk:right-auto desk:left-1/2 desk:-translate-x-1/2 desk:-translate-y-1/2" />
           </div>
         </div>
 
       </Container>
 
-      <div className="relative border-t border-border py-7 md:py-5 overflow-hidden md:shrink-0">
+      <div className="relative border-t border-border py-5 md:py-6 overflow-hidden md:shrink-0">
         <div className="marquee-track" style={{ animationDuration: "70s" }}>
           <HeroFactsTrack />
           <HeroFactsTrack ariaHidden />

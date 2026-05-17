@@ -9,32 +9,39 @@ import StockImg from "./StockImg";
 const items = [
   {
     n: "01",
+    Icon: BoxIcon,
     title: "Cartón ondulado a medida",
     body:
       "Cajas y embalaje de cartón ondulado adaptados al producto, al pallet y a la línea de manipulación. Trabajamos una amplitud real de soluciones, no un catálogo cerrado.",
     tags: [
-      "Cajas estándar y a medida",
+      "Cajas y formatos especiales",
+      "Tipo box y embalaje industrial",
       "Cajas troqueladas",
-      "Tipo box y embalaje",
-      "Separadores e interiores",
-      "Planchas y formatos",
+      "Separadores e interiores troquelados",
+      "Planchas y formatos de cartón",
       "Distintos canales y calidades",
     ],
     closer: "Cada caja se plantea según protección, volumen de pallet y compatibilidad con la operativa de envasado.",
+    video: "/video/carton-ondulado",
+    poster: "/video/carton-ondulado-poster.jpg",
     img: "https://images.unsplash.com/photo-1771848194068-169d817a1d6f",
     alt: "Caja de cartón ondulado a medida",
     featured: true,
+    wide: true,
   },
   {
     n: "02",
+    Icon: BoxesIcon,
+    wide: true,
     title: "Almacenaje y gestión de stock",
     body:
       "Guardamos el stock de cada cliente en más de 2.000 m² de instalaciones y lo servimos según necesidad. Reposición y entregas recurrentes sin comprar de golpe ni inmovilizar capital.",
     tags: [
-      "Stock para clientes",
-      "Entregas bajo demanda",
+      "Stock de clientes",
+      "Gestión de stock",
+      "Entregas recurrentes o bajo demanda",
       "Continuidad de suministro",
-      "Reposición recurrente",
+      "Capacidad de respuesta",
     ],
     closer: "Stock guardado y servido al ritmo de tu operativa.",
     img: "https://images.unsplash.com/photo-1672552226380-486fe900b322",
@@ -42,23 +49,26 @@ const items = [
   },
   {
     n: "03",
+    Icon: TruckIcon,
     title: "Transporte y entregas",
     body:
-      "Flota propia para entregas en Cataluña y red logística para el resto de España. Cobertura regional como base, con capacidad de respuesta ágil cuando el material está disponible.",
-    tags: ["Flota propia", "Cobertura regional", "Envíos a toda España", "Entregas programadas"],
+      "Flota propia para entregas en Cataluña y red logística para envíos puntuales fuera. Cobertura regional como base, con capacidad de respuesta cuando el material está disponible.",
+    tags: ["Flota propia", "Cobertura regional", "Envíos puntuales fuera", "Capacidad de respuesta"],
     closer: "Si está en stock, puede salir el mismo día.",
     img: "https://images.unsplash.com/photo-1645736315000-6f788915923b",
     alt: "Carretilla y entregas",
   },
   {
     n: "04",
-    title: "Manipulado y preparación",
+    Icon: PrepIcon,
+    title: "Manipulado y preparación",
     body:
       "Preparamos el material para que llegue listo para usar — en línea, en almacenaje o en expedición. Un servicio flexible que se adapta a la necesidad de cada cliente.",
     tags: [
       "Corte y acondicionamiento",
       "Montaje de kits",
       "Encolado de cajas",
+      "Manipulaciones especiales",
       "Etiquetado y reempaquetado",
       "Configuración de packs",
       "Paletizado y enfardado",
@@ -69,6 +79,7 @@ const items = [
   },
   {
     n: "05",
+    Icon: RollIcon,
     title: "Material auxiliar",
     body:
       "Precinto, film estirable, fleje y consumibles para cierre, paletizado y expedición. Suministrado en el mismo pedido y la misma entrega que el embalaje principal.",
@@ -79,7 +90,8 @@ const items = [
   },
 ];
 
-function BoxIcon() {
+// Marco común de los iconos de servicio (un icono distinto por servicio).
+function IconWrap({ children }) {
   return (
     <svg
       viewBox="0 0 24 24"
@@ -91,11 +103,77 @@ function BoxIcon() {
       strokeLinejoin="round"
       aria-hidden
     >
+      {children}
+    </svg>
+  );
+}
+
+// Cartón ondulado — caja
+function BoxIcon() {
+  return (
+    <IconWrap>
       <path d="M12 22v-9" />
       <path d="M15.17 2.21a1.67 1.67 0 0 1 1.63 0L21 4.57a1.93 1.93 0 0 1 0 3.36L8.82 14.79a1.655 1.655 0 0 1-1.64 0L3 12.43a1.93 1.93 0 0 1 0-3.36z" />
       <path d="M20 13v3.87a2.06 2.06 0 0 1-1.11 1.83l-6 3.08a1.93 1.93 0 0 1-1.78 0l-6-3.08A2.06 2.06 0 0 1 4 16.87V13" />
       <path d="M21 12.43a1.93 1.93 0 0 0 0-3.36L8.83 2.2a1.64 1.64 0 0 0-1.63 0L3 4.57a1.93 1.93 0 0 0 0 3.36l12.18 6.86a1.636 1.636 0 0 0 1.63 0z" />
-    </svg>
+    </IconWrap>
+  );
+}
+
+// Almacenaje y stock — cajas apiladas
+function BoxesIcon() {
+  return (
+    <IconWrap>
+      <path d="M2.97 12.92A2 2 0 0 0 2 14.63v3.24a2 2 0 0 0 .97 1.71l3 1.8a2 2 0 0 0 2.06 0L12 19v-5.5l-5-3-4.03 2.42Z" />
+      <path d="m7 16.5-4.74-2.85" />
+      <path d="m7 16.5 5-3" />
+      <path d="M7 16.5v5.17" />
+      <path d="M12 13.5V19l3.97 2.38a2 2 0 0 0 2.06 0l3-1.8a2 2 0 0 0 .97-1.71v-3.24a2 2 0 0 0-.97-1.71L17 10.5l-5 3Z" />
+      <path d="m17 16.5-5-3" />
+      <path d="m17 16.5 4.74-2.85" />
+      <path d="M17 16.5v5.17" />
+      <path d="M7.97 4.42A2 2 0 0 0 7 6.13v4.37l5 3 5-3V6.13a2 2 0 0 0-.97-1.71l-3-1.8a2 2 0 0 0-2.06 0l-3 1.8Z" />
+      <path d="M12 8 7.26 5.15" />
+      <path d="m12 8 4.74-2.85" />
+      <path d="M12 13.5V8" />
+    </IconWrap>
+  );
+}
+
+// Transporte y entregas — camión
+function TruckIcon() {
+  return (
+    <IconWrap>
+      <path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2" />
+      <path d="M15 18H9" />
+      <path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14" />
+      <circle cx="17" cy="18" r="2" />
+      <circle cx="7" cy="18" r="2" />
+    </IconWrap>
+  );
+}
+
+// Manipulado y preparación — caja preparada
+function PrepIcon() {
+  return (
+    <IconWrap>
+      <path d="m16 16 2 2 4-4" />
+      <path d="M21 10V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0" />
+      <path d="m7.5 4.27 9 5.15" />
+      <path d="M3.29 7 12 12l8.71-5" />
+      <path d="M12 22V12" />
+    </IconWrap>
+  );
+}
+
+// Material auxiliar — rollo (precinto / film)
+function RollIcon() {
+  return (
+    <IconWrap>
+      <ellipse cx="12" cy="6" rx="7" ry="3" />
+      <path d="M5 6v9c0 1.66 3.1 3 7 3s7-1.34 7-3V6" />
+      <path d="M5 10.5c0 1.66 3.1 3 7 3s7-1.34 7-3" />
+    </IconWrap>
   );
 }
 
@@ -232,12 +310,29 @@ export default function Services() {
             {items.map((it) => (
               <article
                 key={it.n}
-                className="relative shrink-0 w-full desk:w-[58vw] desk:h-full bg-paperSoft border border-border flex flex-col desk:grid desk:grid-cols-2"
+                className={`relative shrink-0 w-full desk:h-full bg-paperSoft border border-border flex flex-col desk:grid desk:grid-cols-2 ${
+                  it.wide ? "desk:w-[80vw]" : "desk:w-[56vw]"
+                }`}
               >
                 {it.featured && <StarSticker />}
 
-                <div className="relative bg-paperDeep min-h-[220px] desk:min-h-0 overflow-hidden">
-                  <StockImg src={it.img} alt={it.alt} w={1400} />
+                <div className="relative bg-paperDeep min-h-[240px] sm:min-h-[320px] md:min-h-[460px] desk:min-h-0 overflow-hidden">
+                  {it.video ? (
+                    <video
+                      className="absolute inset-0 w-full h-full object-cover"
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      poster={it.poster}
+                      aria-label={it.alt}
+                    >
+                      <source src={`${it.video}.webm`} type="video/webm" />
+                      <source src={`${it.video}.mp4`} type="video/mp4" />
+                    </video>
+                  ) : (
+                    <StockImg src={it.img} alt={it.alt} w={1400} />
+                  )}
                 </div>
 
                 <div className="p-6 md:p-8 flex flex-col gap-4 overflow-hidden min-h-0">
@@ -245,7 +340,7 @@ export default function Services() {
                     <span className="font-mono text-xs tracking-widest text-inkSoft">{it.n}</span>
                   </div>
 
-                  <h3 className="font-display font-medium text-2xl md:text-3xl leading-[1.05] tracking-tighter text-balance">
+                  <h3 className="font-display font-medium text-2xl md:text-3xl leading-[1] tracking-tighter text-balance">
                     {it.title}
                   </h3>
 
@@ -256,11 +351,14 @@ export default function Services() {
                     {it.body}
                   </p>
 
-                  <ul className="grid grid-cols-1 sm:grid-cols-2 gap-y-2 gap-x-4 border-t border-border pt-4 text-sm text-ink">
+                  <ul className="border-t border-border text-ink">
                     {it.tags.map((t) => (
-                      <li key={t} className="flex items-start gap-2.5 leading-[1.25]">
-                        <BoxIcon />
-                        {t}
+                      <li
+                        key={t}
+                        className="flex items-start gap-3 py-2 md:py-2.5 border-b border-border/60 last:border-b-0 text-[15px] md:text-base font-normal"
+                      >
+                        <it.Icon />
+                        <span className="leading-[1.25]">{t}</span>
                       </li>
                     ))}
                   </ul>

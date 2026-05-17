@@ -12,21 +12,13 @@ const sectors = [
 
 function Track({ ariaHidden = false }) {
   return (
-    <ul
-      aria-hidden={ariaHidden}
-      className="flex shrink-0 items-center"
-    >
+    <ul aria-hidden={ariaHidden} className="flex shrink-0 items-center">
       {sectors.map((s, i) => (
-        <li
-          key={`${s}-${i}`}
-          className="flex items-center whitespace-nowrap"
-        >
-          <span className="px-7 md:px-12 text-[11px] md:text-base font-medium uppercase tracking-[0.18em] md:tracking-[0.22em] text-ink">
+        <li key={`${s}-${i}`} className="flex items-center whitespace-nowrap">
+          <span className="px-6 md:px-9 text-[11px] md:text-[13px] uppercase tracking-[0.2em] font-medium text-ink">
             {s}
           </span>
-          <span aria-hidden className="text-wood/70 font-light text-lg md:text-3xl select-none">
-            /
-          </span>
+          <span aria-hidden className="h-[6px] w-[6px] shrink-0 rotate-45 bg-wood/50" />
         </li>
       ))}
     </ul>
@@ -37,7 +29,7 @@ export default function Sectors() {
   return (
     <section
       aria-label="Sectores en los que trabajamos"
-      className="relative border-y border-border py-8 overflow-hidden"
+      className="relative border-y border-border py-5 md:py-6 overflow-hidden"
     >
       <div className="relative overflow-hidden">
         <div className="marquee-track">

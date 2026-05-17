@@ -16,7 +16,7 @@ export default function About() {
       <Container>
         <div className="grid grid-cols-12 gap-x-4 md:gap-x-8 gap-y-12 items-start">
           <div className="col-span-12 desk:col-span-4">
-            <div className="relative aspect-[4/5] bg-paperDeep overflow-hidden">
+            <div className="relative aspect-[4/5] md:aspect-[16/10] desk:aspect-[4/5] bg-paperDeep overflow-hidden">
               <StockImg
                 src="https://images.unsplash.com/photo-1672552226380-486fe900b322"
                 alt="Almacén de RM Dislovall en Sentmenat con cajas y palets"
@@ -62,7 +62,7 @@ export default function About() {
                     <dt className="text-[10px] uppercase tracking-[0.22em] text-inkSoft mb-4">
                       {f.k}
                     </dt>
-                    <dd className="font-display font-medium text-lg md:text-xl tracking-tight leading-[1.2] text-ink text-balance">
+                    <dd className="font-display font-medium text-lg md:text-xl tracking-tight leading-[1.1] text-ink text-balance">
                       {f.v}
                     </dd>
                   </div>
