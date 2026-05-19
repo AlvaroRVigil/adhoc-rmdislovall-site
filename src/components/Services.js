@@ -184,6 +184,12 @@ function StarSticker({ text, color, icon = "box" }) {
   const arcId = "sticker-" + useId().replace(/[^a-z0-9]/gi, "");
 
   useEffect(() => {
+    // La rotación por scroll vertical solo tiene sentido en desktop, donde
+    // el sello está fijo a la derecha de la card. En móvil el sello vive
+    // dentro de la card del carrusel y la rotación constante distrae.
+    const mql = window.matchMedia("(min-width: 1280px)");
+    if (!mql.matches) return;
+
     let lastY = window.scrollY;
     let rot = 0;
     let raf = 0;
