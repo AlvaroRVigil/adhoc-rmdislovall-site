@@ -49,34 +49,11 @@ export default function Works() {
         </div>
       </Container>
 
-      <div className="md:hidden">
-        <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory px-section-x pb-2 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
-          {works.map((w, i) => (
-            <article
-              key={w.title}
-              className="snap-start shrink-0 w-[78%] sm:w-[400px] space-y-4"
-            >
-              <div className="relative aspect-[4/5] bg-paperDeep overflow-hidden">
-                <StockImg src={w.src} alt={w.alt} w={1100} />
-              </div>
-              <div className="flex items-baseline justify-between text-[10px] uppercase tracking-[0.22em] text-inkSoft">
-                <span>{w.sector}</span>
-                <span className="font-mono text-ink">0{i + 1}</span>
-              </div>
-              <h3 className="font-display text-xl text-balance">
-                {w.title}
-              </h3>
-              <p className="text-sm text-inkSoft text-pretty">{w.body}</p>
-            </article>
-          ))}
-        </div>
-      </div>
-
       <Container>
-        <div className="hidden md:grid md:grid-cols-3 gap-x-6 gap-y-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-x-6 gap-y-10 md:gap-y-12">
           {works.map((w, i) => (
             <article key={w.title} className="space-y-4">
-              <div className="relative aspect-[4/5] bg-paperDeep overflow-hidden">
+              <div className="relative aspect-[16/10] md:aspect-[4/5] bg-paperDeep overflow-hidden">
                 <StockImg src={w.src} alt={w.alt} w={1100} />
               </div>
               <div className="flex items-baseline justify-between text-[10px] uppercase tracking-[0.22em] text-inkSoft">
