@@ -49,7 +49,7 @@ export default function Works() {
         </div>
       </Container>
 
-      <div className="desk:hidden">
+      <div className="md:hidden">
         <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory px-section-x pb-2 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
           {works.map((w, i) => (
             <article
@@ -73,7 +73,7 @@ export default function Works() {
       </div>
 
       <Container>
-        <div className="hidden desk:grid desk:grid-cols-3 gap-x-6 gap-y-12">
+        <div className="hidden md:grid md:grid-cols-3 gap-x-6 gap-y-12">
           {works.map((w, i) => (
             <article key={w.title} className="space-y-4">
               <div className="relative aspect-[4/5] bg-paperDeep overflow-hidden">

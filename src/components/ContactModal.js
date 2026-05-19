@@ -1,8 +1,28 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export default function ContactModal({ open, onClose }) {
+  const [copied, setCopied] = useState(false);
+
+  const copyPhone = async () => {
+    const number = "937 153 920";
+    try {
+      await navigator.clipboard.writeText(number);
+    } catch {
+      const ta = document.createElement("textarea");
+      ta.value = number;
+      ta.style.position = "fixed";
+      ta.style.opacity = "0";
+      document.body.appendChild(ta);
+      ta.select();
+      try { document.execCommand("copy"); } catch {}
+      document.body.removeChild(ta);
+    }
+    setCopied(true);
+    setTimeout(() => setCopied(false), 1800);
+  };
+
   useEffect(() => {
     if (typeof document === "undefined") return;
     if (open) {
@@ -77,7 +97,7 @@ export default function ContactModal({ open, onClose }) {
                   </label>
                   <label className="block">
                     <span className="sr-only">Empresa</span>
-                    <input className="field-dark" type="text" name="empresa" placeholder="Empresa" />
+                    <input className="field-dark" type="text" name="empresa" placeholder="Empresa (opcional)" />
                   </label>
                   <label className="block">
                     <span className="sr-only">Teléfono</span>
@@ -85,7 +105,7 @@ export default function ContactModal({ open, onClose }) {
                   </label>
                   <label className="block">
                     <span className="sr-only">Email</span>
-                    <input className="field-dark" type="email" name="email" placeholder="Email (opcional)" />
+                    <input className="field-dark" type="email" name="email" placeholder="Email" required />
                   </label>
                 </div>
                 <label className="block">
@@ -94,7 +114,7 @@ export default function ContactModal({ open, onClose }) {
                     className="textarea-dark"
                     rows={4}
                     name="mensaje"
-                    placeholder="Cuéntanos qué necesitas — producto, volumen, plazo"
+                    placeholder="Cuéntanos qué necesitas — tipo de embalaje, medidas, calidad, cantidad"
                     required
                   />
                 </label>
@@ -109,6 +129,28 @@ export default function ContactModal({ open, onClose }) {
                   Enviar solicitud
                 </button>
               </form>
+
+              <div className="mt-8 md:mt-10 pt-6 md:pt-8 border-t border-woodSoft/15 text-center">
+                <p className="text-[11px] uppercase tracking-[0.22em] text-woodSoft/55 mb-3">
+                  ¿Prefieres llamarnos?
+                </p>
+                <button
+                  type="button"
+                  onClick={copyPhone}
+                  aria-label="Copiar número de teléfono"
+                  className="group relative inline-block font-display text-2xl md:text-3xl tracking-tight text-woodSoft hover:text-wood transition-colors"
+                >
+                  937 153 920
+                  <span
+                    aria-live="polite"
+                    className={`pointer-events-none absolute left-1/2 -translate-x-1/2 top-full mt-2 text-[11px] uppercase tracking-[0.22em] transition-opacity duration-200 ${
+                      copied ? "opacity-100 text-wood" : "opacity-0 text-woodSoft/55"
+                    }`}
+                  >
+                    Copiado
+                  </span>
+                </button>
+              </div>
             </div>
           </div>
         </div>

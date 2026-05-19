@@ -87,8 +87,15 @@ export default function Hero() {
             <p className="text-base text-inkSoft text-pretty max-w-[34rem] leading-[1.5] mx-auto desk:mx-0">
               Ayudamos a empresas industriales y logísticas a optimizar su
               embalaje y su suministro con soluciones a medida de cada producto
-              y cada operativa. Nos adaptamos a tu forma de trabajar, no al revés.
+              y cada operativa.
             </p>
+            <div className="flex items-start gap-4 max-w-[34rem] mx-auto desk:mx-0 pt-1">
+              <span aria-hidden className="hidden md:block h-px w-10 bg-wood mt-[0.95rem] shrink-0" />
+              <p className="font-display italic text-lg md:text-xl tracking-tight leading-[1.25] text-ink text-balance">
+                Nos adaptamos a tu forma de trabajar,{" "}
+                <span className="text-wood">no al revés.</span>
+              </p>
+            </div>
             <div className="pt-2 flex flex-wrap items-center justify-center desk:justify-start gap-x-5 gap-y-3">
               <PillButton contact>¿Hablamos?</PillButton>
               <a

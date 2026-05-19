@@ -3,9 +3,9 @@ import StockImg from "./StockImg";
 
 const facts = [
   { k: "Experiencia", v: "+40 años en el sector" },
-  { k: "Instalaciones", v: "2.000 m²" },
+  { k: "Instalaciones", v: "+2.000 m²" },
   { k: "Cobertura", v: "Cataluña y resto de España" },
-  { k: "Servicios integrados", v: "Diseño · Suministro · Manipulado · Logística" },
+  { k: "Soluciones integradas", v: "Diseño de embalaje, Suministro, Manipulado y Logística" },
   { k: "Respuesta", v: "Ágil ante urgencias" },
   { k: "Modelo", v: "Empresa familiar, interlocución directa" },
 ];
@@ -33,16 +33,15 @@ export default function About() {
             </h2>
             <p className="text-base md:text-lg text-inkSoft text-pretty leading-[1.45] max-w-xl mx-auto desk:mx-0">
               RM Dislovall trabaja con empresas industriales y logísticas que
-              necesitan un proveedor fiable para su operativa de embalaje.
+              necesitan <span className="text-ink font-medium">un proveedor fiable</span> para su operativa de embalaje.
             </p>
             <p className="text-base text-inkSoft text-pretty leading-[1.45] max-w-xl mx-auto desk:mx-0">
               El enfoque no está en ofrecer un catálogo genérico, sino en
-              adaptarse a las necesidades reales de producción, manipulado y
-              suministro de cada cliente.
+              <span className="text-ink font-medium"> adaptarse a las necesidades reales</span> de
+              producción, manipulado y suministro de cada cliente.
             </p>
             <p className="text-base text-inkSoft text-pretty leading-[1.45] max-w-xl mx-auto desk:mx-0">
-              Trabajamos con sectores como alimentación, automoción, logística
-              y farmacéutico — donde el embalaje forma parte directa de la
+              Trabajamos con sectores como <span className="text-ink font-medium">alimentación, automoción, logística y sector químico</span> — donde el embalaje forma parte directa de la
               operativa diaria.
             </p>
 
@@ -62,7 +61,7 @@ export default function About() {
                     <dt className="text-[10px] uppercase tracking-[0.22em] text-inkSoft mb-4">
                       {f.k}
                     </dt>
-                    <dd className="font-display font-medium text-lg md:text-xl tracking-tight leading-[1.1] text-ink text-balance">
+                    <dd className="font-display font-medium text-sm md:text-base tracking-tight leading-[1.2] text-ink text-balance">
                       {f.v}
                     </dd>
                   </div>

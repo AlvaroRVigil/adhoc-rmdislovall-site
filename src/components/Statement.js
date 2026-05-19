@@ -69,17 +69,17 @@ const TruckIcon = () => (
 const blocks = [
   {
     title: "Embalaje de cartón ondulado",
-    body: "Cartón ondulado adaptado a protección, transporte y almacenaje.",
+    body: "Embalaje de cartón ondulado adaptado a cada producto y operativa.",
     Icon: PackageIcon,
   },
   {
     title: "Manipulado y preparación",
-    body: "Preparación según necesidades operativas y de expedición.",
+    body: "Preparación y acondicionamiento según necesidades operativas y de expedición.",
     Icon: BoxesIcon,
   },
   {
-    title: "Suministro logístico",
-    body: "Suministro continuo para empresas con necesidades recurrentes.",
+    title: "Gestión de stock y suministro",
+    body: "Suministro continuo para clientes con reposiciones recurrentes.",
     Icon: TruckIcon,
   },
 ];

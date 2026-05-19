@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useId, useRef } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Container from "./Container";
@@ -10,9 +10,9 @@ const items = [
   {
     n: "01",
     Icon: BoxIcon,
-    title: "Cartón ondulado a medida",
+    title: "Embalaje de cartón ondulado a medida",
     body:
-      "Cajas y embalaje de cartón ondulado adaptados al producto, al pallet y a la línea de manipulación. Trabajamos una amplitud real de soluciones, no un catálogo cerrado.",
+      "Cajas y embalaje de cartón ondulado adaptados a cada producto, operativa y necesidad de suministro. Trabajamos una amplia variedad de formatos y soluciones.",
     tags: [
       "Cajas y formatos especiales",
       "Tipo box y embalaje industrial",
@@ -21,30 +21,30 @@ const items = [
       "Planchas y formatos de cartón",
       "Distintos canales y calidades",
     ],
-    closer: "Cada caja se plantea según protección, volumen de pallet y compatibilidad con la operativa de envasado.",
+    closer: "Cada caja se plantea según producto, protección y operativa del cliente.",
     video: "/video/carton-ondulado",
     poster: "/video/carton-ondulado-poster.jpg",
     img: "https://images.unsplash.com/photo-1771848194068-169d817a1d6f",
     alt: "Caja de cartón ondulado a medida",
-    sticker: { text: "SERVICIO MÁS VENDIDO · ", color: "#9B2F23", icon: "box" },
+    sticker: { text: "SERVICIO MÁS VENDIDO ·  ", color: "#9B2F23", icon: "box" },
     wide: true,
   },
   {
     n: "02",
     Icon: BoxesIcon,
     wide: true,
-    sticker: { text: "SERVICIO DESTACADO · ", color: "#6E5945", icon: "star" },
+    sticker: { text: "SERVICIO DESTACADO ·  ", color: "#6E5945", icon: "star" },
     title: "Almacenaje y gestión de stock",
     body:
-      "Guardamos el stock de cada cliente en más de 2.000 m² de instalaciones y lo servimos según necesidad. Reposición y entregas recurrentes sin comprar de golpe ni inmovilizar capital.",
+      "Servicio de almacenaje y suministro para clientes con necesidades recurrentes. Disponemos de más de 2.000 m² de instalaciones para gestión de stock, reposición y entregas programadas según la operativa y demanda de cada cliente.",
     tags: [
-      "Stock de clientes",
+      "Stock dedicado",
       "Gestión de stock",
       "Entregas recurrentes o bajo demanda",
       "Continuidad de suministro",
       "Capacidad de respuesta",
     ],
-    closer: "Stock guardado y servido al ritmo de tu operativa.",
+    closer: "Suministro continuo adaptado a la operativa de cada cliente.",
     img: "https://images.unsplash.com/photo-1672552226380-486fe900b322",
     alt: "Almacén con palets de cajas",
   },
@@ -54,7 +54,7 @@ const items = [
     title: "Transporte y entregas",
     body:
       "Flota propia para entregas en Cataluña y red logística para envíos puntuales fuera. Cobertura regional como base, con capacidad de respuesta cuando el material está disponible.",
-    tags: ["Flota propia", "Cobertura regional", "Envíos puntuales fuera", "Capacidad de respuesta"],
+    tags: ["Flota propia", "Cobertura regional", "Envíos nacionales puntuales", "Capacidad de respuesta"],
     closer: "Si está en stock, puede salir el mismo día.",
     img: "https://images.unsplash.com/photo-1645736315000-6f788915923b",
     alt: "Carretilla y entregas",
@@ -64,7 +64,7 @@ const items = [
     Icon: PrepIcon,
     title: "Manipulado y preparación",
     body:
-      "Preparamos el material para que llegue listo para usar — en línea, en almacenaje o en expedición. Un servicio flexible que se adapta a la necesidad de cada cliente.",
+      "Preparamos el material para que llegue listo para su uso, almacenaje o expedición. Un servicio flexible adaptado a la operativa de cada cliente.",
     tags: [
       "Corte y acondicionamiento",
       "Montaje de kits",
@@ -83,9 +83,9 @@ const items = [
     Icon: RollIcon,
     title: "Material auxiliar",
     body:
-      "Precinto, film estirable, fleje y consumibles para cierre, paletizado y expedición. Suministrado en el mismo pedido y la misma entrega que el embalaje principal.",
+      "Precinto, film estirable, fleje y consumibles para cierre, paletizado y expedición. Material complementario para centralizar el suministro en un solo proveedor.",
     tags: ["Precinto", "Film estirable", "Fleje", "Consumibles"],
-    closer: "Un solo proveedor para todo el material que necesita la línea.",
+    closer: "Un solo proveedor para embalaje y material auxiliar.",
     img: "https://images.unsplash.com/photo-1709804945989-c8be542e04db",
     alt: "Material auxiliar para embalaje",
   },
@@ -225,6 +225,7 @@ function StarSticker({ text, color, icon = "box" }) {
             fill={color}
             textLength="439"
             lengthAdjust="spacing"
+            xmlSpace="preserve"
             style={{
               fontFamily: "var(--font-sans), system-ui, sans-serif",
               fontSize: "16.5px",
@@ -262,6 +263,8 @@ function StarSticker({ text, color, icon = "box" }) {
 export default function Services() {
   const sectionRef = useRef(null);
   const trackRef = useRef(null);
+  const scrollerRef = useRef(null);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -302,6 +305,39 @@ export default function Services() {
     return () => mm.revert();
   }, []);
 
+  // Carrusel móvil/tablet: actualiza el punto activo según qué card está más
+  // centrada en el scroller horizontal. Solo se activa por debajo de 1280px.
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const scroller = scrollerRef.current;
+    if (!scroller) return;
+    const mql = window.matchMedia("(min-width: 1280px)");
+    if (mql.matches) return;
+
+    const cards = scroller.querySelectorAll("[data-card-idx]");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        let best = null;
+        entries.forEach((entry) => {
+          if (entry.intersectionRatio > 0 && (!best || entry.intersectionRatio > best.intersectionRatio)) {
+            best = entry;
+          }
+        });
+        if (best) setActiveIndex(Number(best.target.dataset.cardIdx));
+      },
+      { root: scroller, threshold: [0.4, 0.6, 0.8, 1] }
+    );
+    cards.forEach((c) => observer.observe(c));
+    return () => observer.disconnect();
+  }, []);
+
+  const scrollToIndex = (i) => {
+    const scroller = scrollerRef.current;
+    if (!scroller) return;
+    const card = scroller.querySelector(`[data-card-idx="${i}"]`);
+    if (card) card.scrollIntoView({ behavior: "smooth", inline: "start", block: "nearest" });
+  };
+
   return (
     <section
       id="servicios"
@@ -319,21 +355,25 @@ export default function Services() {
               </h2>
             </div>
             <p className="col-span-12 desk:col-span-4 desk:col-start-9 text-sm text-inkSoft text-pretty text-center desk:text-left max-w-sm mx-auto desk:mx-0 desk:max-w-none">
-              Cinco servicios coordinados desde Sentmenat.
-              <span className="hidden desk:inline"> Desliza para recorrerlos.</span>
+              Cinco servicios coordinados desde Sentmenat. Desliza para recorrerlos.
             </p>
           </div>
         </Container>
 
-        <div className="desk:flex-1 desk:flex desk:items-center desk:overflow-hidden desk:pb-[2vh] pb-16">
+        <div className="desk:flex-1 desk:flex desk:items-center desk:overflow-hidden desk:pb-[2vh] pb-10">
+          <div
+            ref={scrollerRef}
+            className="w-full overflow-x-auto snap-x snap-mandatory desk:overflow-visible [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+          >
           <div
             ref={trackRef}
-            className="flex flex-col desk:flex-row gap-6 md:gap-8 px-section-x desk:px-0 desk:pl-section-x desk:pr-section-x desk:h-[64vh] will-change-transform"
+            className="flex flex-row gap-4 md:gap-6 desk:gap-8 px-section-x desk:px-0 desk:pl-section-x desk:pr-section-x desk:h-[64vh] will-change-transform"
           >
-            {items.map((it) => (
+            {items.map((it, idx) => (
               <article
                 key={it.n}
-                className={`relative shrink-0 w-full desk:h-full bg-paperSoft border border-border flex flex-col desk:grid desk:grid-cols-2 ${
+                data-card-idx={idx}
+                className={`snap-start relative shrink-0 w-[86%] sm:w-[80%] md:w-[68%] desk:h-full bg-paperSoft border border-border flex flex-col desk:grid desk:grid-cols-2 ${
                   it.wide ? "desk:w-[80vw]" : "desk:w-[56vw]"
                 }`}
               >
@@ -345,7 +385,7 @@ export default function Services() {
                   />
                 )}
 
-                <div className="relative bg-paperDeep min-h-[240px] sm:min-h-[320px] md:min-h-[460px] desk:min-h-0 overflow-hidden">
+                <div className="relative bg-paperDeep min-h-[220px] sm:min-h-[260px] md:min-h-[320px] desk:min-h-0 overflow-hidden">
                   {it.video ? (
                     <video
                       className="absolute inset-0 w-full h-full object-cover"
@@ -404,6 +444,22 @@ export default function Services() {
               </article>
             ))}
           </div>
+          </div>
+        </div>
+
+        <div className="desk:hidden flex items-center justify-center gap-2 pb-section-y">
+          {items.map((it, i) => (
+            <button
+              key={it.n}
+              type="button"
+              onClick={() => scrollToIndex(i)}
+              aria-label={`Ir al servicio ${i + 1}: ${it.title}`}
+              aria-current={activeIndex === i ? "true" : undefined}
+              className={`h-2 rounded-full transition-all duration-300 ${
+                activeIndex === i ? "w-6 bg-ink" : "w-2 bg-ink/25 hover:bg-ink/40"
+              }`}
+            />
+          ))}
         </div>
       </div>
     </section>
