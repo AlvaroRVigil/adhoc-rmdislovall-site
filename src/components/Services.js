@@ -311,52 +311,43 @@ export default function Services() {
     return () => mm.revert();
   }, []);
 
-  // Carrusel móvil/tablet: actualiza el dot activo en función de qué card
-  // está más cerca del borde izquierdo del scroller. Usamos un scroll
-  // listener throttled con rAF — más responsive y suave que IntersectionObserver
-  // cuando el usuario arrastra con el dedo.
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    const scroller = scrollerRef.current;
-    if (!scroller) return;
-    const mql = window.matchMedia("(min-width: 1280px)");
-    if (mql.matches) return;
-
-    let raf = 0;
-    const update = () => {
-      raf = 0;
+  // Carrusel móvil/tablet: el dot activo se calcula en cada evento de scroll
+  // del scroller, comparando la posición central del viewport del scroller
+  // contra el centro de cada card. Más estable que tomar como referencia el
+  // borde izquierdo cuando hay scroll-padding o snap-proximity de por medio.
+  const rafRef = useRef(0);
+  const handleScroll = (e) => {
+    const scroller = e.currentTarget;
+    if (rafRef.current) return;
+    rafRef.current = requestAnimationFrame(() => {
+      rafRef.current = 0;
+      const rect = scroller.getBoundingClientRect();
+      const center = rect.left + rect.width / 2;
       const cards = scroller.querySelectorAll("[data-card-idx]");
-      const scrollerLeft = scroller.getBoundingClientRect().left;
       let bestIdx = 0;
       let bestDist = Infinity;
       cards.forEach((c) => {
-        const dist = Math.abs(c.getBoundingClientRect().left - scrollerLeft);
+        const r = c.getBoundingClientRect();
+        const cCenter = r.left + r.width / 2;
+        const dist = Math.abs(cCenter - center);
         if (dist < bestDist) {
           bestDist = dist;
           bestIdx = Number(c.dataset.cardIdx);
         }
       });
       setActiveIndex(bestIdx);
-    };
-    const onScroll = () => {
-      if (raf) return;
-      raf = requestAnimationFrame(update);
-    };
-    scroller.addEventListener("scroll", onScroll, { passive: true });
-    update();
-    return () => {
-      scroller.removeEventListener("scroll", onScroll);
-      if (raf) cancelAnimationFrame(raf);
-    };
-  }, []);
+    });
+  };
 
   const scrollToIndex = (i) => {
     const scroller = scrollerRef.current;
     if (!scroller) return;
     const card = scroller.querySelector(`[data-card-idx="${i}"]`);
     if (!card) return;
-    const offset = card.offsetLeft - scroller.offsetLeft;
-    scroller.scrollTo({ left: offset, behavior: "smooth" });
+    const cardRect = card.getBoundingClientRect();
+    const scrollerRect = scroller.getBoundingClientRect();
+    const delta = cardRect.left - scrollerRect.left - 16; // ~scroll-pl
+    scroller.scrollBy({ left: delta, behavior: "smooth" });
   };
 
   return (
@@ -384,6 +375,7 @@ export default function Services() {
         <div className="desk:flex-1 desk:flex desk:items-center desk:overflow-hidden desk:pb-[2vh] pb-10 pt-8 desk:pt-0">
           <div
             ref={scrollerRef}
+            onScroll={handleScroll}
             className="w-full overflow-x-auto snap-x snap-proximity scroll-pl-section-x desk:snap-none desk:overflow-visible desk:scroll-pl-0 overscroll-x-contain [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
           >
           <div
