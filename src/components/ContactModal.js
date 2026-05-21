@@ -5,6 +5,29 @@ import { useEffect, useState } from "react";
 export default function ContactModal({ open, onClose }) {
   const [copied, setCopied] = useState(false);
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const data = new FormData(e.currentTarget);
+    const nombre = (data.get("nombre") || "").toString().trim();
+    const empresa = (data.get("empresa") || "").toString().trim();
+    const telefono = (data.get("telefono") || "").toString().trim();
+    const email = (data.get("email") || "").toString().trim();
+    const mensaje = (data.get("mensaje") || "").toString().trim();
+    const lines = [
+      `Nombre: ${nombre}`,
+      empresa ? `Empresa: ${empresa}` : null,
+      `Teléfono: ${telefono}`,
+      `Email: ${email}`,
+      "",
+      "Mensaje:",
+      mensaje,
+    ].filter(Boolean);
+    const subject = "Nueva solicitud web — RM Dislovall";
+    const body = lines.join("\n");
+    const href = `mailto:info@rmdislovall.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = href;
+  };
+
   const copyPhone = async () => {
     const number = "937 153 920";
     try {
@@ -89,7 +112,7 @@ export default function ContactModal({ open, onClose }) {
                 </h2>
               </div>
 
-              <form className="space-y-5 md:space-y-6">
+              <form className="space-y-5 md:space-y-6" onSubmit={handleSubmit}>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1">
                   <label className="block">
                     <span className="sr-only">Nombre</span>

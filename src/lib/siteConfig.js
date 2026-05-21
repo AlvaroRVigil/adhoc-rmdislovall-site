@@ -20,7 +20,7 @@ export const siteConfig = {
   },
   hours: {
     days: "Lunes a viernes",
-    range: "7:00 — 15:00",
+    range: "7:00 — 17:00",
   },
   address: {
     street: "Calle Cementiri Nou, 8",

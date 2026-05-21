@@ -19,6 +19,7 @@ const items = [
       "Cajas troqueladas",
       "Separadores e interiores troquelados",
       "Planchas y formatos de cartón",
+      "Impresión y personalización",
       "Distintos canales y calidades",
     ],
     closer: "Cada caja se plantea según producto, protección y operativa del cliente.",
@@ -45,6 +46,10 @@ const items = [
       "Capacidad de respuesta",
     ],
     closer: "Suministro continuo adaptado a la operativa de cada cliente.",
+    callout: {
+      title: "¿Necesitáis más espacio de almacenaje?",
+      body: "Gestionamos stock y entregas programadas de material de embalaje, tanto propio como suministrado por el cliente.",
+    },
     img: "https://images.unsplash.com/photo-1672552226380-486fe900b322",
     alt: "Almacén con palets de cajas",
   },
@@ -53,8 +58,8 @@ const items = [
     Icon: TruckIcon,
     title: "Transporte y entregas",
     body:
-      "Flota propia para entregas en Cataluña y red logística para envíos puntuales fuera. Cobertura regional como base, con capacidad de respuesta cuando el material está disponible.",
-    tags: ["Flota propia", "Cobertura regional", "Envíos nacionales puntuales", "Capacidad de respuesta"],
+      "Flota propia para entregas en Cataluña y red logística para el resto del territorio. Cobertura regional como base, con capacidad de respuesta cuando el material está disponible.",
+    tags: ["Flota propia", "Cobertura regional", "Red logística complementaria", "Capacidad de respuesta"],
     closer: "Si está en stock, puede salir el mismo día.",
     img: "https://images.unsplash.com/photo-1645736315000-6f788915923b",
     alt: "Carretilla y entregas",
@@ -164,6 +169,26 @@ function PrepIcon() {
       <path d="M3.29 7 12 12l8.71-5" />
       <path d="M12 22V12" />
     </IconWrap>
+  );
+}
+
+// Bombilla — usada en los callouts informativos dentro de las cards.
+function BulbIcon() {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      className="w-4 h-4 text-wood shrink-0 mt-[2px]"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden
+    >
+      <path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5" />
+      <path d="M9 18h6" />
+      <path d="M10 22h4" />
+    </svg>
   );
 }
 
@@ -339,17 +364,6 @@ export default function Services() {
     });
   };
 
-  const scrollToIndex = (i) => {
-    const scroller = scrollerRef.current;
-    if (!scroller) return;
-    const card = scroller.querySelector(`[data-card-idx="${i}"]`);
-    if (!card) return;
-    const cardRect = card.getBoundingClientRect();
-    const scrollerRect = scroller.getBoundingClientRect();
-    const delta = cardRect.left - scrollerRect.left - 16; // ~scroll-pl
-    scroller.scrollBy({ left: delta, behavior: "smooth" });
-  };
-
   return (
     <section
       id="servicios"
@@ -376,17 +390,17 @@ export default function Services() {
           <div
             ref={scrollerRef}
             onScroll={handleScroll}
-            className="w-full overflow-x-auto snap-x snap-proximity scroll-pl-section-x desk:snap-none desk:overflow-visible desk:scroll-pl-0 overscroll-x-contain [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+            className="w-full overflow-x-auto snap-x snap-mandatory scroll-pl-section-x scroll-pr-section-x desk:snap-none desk:overflow-visible desk:scroll-pl-0 desk:scroll-pr-0 overscroll-x-contain [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
           >
           <div
             ref={trackRef}
-            className="flex flex-row gap-4 md:gap-6 desk:gap-8 px-section-x desk:px-0 desk:pl-section-x desk:pr-section-x desk:h-[64vh] will-change-transform"
+            className="flex flex-row items-stretch gap-4 md:gap-6 desk:gap-8 px-section-x desk:px-0 desk:pl-section-x desk:pr-section-x desk:h-[64vh] will-change-transform"
           >
             {items.map((it, idx) => (
               <article
                 key={it.n}
                 data-card-idx={idx}
-                className={`snap-start relative shrink-0 w-[86%] sm:w-[80%] md:w-[68%] desk:h-full bg-paperSoft border border-border flex flex-col desk:grid desk:grid-cols-2 ${
+                className={`snap-start relative shrink-0 w-[82%] sm:w-[74%] md:w-[64%] desk:h-full bg-paperSoft border border-border flex flex-col desk:grid desk:grid-cols-2 ${
                   it.wide ? "desk:w-[80vw]" : "desk:w-[56vw]"
                 }`}
               >
@@ -398,7 +412,7 @@ export default function Services() {
                   />
                 )}
 
-                <div className="relative bg-paperDeep min-h-[220px] sm:min-h-[260px] md:min-h-[320px] desk:min-h-0 overflow-hidden">
+                <div className="relative bg-paperDeep h-[22vh] min-h-[150px] max-h-[230px] sm:h-[26vh] md:h-[30vh] desk:h-auto desk:min-h-0 desk:max-h-none overflow-hidden">
                   {it.video ? (
                     <video
                       className="absolute inset-0 w-full h-full object-cover"
@@ -415,15 +429,29 @@ export default function Services() {
                   ) : (
                     <StockImg src={it.img} alt={it.alt} w={1400} />
                   )}
+
+                  {/* Overlay editorial sólo en móvil/tablet: número + título sobre la imagen
+                      para que el contenido textual no tenga que volver a renderizarlos
+                      debajo. En desktop el grid 2 columnas mantiene número y título
+                      en la mitad derecha como hasta ahora. */}
+                  <div className="desk:hidden absolute inset-x-0 bottom-0 pt-16 pb-5 px-6 bg-gradient-to-t from-black/75 via-black/45 to-transparent">
+                    <span className="font-mono text-[11px] tracking-widest text-paper/80">
+                      {it.n}
+                    </span>
+                    <h3 className="mt-1 font-display font-medium text-paper text-2xl leading-[1] tracking-tighter text-balance">
+                      {it.title}
+                    </h3>
+                  </div>
                 </div>
 
                 <div className="p-6 md:p-8 flex flex-col gap-4 overflow-hidden min-h-0">
-                  <div className="flex items-center justify-between">
-                    <span className="font-mono text-xs tracking-widest text-inkSoft">{it.n}</span>
-                  </div>
-
-                  <h3 className="font-display font-medium text-2xl md:text-3xl leading-[1] tracking-tighter text-balance">
-                    {it.title}
+                  {/* Número + título sólo visibles en desktop (en móvil viven sobre la imagen).
+                      Se alinean en la misma línea base para ahorrar altura. */}
+                  <h3 className="hidden desk:flex items-baseline gap-3 font-display font-medium text-2xl md:text-3xl leading-[1] tracking-tighter text-balance">
+                    <span className="font-mono font-normal text-xs tracking-widest text-inkSoft">
+                      {it.n}
+                    </span>
+                    <span>{it.title}</span>
                   </h3>
 
                   <p
@@ -445,10 +473,26 @@ export default function Services() {
                     ))}
                   </ul>
 
+                  {it.callout && (
+                    <div className="mt-auto bg-paper px-4 py-3 flex items-start gap-2.5">
+                      <BulbIcon />
+                      <div className="space-y-1 -mt-[1px]">
+                        <p className="text-[13px] md:text-[13.5px] font-medium text-ink leading-[1.25]">
+                          {it.callout.title}
+                        </p>
+                        <p className="text-[13px] md:text-[13.5px] text-inkSoft leading-[1.45] text-pretty">
+                          {it.callout.body}
+                        </p>
+                      </div>
+                    </div>
+                  )}
+
                   {it.closer && (
                     <p
                       style={{ lineHeight: 1.05 }}
-                      className="font-display italic text-base md:text-lg text-wood text-pretty mt-auto pt-4"
+                      className={`font-display italic text-base md:text-lg text-wood text-pretty pt-4 ${
+                        it.callout ? "" : "mt-auto"
+                      }`}
                     >
                       {it.closer}
                     </p>
@@ -460,19 +504,19 @@ export default function Services() {
           </div>
         </div>
 
-        <div className="desk:hidden flex items-center justify-center gap-2 pb-section-y">
-          {items.map((it, i) => (
-            <button
-              key={it.n}
-              type="button"
-              onClick={() => scrollToIndex(i)}
-              aria-label={`Ir al servicio ${i + 1}: ${it.title}`}
-              aria-current={activeIndex === i ? "true" : undefined}
-              className={`h-2 rounded-full transition-all duration-300 ${
-                activeIndex === i ? "w-6 bg-ink" : "w-2 bg-ink/25 hover:bg-ink/40"
-              }`}
+        <div className="desk:hidden flex items-center justify-center gap-3 px-section-x pb-section-y">
+          <span className="font-mono text-xs tracking-widest text-ink tabular-nums">
+            {String(activeIndex + 1).padStart(2, "0")}
+          </span>
+          <div className="relative h-[2px] flex-1 max-w-[180px] bg-ink/15 overflow-hidden">
+            <div
+              className="absolute inset-y-0 left-0 bg-ink transition-[width] duration-300 ease-out"
+              style={{ width: `${((activeIndex + 1) / items.length) * 100}%` }}
             />
-          ))}
+          </div>
+          <span className="font-mono text-xs tracking-widest text-inkSoft tabular-nums">
+            {String(items.length).padStart(2, "0")}
+          </span>
         </div>
       </div>
     </section>
