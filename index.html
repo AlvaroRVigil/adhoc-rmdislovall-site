@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <title>RM Dislovall — Embalaje de cartón ondulado en Sentmenat (Barcelona)</title>
+  <meta name="description" content="Estamos preparando nuestra nueva web. Soluciones de embalaje de cartón ondulado, manipulado y suministro logístico en Sentmenat (Barcelona)." />
+  <meta name="theme-color" content="#FBF7F2" />
+  <meta name="robots" content="noindex" />
+
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" href="/icon.png" type="image/png" />
+  <link rel="apple-touch-icon" href="/apple-icon.png" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="RM Dislovall — Embalaje de cartón ondulado" />
+  <meta property="og:description" content="Estamos preparando nuestra nueva web. Mientras tanto, puedes contactarnos en info@rmdislovall.com o 937 153 920." />
+  <meta property="og:image" content="/opengraph-image.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="/twitter-image.jpg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --paper: #FBF7F2;
+      --paper-soft: #F2EDE5;
+      --ink: #30271D;
+      --ink-soft: #5C5044;
+      --wood: #6E5945;
+      --border: #E2DBCF;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Geist", ui-sans-serif, system-ui, -apple-system, sans-serif;
+      font-feature-settings: "ss01" on, "ss02" on;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    body::before,
+    body::after {
+      content: "";
+      position: absolute;
+      pointer-events: none;
+      background: var(--paper-soft);
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.55;
+      z-index: 0;
+    }
+    body::before {
+      width: 520px;
+      height: 520px;
+      top: -180px;
+      left: -180px;
+    }
+    body::after {
+      width: 620px;
+      height: 620px;
+      bottom: -240px;
+      right: -200px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 640px;
+      padding: 0 24px;
+      position: relative;
+      z-index: 1;
+      text-align: center;
+    }
+
+    header.site {
+      padding: 36px 0 0;
+    }
+
+    header.site .logo {
+      display: inline-block;
+      height: 30px;
+      width: auto;
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 32px 0;
+      width: 100%;
+    }
+
+    .panel {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .eyebrow {
+      font-family: "Geist Mono", ui-monospace, monospace;
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--wood);
+      margin: 0;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .eyebrow::before,
+    .eyebrow::after {
+      content: "";
+      display: inline-block;
+      width: 22px;
+      height: 1px;
+      background: var(--wood);
+      opacity: 0.6;
+    }
+
+    h1 {
+      font-size: clamp(2.25rem, 6vw, 3.75rem);
+      font-weight: 500;
+      letter-spacing: -0.03em;
+      line-height: 1.02;
+      margin: 0;
+      text-wrap: balance;
+    }
+
+    h1 .italic {
+      font-style: italic;
+      color: var(--wood);
+      display: block;
+    }
+
+    .lede {
+      font-size: clamp(15px, 1.6vw, 17px);
+      line-height: 1.55;
+      color: var(--ink-soft);
+      margin: 6px auto 0;
+      max-width: 42ch;
+      text-wrap: pretty;
+    }
+
+    .divider {
+      width: 32px;
+      height: 1px;
+      background: var(--border);
+      margin: 14px 0 4px;
+    }
+
+    .contact {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 8px 0;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .contact li {
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .contact li + li::before {
+      content: "";
+      display: inline-block;
+      width: 3px;
+      height: 3px;
+      background: var(--wood);
+      opacity: 0.5;
+      border-radius: 50%;
+      margin: 0 18px;
+      vertical-align: middle;
+    }
+
+    .contact a {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--ink);
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 500;
+      letter-spacing: -0.005em;
+      transition: color 180ms ease;
+    }
+
+    .contact a:hover { color: var(--wood); }
+
+    .contact svg {
+      width: 14px;
+      height: 14px;
+      color: var(--wood);
+      flex-shrink: 0;
+    }
+
+    .meta {
+      margin-top: 4px;
+      font-family: "Geist Mono", ui-monospace, monospace;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+    }
+
+    .meta span + span::before {
+      content: "·";
+      margin: 0 10px;
+      color: var(--wood);
+      opacity: 0.6;
+    }
+
+    footer.site {
+      padding: 22px 0 28px;
+      font-family: "Geist Mono", ui-monospace, monospace;
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      opacity: 0.7;
+    }
+
+    @media (max-width: 560px) {
+      header.site { padding-top: 24px; }
+      header.site .logo { height: 24px; }
+      .contact { flex-direction: column; gap: 14px; }
+      .contact li + li::before { display: none; }
+      .meta { line-height: 1.7; }
+      .meta span + span::before { display: none; }
+      .meta span { display: block; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site">
+    <div class="container">
+      <img src="/logo.svg" alt="RM Dislovall" class="logo" width="320" height="30" />
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <div class="panel">
+        <p class="eyebrow">Estamos preparando algo nuevo</p>
+        <h1>
+          Nuestra nueva web
+          <span class="italic">está en camino.</span>
+        </h1>
+        <p class="lede">
+          Mientras tanto, seguimos atendiendo con normalidad desde Sentmenat (Barcelona). Si necesitas embalaje, suministro o presupuesto, contáctanos directamente.
+        </p>
+
+        <span class="divider" aria-hidden="true"></span>
+
+        <ul class="contact">
+          <li>
+            <a href="tel:+34937153920" aria-label="Llamar al 937 153 920">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+              </svg>
+              937 153 920
+            </a>
+          </li>
+          <li>
+            <a href="mailto:info@rmdislovall.com" aria-label="Enviar email a info@rmdislovall.com">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="2" y="4" width="20" height="16" rx="2" />
+                <path d="m22 7-10 6L2 7" />
+              </svg>
+              info@rmdislovall.com
+            </a>
+          </li>
+          <li>
+            <a href="https://wa.me/34636441171" target="_blank" rel="noreferrer" aria-label="Escribir por WhatsApp al 636 441 171">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.4-.1-.6.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.2-1.4-.8-.7-1.4-1.6-1.6-1.9-.2-.3 0-.4.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.1-.6-1.5-.9-2.1-.2-.5-.5-.5-.6-.5h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2 0 1.3.9 2.5 1.1 2.7.1.2 1.8 2.8 4.3 3.9.6.3 1.1.4 1.5.5.6.2 1.2.2 1.7.1.5-.1 1.7-.7 1.9-1.3.2-.6.2-1.2.2-1.3-.1-.1-.3-.2-.6-.3M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.4 5L2 22l5.2-1.4c1.5.8 3.1 1.2 4.8 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2" />
+              </svg>
+              636 441 171
+            </a>
+          </li>
+        </ul>
+
+        <p class="meta">
+          <span>Sentmenat · Barcelona</span>
+          <span>Lun–Vie 7:00–17:00</span>
+        </p>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site">
+    <div class="container">
+      © <span id="year"></span> RM Dislovall S.L.
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
