@@ -141,7 +141,7 @@ class ImageTrailVariant1 extends TrailBase {
       .fromTo(
         img.DOM.el,
         {
-          opacity: 0.7,
+          opacity: 0.4,
           scale: 1,
           zIndex: this.zIndexVal,
           x: this.cacheMousePos.x - img.rect.width / 2,
@@ -191,7 +191,7 @@ class ImageTrailVariant2 extends TrailBase {
       .fromTo(
         img.DOM.el,
         {
-          opacity: 0.7,
+          opacity: 0.4,
           scale: 0,
           zIndex: this.zIndexVal,
           x: this.cacheMousePos.x - img.rect.width / 2,

@@ -9,15 +9,22 @@ export default function CookieBanner() {
 
   useEffect(() => {
     if (typeof window === "undefined") return;
+    let cleanup;
     try {
       const stored = window.localStorage.getItem(STORAGE_KEY);
       if (!stored) {
         const t = setTimeout(() => setVisible(true), 600);
-        return () => clearTimeout(t);
+        cleanup = () => clearTimeout(t);
       }
     } catch {
       setVisible(true);
     }
+    const onOpen = () => setVisible(true);
+    window.addEventListener("rmdislovall:open-cookies", onOpen);
+    return () => {
+      window.removeEventListener("rmdislovall:open-cookies", onOpen);
+      if (cleanup) cleanup();
+    };
   }, []);
 
   const dismiss = (choice) => {

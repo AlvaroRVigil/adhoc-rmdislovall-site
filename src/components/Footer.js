@@ -176,6 +176,15 @@ export default function Footer() {
           <a href="/aviso-legal" className="hover:text-accentSoft transition-colors">Aviso legal</a>
           <a href="/privacidad" className="hover:text-accentSoft transition-colors">Privacidad</a>
           <a href="/cookies" className="hover:text-accentSoft transition-colors">Cookies</a>
+          <button
+            type="button"
+            onClick={() =>
+              window.dispatchEvent(new Event("rmdislovall:open-cookies"))
+            }
+            className="hover:text-accentSoft transition-colors text-left"
+          >
+            Preferencias de cookies
+          </button>
         </div>
       </Container>
 

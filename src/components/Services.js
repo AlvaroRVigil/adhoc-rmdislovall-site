@@ -12,7 +12,7 @@ const items = [
     Icon: BoxIcon,
     title: "Embalaje de cartón ondulado a medida",
     body:
-      "Cajas y embalaje de cartón ondulado adaptados a cada producto, operativa y necesidad de suministro. Trabajamos una amplia variedad de formatos y soluciones.",
+      "Cajas personalizadas y embalaje de cartón ondulado a medida, adaptados a cada producto, operativa y necesidad de suministro. Trabajamos una amplia variedad de formatos, impresiones y soluciones para producción, almacenaje y expedición.",
     tags: [
       "Cajas y formatos especiales",
       "Tipo box y embalaje industrial",
@@ -22,7 +22,7 @@ const items = [
       "Impresión y personalización",
       "Distintos canales y calidades",
     ],
-    closer: "Cada caja se plantea según producto, protección y operativa del cliente.",
+    closer: "Cada embalaje se adapta al producto, la protección y la operativa de expedición.",
     video: "/video/carton-ondulado",
     poster: "/video/carton-ondulado-poster.jpg",
     img: "https://images.unsplash.com/photo-1771848194068-169d817a1d6f",
@@ -376,12 +376,12 @@ export default function Services() {
             <div className="col-span-12 desk:col-span-7 space-y-3 text-center desk:text-left">
               <p className="eyebrow">Servicios</p>
               <h2 className="font-display font-medium text-[2.125rem] md:text-4xl text-balance leading-[1.05] tracking-tighter">
-                Todo lo que necesita tu operativa,
+                Todo lo que necesitas,
                 <span className="italic text-wood"> en un solo proveedor.</span>
               </h2>
             </div>
             <p className="col-span-12 desk:col-span-4 desk:col-start-9 text-sm text-inkSoft text-pretty text-center desk:text-left max-w-sm mx-auto desk:mx-0 desk:max-w-none">
-              Cinco servicios coordinados desde Sentmenat. Desliza para recorrerlos.
+              Cinco servicios coordinados y centralizados. Desliza para recorrerlos.
             </p>
           </div>
         </Container>

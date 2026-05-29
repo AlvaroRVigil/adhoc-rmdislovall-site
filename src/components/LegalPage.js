@@ -1,11 +1,46 @@
-import Header from "./Header";
 import Footer from "./Footer";
 import Container from "./Container";
 
 export default function LegalPage({ eyebrow, title, lastUpdated, children }) {
   return (
     <>
-      <Header />
+      <header className="sticky top-0 z-40 bg-paper/90 backdrop-blur-md">
+        <Container className="flex items-center justify-between h-16 md:h-20 gap-8">
+          <a
+            href="/"
+            className="flex items-center gap-3 shrink-0"
+            aria-label="RM Dislovall — inicio"
+          >
+            <img
+              src="/brand/logo-horizontal.svg"
+              alt="RM Dislovall"
+              width={1000}
+              height={217}
+              className="h-7 md:h-8 w-auto"
+            />
+          </a>
+          <a
+            href="/"
+            className="inline-flex items-center gap-2 text-[15px] text-ink hover:text-accent transition-colors"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              width="14"
+              height="14"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.8"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden
+            >
+              <path d="M19 12H5" />
+              <path d="m12 19-7-7 7-7" />
+            </svg>
+            Volver al inicio
+          </a>
+        </Container>
+      </header>
       <main className="relative z-10 bg-paper mb-[100svh] md:mb-[820px] pt-16 md:pt-24 pb-section-y">
         <Container className="max-w-3xl">
           <p className="eyebrow mb-4">

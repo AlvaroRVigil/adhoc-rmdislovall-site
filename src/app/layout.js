@@ -2,7 +2,6 @@ import { GeistSans } from "geist/font/sans";
 import "./globals.css";
 import CookieBanner from "@/components/CookieBanner";
 import FooterHeightSync from "@/components/FooterHeightSync";
-import Cursor from "@/components/Cursor";
 import Loader from "@/components/Loader";
 
 const SITE_URL = "https://rmdislovall.com";
@@ -108,7 +107,6 @@ export default function RootLayout({ children }) {
       <body>
         <Loader />
         {children}
-        <Cursor />
         <CookieBanner />
         <FooterHeightSync />
       </body>

@@ -153,6 +153,43 @@ export default function FloatingCall() {
             </div>
           </button>
 
+          <a
+            href={siteConfig.whatsapp.href}
+            target="_blank"
+            rel="noreferrer"
+            className="group/opt w-full text-left block border-t border-border px-6 py-5 hover:bg-paperSoft transition-colors"
+          >
+            <div className="flex items-start gap-4">
+              <span className="shrink-0 w-10 h-10 rounded-full bg-woodDeep text-paper flex items-center justify-center">
+                <svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden>
+                  <path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.4-.1-.6.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.2-1.4-.8-.7-1.4-1.6-1.6-1.9-.2-.3 0-.4.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.1-.6-1.5-.9-2.1-.2-.5-.5-.5-.6-.5h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2 0 1.3.9 2.5 1.1 2.7.1.2 1.8 2.8 4.3 3.9.6.3 1.1.4 1.5.5.6.2 1.2.2 1.7.1.5-.1 1.7-.7 1.9-1.3.2-.6.2-1.2.2-1.3-.1-.1-.3-.2-.6-.3M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.4 5L2 22l5.2-1.4c1.5.8 3.1 1.2 4.8 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2" />
+                </svg>
+              </span>
+              <div className="flex-1 min-w-0 pt-0.5">
+                <div className="flex items-baseline justify-between gap-3">
+                  <div className="text-[10px] uppercase tracking-[0.22em] text-inkSoft">
+                    WhatsApp
+                  </div>
+                  <span
+                    aria-hidden
+                    className="shrink-0 text-inkSoft transition-transform duration-200 group-hover/opt:translate-x-0.5 group-hover/opt:text-wood"
+                  >
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M5 12h14" />
+                      <path d="m12 5 7 7-7 7" />
+                    </svg>
+                  </span>
+                </div>
+                <div className="font-display font-medium text-[1.125rem] tracking-tight text-ink leading-none mt-2.5">
+                  {siteConfig.whatsapp.label}
+                </div>
+                <p className="text-[11px] text-inkSoft mt-2.5 leading-snug">
+                  Escríbenos al instante
+                </p>
+              </div>
+            </div>
+          </a>
+
           <button
             type="button"
             onClick={() => {
