@@ -8,7 +8,7 @@ const works = [
     title: "Cajas troqueladas y automontables",
     body:
       "Formatos adaptados para almacenaje, protección y expedición de producto alimentario.",
-    src: "https://images.unsplash.com/photo-1771848194068-169d817a1d6f",
+    src: "/img/cliente/11.png",
     alt: "Caja troquelada para producto alimentario",
   },
   {
@@ -16,7 +16,7 @@ const works = [
     title: "Box industrial y protección interior",
     body:
       "Canal doble con interiores troquelados y formatos resistentes para piezas y componentes.",
-    src: "https://images.unsplash.com/photo-1772920908589-d6264e5d987f",
+    src: "/img/cliente/12.png",
     alt: "Embalaje industrial con interiores troquelados",
   },
   {
@@ -24,7 +24,7 @@ const works = [
     title: "Stock y entregas programadas",
     body:
       "Gestión de stock y suministro recurrente adaptado a la operativa de cada cliente.",
-    src: "https://images.unsplash.com/photo-1672552226380-486fe900b322",
+    src: "/img/cliente/13.png",
     alt: "Almacén con palets etiquetados",
   },
 ];
@@ -55,6 +55,7 @@ export default function Works() {
             <article key={w.title} className="space-y-4">
               <div className="relative aspect-[16/10] md:aspect-[4/5] bg-paperDeep overflow-hidden">
                 <StockImg src={w.src} alt={w.alt} w={1100} />
+                <span aria-hidden className="absolute top-2 left-2 z-[60] inline-flex items-center justify-center min-w-[34px] h-[26px] px-2 bg-wood text-paper text-[11px] font-mono font-bold tracking-wider leading-none pointer-events-none">#{i + 11}</span>
               </div>
               <div className="flex items-baseline justify-between text-[10px] uppercase tracking-[0.22em] text-inkSoft">
                 <span>{w.sector}</span>

@@ -25,7 +25,7 @@ export default function Material() {
   const [openIndex, setOpenIndex] = useState(-1);
 
   return (
-    <section className="grid grid-cols-1 desk:grid-cols-2 desk:h-[100svh] desk:max-h-[100svh] items-stretch desk:overflow-hidden">
+    <section className="grid grid-cols-1 desk:grid-cols-2 desk:min-h-[100svh] items-stretch">
       <div className="bg-paperSoft text-ink flex items-center px-section-x py-section-y md:py-16 order-2 overflow-y-auto">
         <div className="w-full max-w-xl mx-auto space-y-8">
           <div className="space-y-4 text-center desk:text-left">
@@ -98,11 +98,12 @@ export default function Material() {
 
       <div className="relative bg-wood h-[42vh] max-h-[480px] min-h-[300px] desk:h-full desk:max-h-none desk:min-h-[280px] overflow-hidden order-1">
         <StockImg
-          src="https://images.unsplash.com/photo-1553413077-190dd305871c"
+          src="/img/cliente/10.jpeg"
           alt="Almacén logístico con estanterías de cajas de cartón"
           w={1800}
           q={85}
         />
+        <span aria-hidden className="absolute top-2 left-2 z-[60] inline-flex items-center justify-center min-w-[34px] h-[26px] px-2 bg-wood text-paper text-[11px] font-mono font-bold tracking-wider leading-none pointer-events-none">#10</span>
       </div>
     </section>
   );

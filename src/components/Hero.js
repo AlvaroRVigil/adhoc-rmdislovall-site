@@ -72,9 +72,9 @@ export default function Hero() {
   return (
     <section
       ref={sectionRef}
-      className="hero-parallax relative bg-paper overflow-hidden desk:h-[calc(100svh-5rem)] desk:flex desk:flex-col"
+      className="hero-parallax relative bg-paper overflow-hidden desk:min-h-[calc(100svh-5rem)] desk:flex desk:flex-col"
     >
-      <Container className="pt-10 md:pt-12 pb-10 desk:pb-6 desk:flex-1 desk:min-h-0 desk:flex desk:flex-col desk:justify-center">
+      <Container className="pt-10 md:pt-12 pb-10 desk:pb-6 desk:flex-1 desk:flex desk:flex-col desk:justify-center">
         <div className="grid grid-cols-12 gap-x-4 md:gap-x-8 gap-y-8 md:gap-y-12 items-start">
           <div className="col-span-12 desk:col-span-5 space-y-5 md:space-y-7 text-center desk:text-left">
             <p className="eyebrow">
@@ -90,7 +90,7 @@ export default function Hero() {
               y cada operativa.
             </p>
             <div className="flex items-start gap-4 max-w-[34rem] mx-auto desk:mx-0 pt-1">
-              <span aria-hidden className="hidden md:block h-px w-10 bg-wood mt-[0.95rem] shrink-0" />
+              <span aria-hidden className="hidden desk:block h-px w-10 bg-wood mt-[0.95rem] shrink-0" />
               <p className="font-display text-lg md:text-xl tracking-tight leading-[1.25] text-ink text-balance">
                 Nos adaptamos a tu forma de trabajar.{" "}
                 <span className="italic text-wood">Hacemos que todo encaje.</span>
@@ -107,31 +107,34 @@ export default function Hero() {
             </div>
           </div>
 
-          <div className="col-span-12 desk:col-span-6 desk:col-start-7 relative aspect-[5/4] desk:aspect-[4/5] desk:h-[76vh] desk:max-h-none">
+          <div className="col-span-12 desk:col-span-6 desk:col-start-7 relative aspect-[5/4] md:aspect-[16/9] desk:aspect-[4/5] desk:h-[76vh] desk:max-h-none">
             <div className="absolute top-0 left-0 w-[60%] aspect-[4/3] bg-paperDeep overflow-hidden desk:left-auto desk:right-0 desk:w-[60%] desk:aspect-[3/4]">
               <StockImg
-                src="https://images.unsplash.com/photo-1773125929765-99d4d67e831d"
-                alt="Cajas de cartón ondulado en almacén de RM Dislovall"
+                src="/img/cliente/1.png"
+                alt="Almacén de RM Dislovall con carretilla y cajas paletizadas"
                 w={1400}
                 q={85}
               />
+              <span aria-hidden className="absolute top-2 left-2 z-[60] inline-flex items-center justify-center min-w-[34px] h-[26px] px-2 bg-wood text-paper text-[11px] font-mono font-bold tracking-wider leading-none pointer-events-none">#1</span>
             </div>
             <div className="absolute bottom-[14%] left-[10%] w-[28%] aspect-square bg-woodSoft overflow-hidden desk:bottom-auto desk:top-[22%] desk:left-[18%] desk:w-[44%]">
               <img
-                src="/img/textura-carton.webp"
-                alt="Detalle de fibra de cartón ondulado"
+                src="/img/cliente/3.png"
+                alt="Detalle de planchas de cartón ondulado"
                 loading="lazy"
                 decoding="async"
                 className="absolute inset-0 w-full h-full object-cover"
               />
+              <span aria-hidden className="absolute top-2 left-2 z-[60] inline-flex items-center justify-center min-w-[34px] h-[26px] px-2 bg-wood text-paper text-[11px] font-mono font-bold tracking-wider leading-none pointer-events-none">#2</span>
             </div>
             <div className="absolute bottom-0 right-[10%] w-[42%] aspect-[3/4] bg-wood overflow-hidden desk:bottom-[10%] desk:left-0 desk:right-auto">
               <StockImg
-                src="https://images.unsplash.com/photo-1587293852726-70cdb56c2866"
-                alt="Cajas de cartón en estanterías"
+                src="/img/cliente/2.png"
+                alt="Fachada de la nave de RM Dislovall en Sentmenat"
                 w={900}
                 q={85}
               />
+              <span aria-hidden className="absolute top-2 left-2 z-[60] inline-flex items-center justify-center min-w-[34px] h-[26px] px-2 bg-wood text-paper text-[11px] font-mono font-bold tracking-wider leading-none pointer-events-none">#3</span>
             </div>
             <Badge className="absolute z-10 top-[12%] right-[4%] w-24 sm:w-28 md:w-32 lg:w-36 aspect-square desk:top-[70%] desk:right-auto desk:left-1/2 desk:-translate-x-1/2 desk:-translate-y-1/2" />
           </div>

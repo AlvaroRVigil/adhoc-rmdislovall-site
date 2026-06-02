@@ -82,7 +82,7 @@ export default function Header() {
             alt="RM Dislovall"
             width={1000}
             height={217}
-            className="h-7 md:h-8 w-auto"
+            className="h-7 md:h-9 desk:h-8 w-auto"
           />
         </a>
 

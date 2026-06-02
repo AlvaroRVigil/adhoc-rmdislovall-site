@@ -12,7 +12,7 @@ const items = [
     Icon: BoxIcon,
     title: "Embalaje de cartón ondulado a medida",
     body:
-      "Cajas personalizadas y embalaje de cartón ondulado a medida, adaptados a cada producto, operativa y necesidad de suministro. Trabajamos una amplia variedad de formatos, impresiones y soluciones para producción, almacenaje y expedición.",
+      "Cajas personalizadas y soluciones de embalaje de cartón ondulado para cada producto. Trabajamos una amplia variedad de formatos, impresiones y configuraciones para protección, almacenaje y expedición.",
     tags: [
       "Cajas y formatos especiales",
       "Tipo box y embalaje industrial",
@@ -22,10 +22,10 @@ const items = [
       "Impresión y personalización",
       "Distintos canales y calidades",
     ],
-    closer: "Cada embalaje se adapta al producto, la protección y la operativa de expedición.",
+    closer: "El embalaje adecuado para cada producto.",
     video: "/video/carton-ondulado",
-    poster: "/video/carton-ondulado-poster.jpg",
-    img: "https://images.unsplash.com/photo-1771848194068-169d817a1d6f",
+    poster: "/img/cliente/5.png",
+    img: "/img/cliente/5.png",
     alt: "Caja de cartón ondulado a medida",
     sticker: { text: "SERVICIO MÁS VENDIDO ·  ", color: "#9B2F23", icon: "box" },
     wide: true,
@@ -50,7 +50,7 @@ const items = [
       title: "¿Necesitáis más espacio de almacenaje?",
       body: "Gestionamos stock y entregas programadas de material de embalaje, tanto propio como suministrado por el cliente.",
     },
-    img: "https://images.unsplash.com/photo-1672552226380-486fe900b322",
+    img: "/img/cliente/6.png",
     alt: "Almacén con palets de cajas",
   },
   {
@@ -61,7 +61,7 @@ const items = [
       "Flota propia para entregas en Cataluña y red logística para el resto del territorio. Cobertura regional como base, con capacidad de respuesta cuando el material está disponible.",
     tags: ["Flota propia", "Cobertura regional", "Red logística complementaria", "Capacidad de respuesta"],
     closer: "Si está en stock, puede salir el mismo día.",
-    img: "https://images.unsplash.com/photo-1645736315000-6f788915923b",
+    img: "/img/cliente/7.png",
     alt: "Carretilla y entregas",
   },
   {
@@ -80,7 +80,7 @@ const items = [
       "Paletizado y enfardado",
     ],
     closer: "El material llega listo para usar.",
-    img: "https://images.unsplash.com/photo-1772920908589-d6264e5d987f",
+    img: "/img/cliente/8.png",
     alt: "Procesos de manipulado de cartón",
   },
   {
@@ -91,7 +91,7 @@ const items = [
       "Precinto, film estirable, fleje y consumibles para cierre, paletizado y expedición. Material complementario para centralizar el suministro en un solo proveedor.",
     tags: ["Precinto", "Film estirable", "Fleje", "Consumibles"],
     closer: "Un solo proveedor para embalaje y material auxiliar.",
-    img: "https://images.unsplash.com/photo-1709804945989-c8be542e04db",
+    img: "/img/cliente/9.png",
     alt: "Material auxiliar para embalaje",
   },
 ];
@@ -240,7 +240,7 @@ function StarSticker({ text, color, icon = "box" }) {
     <div
       aria-hidden
       style={{ animation: "sticker-pulse 2.6s ease-in-out infinite" }}
-      className="absolute z-20 top-3 right-3 desk:-top-6 desk:-right-6 w-20 h-20 md:w-24 md:h-24 desk:w-28 desk:h-28 pointer-events-none"
+      className="absolute z-30 top-4 right-4 desk:-top-4 desk:-right-4 w-20 h-20 md:w-24 md:h-24 desk:w-28 desk:h-28 pointer-events-none"
     >
       <svg viewBox="0 0 200 200" className="w-full h-full">
         <circle cx="100" cy="100" r="96" fill="#ECEBE3" stroke={color} strokeWidth="7" />
@@ -394,7 +394,7 @@ export default function Services() {
           >
           <div
             ref={trackRef}
-            className="flex flex-row items-stretch gap-4 md:gap-6 desk:gap-8 px-section-x desk:px-0 desk:pl-section-x desk:pr-section-x desk:h-[64vh] will-change-transform"
+            className="flex flex-row items-stretch gap-4 md:gap-6 desk:gap-8 px-section-x desk:px-0 desk:pl-section-x desk:pr-section-x desk:h-[72vh] will-change-transform"
           >
             {items.map((it, idx) => (
               <article
@@ -429,6 +429,7 @@ export default function Services() {
                   ) : (
                     <StockImg src={it.img} alt={it.alt} w={1400} />
                   )}
+                  <span aria-hidden className="absolute top-2 left-2 z-[60] inline-flex items-center justify-center min-w-[34px] h-[26px] px-2 bg-wood text-paper text-[11px] font-mono font-bold tracking-wider leading-none pointer-events-none">#{idx + 5}</span>
 
                   {/* Overlay editorial sólo en móvil/tablet: número + título sobre la imagen
                       para que el contenido textual no tenga que volver a renderizarlos
@@ -444,7 +445,7 @@ export default function Services() {
                   </div>
                 </div>
 
-                <div className="p-6 md:p-8 flex flex-col gap-4 overflow-hidden min-h-0">
+                <div className="p-6 md:p-8 flex flex-col gap-4 desk:overflow-y-auto desk:min-h-0 [scrollbar-width:thin] [scrollbar-color:#CDBFAA_transparent]">
                   {/* Número + título sólo visibles en desktop (en móvil viven sobre la imagen).
                       Se alinean en la misma línea base para ahorrar altura. */}
                   <h3 className="hidden desk:flex items-baseline gap-3 font-display font-medium text-2xl md:text-3xl leading-[1] tracking-tighter text-balance">

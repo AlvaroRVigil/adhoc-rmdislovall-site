@@ -89,7 +89,7 @@ export default function Footer() {
               <dd className="flex flex-col items-center md:items-start gap-2">
                 <a
                   href={siteConfig.email.href}
-                  className="text-base hover:text-paper transition-colors break-all"
+                  className="text-sm md:text-base hover:text-paper transition-colors [overflow-wrap:anywhere]"
                 >
                   {siteConfig.email.label}
                 </a>
@@ -149,7 +149,7 @@ export default function Footer() {
       </Container>
 
       <div
-        className="hidden md:block mx-auto w-full max-w-container px-section-x overflow-hidden mt-10 md:mt-14 pb-6 md:pb-8"
+        className="hidden desk:block mx-auto w-full max-w-container px-section-x overflow-hidden mt-10 md:mt-14 pb-6 md:pb-8"
         style={revealStyle(revealed, 240)}
       >
         <img
