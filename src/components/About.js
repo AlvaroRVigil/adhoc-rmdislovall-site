@@ -11,7 +11,7 @@ export default function About() {
             <div className="relative aspect-[4/5] md:aspect-[16/10] desk:aspect-[4/5] bg-paperDeep overflow-hidden">
               <StockImg
                 src="/img/cliente/4.webp"
-                alt="Almacén de RM Dislovall en Sentmenat con cajas y palets"
+                alt="Fachada de la nave de RM Dislovall en Sentmenat"
                 w={1200}
               />
               <span aria-hidden className="absolute top-2 left-2 z-[60] inline-flex items-center justify-center min-w-[34px] h-[26px] px-2 bg-wood text-paper text-[11px] font-mono font-bold tracking-wider leading-none pointer-events-none">#4</span>
