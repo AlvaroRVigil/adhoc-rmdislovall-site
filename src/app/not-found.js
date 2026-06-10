@@ -75,7 +75,7 @@ export default function NotFound() {
   return (
     <>
       <Header />
-      <main className="relative z-10 bg-paper mb-[100svh] md:mb-[820px] min-h-[calc(100svh-4rem)] md:min-h-[calc(100svh-5rem)] flex items-center py-section-y">
+      <main className="relative z-10 bg-paper mb-0 md:mb-[820px] min-h-[calc(100svh-4rem)] md:min-h-[calc(100svh-5rem)] flex items-center py-section-y">
         <Container>
           <div className="flex flex-col items-center text-center max-w-2xl mx-auto gap-8 md:gap-10">
             <p className="eyebrow">

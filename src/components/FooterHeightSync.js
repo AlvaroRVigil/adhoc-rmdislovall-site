@@ -11,6 +11,12 @@ export default function FooterHeightSync() {
     if (!main || !footer) return;
 
     const sync = () => {
+      // El footer solo va "detrás" (fixed) en desktop; ahí se reserva su hueco.
+      // En móvil va en flujo normal, sin margen inferior reservado.
+      if (getComputedStyle(footer).position !== "fixed") {
+        main.style.marginBottom = "";
+        return;
+      }
       const h = footer.offsetHeight;
       if (h > 0) main.style.marginBottom = `${h}px`;
     };

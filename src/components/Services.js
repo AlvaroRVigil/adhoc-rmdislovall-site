@@ -366,6 +366,17 @@ export default function Services() {
     });
   };
 
+  // Navegación del carrusel móvil/tablet por flechas y dots.
+  const goTo = (idx) => {
+    const scroller = scrollerRef.current;
+    if (!scroller) return;
+    const clamped = Math.max(0, Math.min(items.length - 1, idx));
+    const card = scroller.querySelector(`[data-card-idx="${clamped}"]`);
+    if (card) {
+      card.scrollIntoView({ behavior: "smooth", inline: "start", block: "nearest" });
+    }
+  };
+
   return (
     <section
       id="servicios"
@@ -392,17 +403,17 @@ export default function Services() {
           <div
             ref={scrollerRef}
             onScroll={handleScroll}
-            className="w-full overflow-x-auto snap-x snap-mandatory scroll-pl-section-x scroll-pr-section-x desk:snap-none desk:overflow-visible desk:scroll-pl-0 desk:scroll-pr-0 overscroll-x-contain [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+            className="w-full overflow-x-auto snap-x snap-mandatory scroll-pl-0 scroll-pr-0 sm:scroll-pl-section-x sm:scroll-pr-section-x desk:snap-none desk:overflow-visible desk:scroll-pl-0 desk:scroll-pr-0 overscroll-x-contain [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
           >
           <div
             ref={trackRef}
-            className="flex flex-row items-stretch gap-4 md:gap-6 desk:gap-8 px-section-x desk:px-0 desk:pl-section-x desk:pr-section-x desk:h-[72vh] will-change-transform"
+            className="flex flex-row items-stretch gap-4 md:gap-6 desk:gap-8 px-0 sm:px-section-x desk:px-0 desk:pl-section-x desk:pr-section-x desk:h-[72vh] will-change-transform"
           >
             {items.map((it, idx) => (
               <article
                 key={it.n}
                 data-card-idx={idx}
-                className={`snap-start relative shrink-0 w-[82%] sm:w-[74%] md:w-[64%] desk:h-full bg-paperSoft border border-border flex flex-col desk:grid desk:grid-cols-2 ${
+                className={`snap-start relative shrink-0 w-screen sm:w-[74%] md:w-[64%] desk:h-full bg-paperSoft border-y sm:border border-border flex flex-col desk:grid desk:grid-cols-2 ${
                   it.wide ? "desk:w-[80vw]" : "desk:w-[56vw]"
                 }`}
               >
@@ -507,19 +518,45 @@ export default function Services() {
           </div>
         </div>
 
-        <div className="desk:hidden flex items-center justify-center gap-3 px-section-x pb-section-y">
-          <span className="font-mono text-xs tracking-widest text-ink tabular-nums">
-            {String(activeIndex + 1).padStart(2, "0")}
-          </span>
-          <div className="relative h-[2px] flex-1 max-w-[180px] bg-ink/15 overflow-hidden">
-            <div
-              className="absolute inset-y-0 left-0 bg-ink transition-[width] duration-300 ease-out"
-              style={{ width: `${((activeIndex + 1) / items.length) * 100}%` }}
-            />
+        <div className="desk:hidden flex items-center justify-center gap-5 px-section-x pt-7 pb-section-y">
+          <button
+            type="button"
+            onClick={() => goTo(activeIndex - 1)}
+            disabled={activeIndex === 0}
+            aria-label="Servicio anterior"
+            className="shrink-0 w-11 h-11 rounded-full border border-ink/20 text-ink flex items-center justify-center transition disabled:opacity-25 active:scale-95 hover:border-ink/40"
+          >
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+              <path d="m15 18-6-6 6-6" />
+            </svg>
+          </button>
+
+          <div className="flex items-center gap-2" role="tablist" aria-label="Servicios">
+            {items.map((it, i) => (
+              <button
+                key={it.n}
+                type="button"
+                onClick={() => goTo(i)}
+                aria-label={`Ir al servicio ${i + 1}`}
+                aria-selected={i === activeIndex}
+                className={`h-2 rounded-full transition-all duration-300 ease-out ${
+                  i === activeIndex ? "w-7 bg-wood" : "w-2 bg-ink/20 hover:bg-ink/35"
+                }`}
+              />
+            ))}
           </div>
-          <span className="font-mono text-xs tracking-widest text-inkSoft tabular-nums">
-            {String(items.length).padStart(2, "0")}
-          </span>
+
+          <button
+            type="button"
+            onClick={() => goTo(activeIndex + 1)}
+            disabled={activeIndex === items.length - 1}
+            aria-label="Servicio siguiente"
+            className="shrink-0 w-11 h-11 rounded-full border border-ink/20 text-ink flex items-center justify-center transition disabled:opacity-25 active:scale-95 hover:border-ink/40"
+          >
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+              <path d="m9 18 6-6-6-6" />
+            </svg>
+          </button>
         </div>
       </div>
     </section>

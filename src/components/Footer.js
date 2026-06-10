@@ -25,6 +25,11 @@ export default function Footer() {
     if (typeof window === "undefined") return;
     let raf = 0;
     const check = () => {
+      // En móvil el footer va en flujo normal: siempre visible, sin reveal por scroll.
+      if (window.matchMedia("(max-width: 767px)").matches) {
+        setRevealed(true);
+        return;
+      }
       const distance =
         document.documentElement.scrollHeight -
         window.scrollY -
@@ -39,9 +44,11 @@ export default function Footer() {
       });
     };
     window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
     check();
     return () => {
       window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
       if (raf) cancelAnimationFrame(raf);
     };
   }, []);
@@ -49,7 +56,7 @@ export default function Footer() {
   return (
     <footer
       id="contacto"
-      className="fixed inset-x-0 bottom-0 bg-wood text-woodSoft z-0 flex flex-col overflow-hidden max-h-[100svh]"
+      className="relative md:fixed inset-x-0 bottom-0 bg-wood text-woodSoft z-0 flex flex-col md:overflow-hidden md:max-h-[100svh]"
     >
       <Container className="pt-section-y md:pt-16 flex flex-col">
         <div className="grid grid-cols-12 gap-x-4 md:gap-x-12 gap-y-12">

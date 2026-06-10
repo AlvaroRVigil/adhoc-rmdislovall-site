@@ -41,7 +41,7 @@ export default function LegalPage({ eyebrow, title, lastUpdated, children }) {
           </a>
         </Container>
       </header>
-      <main className="relative z-10 bg-paper mb-[100svh] md:mb-[820px] pt-16 md:pt-24 pb-section-y">
+      <main className="relative z-10 bg-paper mb-0 md:mb-[820px] pt-16 md:pt-24 pb-section-y">
         <Container className="max-w-3xl">
           <p className="eyebrow mb-4">
             {eyebrow}

@@ -20,7 +20,7 @@ export default function Home() {
       <JsonLd />
       <SmoothScroll />
       <Header />
-      <main className="relative z-10 bg-paper mb-[100svh] md:mb-[680px]">
+      <main className="relative z-10 bg-paper mb-0 md:mb-[680px]">
         <Hero />
         <Statement />
         <Sectors />
