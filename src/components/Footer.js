@@ -70,10 +70,10 @@ export default function Footer() {
           </aside>
 
           <dl
-            className="col-span-12 md:col-span-7 md:pl-8 md:border-l md:border-woodSoft/15 grid grid-cols-2 text-center md:text-left border border-woodSoft/15 md:border-0 md:gap-x-6 md:gap-y-8 [&>*:nth-last-child(-n+2)]:border-b-0 md:[&>*]:border-0"
+            className="col-span-12 md:col-span-7 md:pl-8 md:border-l md:border-woodSoft/15 grid grid-cols-1 md:grid-cols-2 text-center md:text-left border border-woodSoft/15 md:border-0 md:gap-x-6 md:gap-y-8 [&>*:last-child]:border-b-0 md:[&>*]:border-0"
             style={revealStyle(revealed, 120)}
           >
-            <div className="p-5 md:p-0 border-b border-r border-woodSoft/15 md:border-0">
+            <div className="p-5 md:p-0 border-b border-woodSoft/15 md:border-0">
               <dt className={cellLabel}>Llámanos</dt>
               <dd>
                 <a
@@ -107,7 +107,7 @@ export default function Footer() {
                 </a>
               </dd>
             </div>
-            <div className="p-5 md:p-0 border-b border-r border-woodSoft/15 md:border-0">
+            <div className="p-5 md:p-0 border-b border-woodSoft/15 md:border-0">
               <dt className={cellLabel}>Dónde estamos</dt>
               <dd className="text-base">
                 <a
