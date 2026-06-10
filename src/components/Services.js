@@ -98,6 +98,10 @@ const items = [
   },
 ];
 
+// Callout informativo que en móvil/tablet se muestra siempre debajo del
+// carrusel (no ligado a la card activa).
+const carouselCallout = items.find((it) => it.callout)?.callout;
+
 // Marco común de los iconos de servicio (un icono distinto por servicio).
 function IconWrap({ children }) {
   return (
@@ -557,15 +561,15 @@ export default function Services() {
             ))}
           </div>
 
-          {items[activeIndex]?.callout && (
+          {carouselCallout && (
             <div className="mt-8 max-w-md mx-auto bg-paper border border-border px-7 py-8 flex flex-col items-center text-center gap-5">
               <BulbIcon className="w-9 h-9 text-wood" />
               <p className="font-display font-medium text-xl tracking-tighter leading-[1.1] text-ink text-balance">
-                {items[activeIndex].callout.title}
+                {carouselCallout.title}
               </p>
               <div className="w-10 border-t border-ink/20" />
               <p className="text-sm text-inkSoft text-pretty leading-[1.45] max-w-xs">
-                {items[activeIndex].callout.body}
+                {carouselCallout.body}
               </p>
             </div>
           )}
