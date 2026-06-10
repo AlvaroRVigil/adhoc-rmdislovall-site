@@ -1,9 +1,9 @@
 export default function manifest() {
   return {
-    name: "RM Dislovall — Embalaje de cartón ondulado",
+    name: "RM Dislovall",
     short_name: "RM Dislovall",
     description:
-      "Soluciones de embalaje de cartón ondulado, manipulado y suministro logístico en Sentmenat (Barcelona).",
+      "Embalaje de cartón ondulado, manipulado, almacenaje y transporte. Todo tu suministro en un solo proveedor.",
     start_url: "/",
     scope: "/",
     display: "browser",

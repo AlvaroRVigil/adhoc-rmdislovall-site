@@ -7,9 +7,9 @@ import Loader from "@/components/Loader";
 const SITE_URL = "https://rmdislovall.com";
 const SITE_NAME = "RM Dislovall";
 const TITLE_DEFAULT =
-  "RM Dislovall — Embalaje de cartón ondulado en Sentmenat (Barcelona)";
+  "RM Dislovall — Soluciones de embalaje, logística y gestión de stock.";
 const DESCRIPTION =
-  "Soluciones de embalaje de cartón ondulado, manipulado y suministro logístico en Sentmenat (Barcelona). Servicio a medida para empresas industriales y entornos logísticos.";
+  "Embalaje de cartón ondulado a medida, manipulado, almacenaje y transporte. Todo tu suministro en un solo proveedor.";
 
 /*
   PENDIENTES DE ACTIVOS DEL CLIENTE
