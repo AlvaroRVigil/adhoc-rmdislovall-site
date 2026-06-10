@@ -170,13 +170,13 @@ export default function AboutFacts() {
       </div>
 
       {/* md+: grid (sin cambios respecto al original) */}
-      <dl className="hidden md:grid grid-cols-3 mt-14 border-t border-border">
+      <dl className="hidden md:grid grid-cols-2 mt-12 border-t border-border">
         {facts.map((f, i) => {
           const classes = [
-            "py-9 text-left",
-            i % 3 !== 0 ? "border-l border-border pl-8" : "",
-            i % 3 !== 2 ? "pr-8" : "",
-            i >= 3 ? "border-t border-border" : "",
+            "py-7 text-left",
+            i % 2 !== 0 ? "border-l border-border pl-8" : "",
+            i % 2 === 0 ? "pr-8" : "",
+            i >= 2 ? "border-t border-border" : "",
           ]
             .filter(Boolean)
             .join(" ");
