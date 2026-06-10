@@ -23,8 +23,6 @@ const items = [
       "Distintos canales y calidades",
     ],
     closer: "El embalaje adecuado para cada producto.",
-    video: "/video/carton-ondulado",
-    poster: "/img/cliente/5.webp",
     img: "/img/cliente/5.webp",
     alt: "Caja de cartón ondulado a medida",
     modified: true,
