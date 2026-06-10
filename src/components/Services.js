@@ -175,11 +175,11 @@ function PrepIcon() {
 }
 
 // Bombilla — usada en los callouts informativos dentro de las cards.
-function BulbIcon() {
+function BulbIcon({ className = "w-4 h-4 text-wood shrink-0 mt-[2px]" }) {
   return (
     <svg
       viewBox="0 0 24 24"
-      className="w-4 h-4 text-wood shrink-0 mt-[2px]"
+      className={className}
       fill="none"
       stroke="currentColor"
       strokeWidth="2"
@@ -399,21 +399,44 @@ export default function Services() {
           </div>
         </Container>
 
-        <div className="desk:flex-1 desk:flex desk:items-center desk:overflow-hidden desk:pb-[2vh] pb-10 pt-8 desk:pt-0">
+        <div className="relative desk:flex-1 desk:flex desk:items-center desk:overflow-hidden desk:pb-[2vh] pb-10 pt-8 desk:pt-0">
+          {/* Pasadores laterales (solo móvil/tablet): navegan el carrusel. */}
+          <button
+            type="button"
+            onClick={() => goTo(activeIndex - 1)}
+            disabled={activeIndex === 0}
+            aria-label="Servicio anterior"
+            className="desk:hidden absolute left-2 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-paper/90 backdrop-blur-sm border border-ink/15 shadow-md text-ink flex items-center justify-center transition disabled:opacity-0 disabled:pointer-events-none active:scale-95"
+          >
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+              <path d="m15 18-6-6 6-6" />
+            </svg>
+          </button>
+          <button
+            type="button"
+            onClick={() => goTo(activeIndex + 1)}
+            disabled={activeIndex === items.length - 1}
+            aria-label="Servicio siguiente"
+            className="desk:hidden absolute right-2 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-paper/90 backdrop-blur-sm border border-ink/15 shadow-md text-ink flex items-center justify-center transition disabled:opacity-0 disabled:pointer-events-none active:scale-95"
+          >
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+              <path d="m9 18 6-6-6-6" />
+            </svg>
+          </button>
           <div
             ref={scrollerRef}
             onScroll={handleScroll}
-            className="w-full overflow-x-auto snap-x snap-mandatory scroll-pl-0 scroll-pr-0 sm:scroll-pl-section-x sm:scroll-pr-section-x desk:snap-none desk:overflow-visible desk:scroll-pl-0 desk:scroll-pr-0 overscroll-x-contain [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+            className="w-full overflow-x-auto snap-x snap-mandatory scroll-pl-section-x scroll-pr-section-x desk:snap-none desk:overflow-visible desk:scroll-pl-0 desk:scroll-pr-0 overscroll-x-contain [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
           >
           <div
             ref={trackRef}
-            className="flex flex-row items-stretch gap-4 md:gap-6 desk:gap-8 px-0 sm:px-section-x desk:px-0 desk:pl-section-x desk:pr-section-x desk:h-[72vh] will-change-transform"
+            className="flex flex-row items-stretch gap-4 md:gap-6 desk:gap-8 px-section-x desk:px-0 desk:pl-section-x desk:pr-section-x desk:h-[72vh] will-change-transform"
           >
             {items.map((it, idx) => (
               <article
                 key={it.n}
                 data-card-idx={idx}
-                className={`snap-start relative shrink-0 w-screen sm:w-[74%] md:w-[64%] desk:h-full bg-paperSoft border-y sm:border border-border flex flex-col desk:grid desk:grid-cols-2 ${
+                className={`snap-start relative shrink-0 w-full sm:w-[74%] md:w-[64%] desk:h-full bg-paperSoft border border-border flex flex-col desk:grid desk:grid-cols-2 ${
                   it.wide ? "desk:w-[80vw]" : "desk:w-[56vw]"
                 }`}
               >
@@ -488,7 +511,7 @@ export default function Services() {
                   </ul>
 
                   {it.callout && (
-                    <div className="mt-auto bg-paper px-4 py-3 flex items-start gap-2.5">
+                    <div className="mt-auto bg-paper px-4 py-3 hidden desk:flex items-start gap-2.5">
                       <BulbIcon />
                       <div className="space-y-1 -mt-[1px]">
                         <p className="text-[13px] md:text-[13.5px] font-medium text-ink leading-[1.25]">
@@ -518,20 +541,8 @@ export default function Services() {
           </div>
         </div>
 
-        <div className="desk:hidden flex items-center justify-center gap-5 px-section-x pt-7 pb-section-y">
-          <button
-            type="button"
-            onClick={() => goTo(activeIndex - 1)}
-            disabled={activeIndex === 0}
-            aria-label="Servicio anterior"
-            className="shrink-0 w-11 h-11 rounded-full border border-ink/20 text-ink flex items-center justify-center transition disabled:opacity-25 active:scale-95 hover:border-ink/40"
-          >
-            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-              <path d="m15 18-6-6 6-6" />
-            </svg>
-          </button>
-
-          <div className="flex items-center gap-2" role="tablist" aria-label="Servicios">
+        <div className="desk:hidden px-section-x pb-section-y">
+          <div className="flex items-center justify-center gap-2" role="tablist" aria-label="Servicios">
             {items.map((it, i) => (
               <button
                 key={it.n}
@@ -546,17 +557,18 @@ export default function Services() {
             ))}
           </div>
 
-          <button
-            type="button"
-            onClick={() => goTo(activeIndex + 1)}
-            disabled={activeIndex === items.length - 1}
-            aria-label="Servicio siguiente"
-            className="shrink-0 w-11 h-11 rounded-full border border-ink/20 text-ink flex items-center justify-center transition disabled:opacity-25 active:scale-95 hover:border-ink/40"
-          >
-            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-              <path d="m9 18 6-6-6-6" />
-            </svg>
-          </button>
+          {items[activeIndex]?.callout && (
+            <div className="mt-8 max-w-md mx-auto bg-paper border border-border px-7 py-8 flex flex-col items-center text-center gap-5">
+              <BulbIcon className="w-9 h-9 text-wood" />
+              <p className="font-display font-medium text-xl tracking-tighter leading-[1.1] text-ink text-balance">
+                {items[activeIndex].callout.title}
+              </p>
+              <div className="w-10 border-t border-ink/20" />
+              <p className="text-sm text-inkSoft text-pretty leading-[1.45] max-w-xs">
+                {items[activeIndex].callout.body}
+              </p>
+            </div>
+          )}
         </div>
       </div>
     </section>

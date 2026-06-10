@@ -1,14 +1,6 @@
 import Container from "./Container";
 import StockImg from "./StockImg";
-
-const facts = [
-  { k: "Experiencia", v: "+40 años en el sector" },
-  { k: "Instalaciones", v: "+2.000 m²" },
-  { k: "Cobertura", v: "Cataluña y resto de España" },
-  { k: "Soluciones integradas", v: "Diseño de embalaje, Suministro, Manipulado y Logística" },
-  { k: "Respuesta", v: "Ágil ante urgencias" },
-  { k: "Modelo", v: "Empresa familiar, interlocución directa" },
-];
+import AboutFacts from "./AboutFacts";
 
 export default function About() {
   return (
@@ -46,29 +38,7 @@ export default function About() {
               operativa diaria.
             </p>
 
-            <dl className="grid grid-cols-1 md:grid-cols-3 mt-10 md:mt-14 border-t border-border">
-              {facts.map((f, i) => {
-                const classes = [
-                  "py-7 md:py-9 text-left",
-                  "border-b border-border md:border-b-0",
-                  i % 3 !== 0 ? "md:border-l md:border-border md:pl-8" : "",
-                  i % 3 !== 2 ? "md:pr-8" : "",
-                  i >= 3 ? "md:border-t md:border-border" : "",
-                ]
-                  .filter(Boolean)
-                  .join(" ");
-                return (
-                  <div key={f.k} className={classes}>
-                    <dt className="text-[10px] uppercase tracking-[0.22em] text-inkSoft mb-4">
-                      {f.k}
-                    </dt>
-                    <dd className="font-display font-medium text-sm md:text-base tracking-tight leading-[1.2] text-ink text-balance">
-                      {f.v}
-                    </dd>
-                  </div>
-                );
-              })}
-            </dl>
+            <AboutFacts />
           </div>
         </div>
       </Container>
