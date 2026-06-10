@@ -107,7 +107,7 @@ export default function Hero() {
             </div>
           </div>
 
-          <div className="col-span-12 desk:col-span-6 desk:col-start-7 relative aspect-[5/4] md:aspect-[16/9] desk:aspect-[4/5] desk:h-[76vh] desk:max-h-none">
+          <div className="col-span-12 desk:col-span-6 desk:col-start-7 relative aspect-[5/4] md:aspect-[16/10] md:w-full md:max-w-[40rem] md:justify-self-center desk:max-w-none desk:w-auto desk:justify-self-auto desk:aspect-[4/5] desk:h-[76vh] desk:max-h-none">
             <div className="absolute top-0 left-0 w-[60%] aspect-[4/3] bg-paperDeep overflow-hidden desk:left-auto desk:right-0 desk:w-[60%] desk:aspect-[3/4]">
               <StockImg
                 src="/img/cliente/6.webp"
@@ -127,7 +127,7 @@ export default function Hero() {
               />
               <span aria-hidden className="absolute top-2 left-2 z-[60] inline-flex items-center justify-center min-w-[34px] h-[26px] px-2 bg-wood text-paper text-[11px] font-mono font-bold tracking-wider leading-none pointer-events-none">#2</span>
             </div>
-            <div className="absolute bottom-0 right-[10%] w-[42%] aspect-[3/4] bg-wood overflow-hidden desk:bottom-[10%] desk:left-0 desk:right-auto">
+            <div className="absolute bottom-0 right-[10%] w-[42%] md:w-[33%] md:bottom-[6%] md:right-[7%] aspect-[3/4] bg-wood overflow-hidden desk:w-[42%] desk:bottom-[10%] desk:left-0 desk:right-auto">
               <StockImg
                 src="/img/cliente/2.webp"
                 alt="Fachada de la nave de RM Dislovall en Sentmenat"
