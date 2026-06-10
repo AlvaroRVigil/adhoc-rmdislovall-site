@@ -107,36 +107,35 @@ export default function Hero() {
             </div>
           </div>
 
-          <div className="col-span-12 desk:col-span-6 desk:col-start-7 relative aspect-[5/4] md:aspect-[16/10] md:w-full md:max-w-[40rem] md:justify-self-center desk:max-w-none desk:w-auto desk:justify-self-auto desk:aspect-[4/5] desk:h-[76vh] desk:max-h-none">
-            <div className="absolute top-0 left-0 md:left-[2%] w-[60%] aspect-[4/3] bg-paperDeep overflow-hidden desk:left-auto desk:right-0 desk:w-[60%] desk:aspect-[3/4]">
+          <div className="col-span-12 desk:col-span-7 desk:col-start-6 relative aspect-[4/3] sm:aspect-[16/10] desk:aspect-auto desk:h-[76vh] overflow-hidden">
+            {/* Imagen base: nave (llena todo el bloque) */}
+            <div className="absolute inset-0 overflow-hidden">
               <StockImg
                 src="/img/cliente/6.webp"
-                alt="Almacén de RM Dislovall con carretilla y cajas paletizadas"
+                alt="Nave de RM Dislovall con palets envueltos en Sentmenat"
                 w={1400}
                 q={85}
               />
-              <span aria-hidden className="absolute top-2 left-2 z-[60] inline-flex items-center justify-center min-w-[34px] h-[26px] px-2 bg-[#16a34a] text-paper text-[11px] font-mono font-bold tracking-wider leading-none pointer-events-none">#1</span>
             </div>
-            <div className="absolute bottom-[14%] left-[10%] w-[28%] aspect-square bg-woodSoft overflow-hidden desk:bottom-auto desk:top-[22%] desk:left-[18%] desk:w-[44%]">
-              <img
+            {/* Cuña diagonal: cartón ondulado en primer plano, encima */}
+            <div
+              className="absolute inset-0 overflow-hidden"
+              style={{ clipPath: "polygon(62% 0, 100% 0, 100% 100%, 26% 100%)" }}
+            >
+              <StockImg
                 src="/img/cliente/3.webp"
                 alt="Detalle de planchas de cartón ondulado"
-                loading="lazy"
-                decoding="async"
-                className="absolute inset-0 w-full h-full object-cover"
-              />
-              <span aria-hidden className="absolute top-2 left-2 z-[60] inline-flex items-center justify-center min-w-[34px] h-[26px] px-2 bg-wood text-paper text-[11px] font-mono font-bold tracking-wider leading-none pointer-events-none">#2</span>
-            </div>
-            <div className="absolute bottom-0 right-[10%] w-[42%] md:w-[33%] md:bottom-[6%] md:right-[12%] aspect-[3/4] bg-wood overflow-hidden desk:w-[42%] desk:bottom-[10%] desk:left-0 desk:right-auto">
-              <StockImg
-                src="/img/cliente/2.webp"
-                alt="Fachada de la nave de RM Dislovall en Sentmenat"
-                w={900}
+                w={1200}
                 q={85}
               />
-              <span aria-hidden className="absolute top-2 left-2 z-[60] inline-flex items-center justify-center min-w-[34px] h-[26px] px-2 bg-wood text-paper text-[11px] font-mono font-bold tracking-wider leading-none pointer-events-none">#3</span>
             </div>
-            <Badge className="absolute z-10 top-[12%] right-[4%] w-24 sm:w-28 md:w-32 lg:w-36 aspect-square desk:top-[70%] desk:right-auto desk:left-1/2 desk:-translate-x-1/2 desk:-translate-y-1/2" />
+            {/* Filo fino color paper sobre la diagonal, para un corte limpio */}
+            <div
+              aria-hidden
+              className="absolute inset-0 pointer-events-none bg-paper"
+              style={{ clipPath: "polygon(62% 0, 63.4% 0, 27.4% 100%, 26% 100%)" }}
+            />
+            <Badge className="absolute z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-28 md:w-32 lg:w-36 aspect-square" />
           </div>
         </div>
 
