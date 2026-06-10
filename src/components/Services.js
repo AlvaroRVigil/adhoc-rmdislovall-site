@@ -467,7 +467,6 @@ export default function Services() {
                   ) : (
                     <StockImg src={it.img} alt={it.alt} w={1400} />
                   )}
-                  <span aria-hidden className={`absolute top-2 left-2 z-[60] inline-flex items-center justify-center min-w-[34px] h-[26px] px-2 text-paper text-[11px] font-mono font-bold tracking-wider leading-none pointer-events-none ${it.modified ? "bg-[#16a34a]" : "bg-wood"}`}>#{idx + 5}</span>
 
                   {/* Overlay editorial sólo en móvil/tablet: número + título sobre la imagen
                       para que el contenido textual no tenga que volver a renderizarlos

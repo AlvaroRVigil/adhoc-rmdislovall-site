@@ -56,7 +56,6 @@ export default function Works() {
             <article key={w.title} className="space-y-4">
               <div className="relative aspect-[16/10] md:aspect-[4/5] bg-paperDeep overflow-hidden">
                 <StockImg src={w.src} alt={w.alt} w={1100} />
-                <span aria-hidden className={`absolute top-2 left-2 z-[60] inline-flex items-center justify-center min-w-[34px] h-[26px] px-2 text-paper text-[11px] font-mono font-bold tracking-wider leading-none pointer-events-none ${w.modified ? "bg-[#16a34a]" : "bg-wood"}`}>#{i + 11}</span>
               </div>
               <div className="flex items-baseline justify-between text-[10px] uppercase tracking-[0.22em] text-inkSoft">
                 <span>{w.sector}</span>

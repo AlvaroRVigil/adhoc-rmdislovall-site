@@ -102,9 +102,7 @@ export default function Material() {
           alt="Almacén logístico con estanterías de cajas de cartón"
           w={1800}
           q={85}
-        />
-        <span aria-hidden className="absolute top-2 left-2 z-[60] inline-flex items-center justify-center min-w-[34px] h-[26px] px-2 bg-wood text-paper text-[11px] font-mono font-bold tracking-wider leading-none pointer-events-none">#10</span>
-      </div>
+        />      </div>
     </section>
   );
 }
