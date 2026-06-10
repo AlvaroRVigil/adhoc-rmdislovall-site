@@ -40,6 +40,8 @@ export const metadata = {
     "manipulado embalaje",
     "transporte cajas Barcelona",
     "almacenaje y stock embalaje",
+    "material auxiliar embalaje",
+    "transporte embalaje Sentmenat",
     "embalaje B2B",
     "suministro logístico embalaje",
   ],

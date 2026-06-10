@@ -6,7 +6,7 @@ export default function JsonLd() {
     name: "RM Dislovall S.L.",
     legalName: "RM Dislovall S.L.",
     description:
-      "Soluciones de embalaje de cartón ondulado a medida, manipulados, transporte propio y almacenaje. Más de 40 años de experiencia sirviendo a empresas industriales en Cataluña.",
+      "Embalaje de cartón ondulado a medida, manipulado, almacenaje y transporte propio. Todo tu suministro de embalaje en un solo proveedor, con más de 40 años de experiencia con empresas industriales y logísticas en Cataluña.",
     url: "https://rmdislovall.com",
     telephone: "+34937153920",
     email: "info@rmdislovall.com",
@@ -38,11 +38,11 @@ export default function JsonLd() {
       { "@type": "Country", name: "España" },
     ],
     knowsAbout: [
-      "Embalaje de cartón ondulado",
-      "Cajas a medida",
-      "Manipulados industriales",
-      "Picking y paletizado",
-      "Almacenaje y stock bajo demanda",
+      "Embalaje de cartón ondulado a medida",
+      "Manipulado y preparación de pedidos",
+      "Transporte y entregas con flota propia",
+      "Almacenaje y gestión de stock",
+      "Material auxiliar y consumibles de embalaje",
     ],
   };
   return (
