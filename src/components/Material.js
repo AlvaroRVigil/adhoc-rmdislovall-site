@@ -98,7 +98,7 @@ export default function Material() {
 
       <div className="relative bg-wood h-[42vh] max-h-[480px] min-h-[300px] desk:h-full desk:max-h-none desk:min-h-[280px] overflow-hidden order-1">
         <StockImg
-          src="/img/cliente/10.jpeg"
+          src="/img/cliente/10.webp"
           alt="Almacén logístico con estanterías de cajas de cartón"
           w={1800}
           q={85}

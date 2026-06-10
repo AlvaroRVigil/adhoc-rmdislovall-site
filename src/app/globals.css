@@ -79,12 +79,14 @@ body {
   }
 }
 
-@media (pointer: fine) {
-  html.cursor-none,
-  html.cursor-none body,
-  html.cursor-none * {
-    cursor: none !important;
-  }
+/* Fotos: cursor normal y sin interacción (no se abren, no se arrastran,
+   sin menú "guardar/abrir imagen" al pulsar largo en móvil/tablet). */
+img {
+  cursor: default;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-touch-callout: none;
 }
 
 @keyframes marquee {

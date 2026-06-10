@@ -110,16 +110,16 @@ export default function Hero() {
           <div className="col-span-12 desk:col-span-6 desk:col-start-7 relative aspect-[5/4] md:aspect-[16/9] desk:aspect-[4/5] desk:h-[76vh] desk:max-h-none">
             <div className="absolute top-0 left-0 w-[60%] aspect-[4/3] bg-paperDeep overflow-hidden desk:left-auto desk:right-0 desk:w-[60%] desk:aspect-[3/4]">
               <StockImg
-                src="/img/cliente/1.png"
+                src="/img/cliente/6.webp"
                 alt="Almacén de RM Dislovall con carretilla y cajas paletizadas"
                 w={1400}
                 q={85}
               />
-              <span aria-hidden className="absolute top-2 left-2 z-[60] inline-flex items-center justify-center min-w-[34px] h-[26px] px-2 bg-wood text-paper text-[11px] font-mono font-bold tracking-wider leading-none pointer-events-none">#1</span>
+              <span aria-hidden className="absolute top-2 left-2 z-[60] inline-flex items-center justify-center min-w-[34px] h-[26px] px-2 bg-[#16a34a] text-paper text-[11px] font-mono font-bold tracking-wider leading-none pointer-events-none">#1</span>
             </div>
             <div className="absolute bottom-[14%] left-[10%] w-[28%] aspect-square bg-woodSoft overflow-hidden desk:bottom-auto desk:top-[22%] desk:left-[18%] desk:w-[44%]">
               <img
-                src="/img/cliente/3.png"
+                src="/img/cliente/3.webp"
                 alt="Detalle de planchas de cartón ondulado"
                 loading="lazy"
                 decoding="async"
@@ -129,7 +129,7 @@ export default function Hero() {
             </div>
             <div className="absolute bottom-0 right-[10%] w-[42%] aspect-[3/4] bg-wood overflow-hidden desk:bottom-[10%] desk:left-0 desk:right-auto">
               <StockImg
-                src="/img/cliente/2.png"
+                src="/img/cliente/2.webp"
                 alt="Fachada de la nave de RM Dislovall en Sentmenat"
                 w={900}
                 q={85}

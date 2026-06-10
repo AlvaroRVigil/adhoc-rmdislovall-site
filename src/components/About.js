@@ -18,7 +18,7 @@ export default function About() {
           <div className="col-span-12 desk:col-span-4">
             <div className="relative aspect-[4/5] md:aspect-[16/10] desk:aspect-[4/5] bg-paperDeep overflow-hidden">
               <StockImg
-                src="/img/cliente/4.png"
+                src="/img/cliente/4.webp"
                 alt="Almacén de RM Dislovall en Sentmenat con cajas y palets"
                 w={1200}
               />

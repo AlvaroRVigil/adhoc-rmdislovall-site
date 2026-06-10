@@ -24,9 +24,10 @@ const items = [
     ],
     closer: "El embalaje adecuado para cada producto.",
     video: "/video/carton-ondulado",
-    poster: "/img/cliente/5.png",
-    img: "/img/cliente/5.png",
+    poster: "/img/cliente/5.webp",
+    img: "/img/cliente/5.webp",
     alt: "Caja de cartón ondulado a medida",
+    modified: true,
     sticker: { text: "SERVICIO MÁS VENDIDO ·  ", color: "#9B2F23", icon: "box" },
     wide: true,
   },
@@ -50,7 +51,7 @@ const items = [
       title: "¿Necesitáis más espacio de almacenaje?",
       body: "Gestionamos stock y entregas programadas de material de embalaje, tanto propio como suministrado por el cliente.",
     },
-    img: "/img/cliente/6.png",
+    img: "/img/cliente/6.webp",
     alt: "Almacén con palets de cajas",
   },
   {
@@ -61,7 +62,7 @@ const items = [
       "Flota propia para entregas en Cataluña y red logística para el resto del territorio. Cobertura regional como base, con capacidad de respuesta cuando el material está disponible.",
     tags: ["Flota propia", "Cobertura regional", "Red logística complementaria", "Capacidad de respuesta"],
     closer: "Si está en stock, puede salir el mismo día.",
-    img: "/img/cliente/7.png",
+    img: "/img/cliente/7.webp",
     alt: "Carretilla y entregas",
   },
   {
@@ -80,7 +81,7 @@ const items = [
       "Paletizado y enfardado",
     ],
     closer: "El material llega listo para usar.",
-    img: "/img/cliente/8.png",
+    img: "/img/cliente/8.webp",
     alt: "Procesos de manipulado de cartón",
   },
   {
@@ -91,7 +92,8 @@ const items = [
       "Precinto, film estirable, fleje y consumibles para cierre, paletizado y expedición. Material complementario para centralizar el suministro en un solo proveedor.",
     tags: ["Precinto", "Film estirable", "Fleje", "Consumibles"],
     closer: "Un solo proveedor para embalaje y material auxiliar.",
-    img: "/img/cliente/9.png",
+    img: "/img/cliente/9.webp",
+    modified: true,
     alt: "Material auxiliar para embalaje",
   },
 ];
@@ -429,7 +431,7 @@ export default function Services() {
                   ) : (
                     <StockImg src={it.img} alt={it.alt} w={1400} />
                   )}
-                  <span aria-hidden className="absolute top-2 left-2 z-[60] inline-flex items-center justify-center min-w-[34px] h-[26px] px-2 bg-wood text-paper text-[11px] font-mono font-bold tracking-wider leading-none pointer-events-none">#{idx + 5}</span>
+                  <span aria-hidden className={`absolute top-2 left-2 z-[60] inline-flex items-center justify-center min-w-[34px] h-[26px] px-2 text-paper text-[11px] font-mono font-bold tracking-wider leading-none pointer-events-none ${it.modified ? "bg-[#16a34a]" : "bg-wood"}`}>#{idx + 5}</span>
 
                   {/* Overlay editorial sólo en móvil/tablet: número + título sobre la imagen
                       para que el contenido textual no tenga que volver a renderizarlos

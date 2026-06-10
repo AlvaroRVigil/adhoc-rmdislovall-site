@@ -5,6 +5,7 @@
   z-index: 1;
   background: transparent;
   overflow: visible;
+  opacity: 0.2;
 }
 
 .image-trail .content__img {
