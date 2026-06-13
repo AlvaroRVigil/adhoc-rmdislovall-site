@@ -57,9 +57,8 @@ export default function Works() {
               <div className="relative aspect-[16/10] md:aspect-[4/5] bg-paperDeep overflow-hidden">
                 <StockImg src={w.src} alt={w.alt} w={1100} />
               </div>
-              <div className="flex items-baseline justify-between text-[10px] uppercase tracking-[0.22em] text-inkSoft">
+              <div className="flex items-baseline text-[10px] uppercase tracking-[0.22em] text-inkSoft">
                 <span>{w.sector}</span>
-                <span className="font-mono text-ink">0{i + 1}</span>
               </div>
               <h3 className="font-display text-xl md:text-2xl text-balance">
                 {w.title}
