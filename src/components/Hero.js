@@ -50,9 +50,12 @@ export default function Hero() {
     const ctx = gsap.context(() => {
       const items = gsap.utils.toArray(".hero-parallax img");
       items.forEach((img, i) => {
-        const range = 7 + (i % 3) * 2;
+        // Recorrido pequeño + escala mínima para que el parallax no recorte
+        // (haga "zoom") las fotos. La escala solo necesita cubrir el viaje:
+        // overflow por lado = (scale-1)/2 ≥ range% · scale.
+        const range = 2 + (i % 3) * 1;
         const dir = i % 2 === 0 ? 1 : -1;
-        gsap.set(img, { scale: 1.15, yPercent: -range * dir });
+        gsap.set(img, { scale: 1.08, yPercent: -range * dir });
         gsap.to(img, {
           yPercent: range * dir,
           ease: "none",
@@ -111,7 +114,7 @@ export default function Hero() {
             {/* Imagen base: nave (llena todo el bloque) */}
             <div className="absolute inset-0 overflow-hidden">
               <StockImg
-                src="/img/cliente/6.webp"
+                src="/img/cliente/01.webp"
                 alt="Nave de RM Dislovall con palets envueltos en Sentmenat"
                 w={1400}
                 q={85}
@@ -120,20 +123,21 @@ export default function Hero() {
             {/* Cuña diagonal: cartón ondulado en primer plano, encima */}
             <div
               className="absolute inset-0 overflow-hidden"
-              style={{ clipPath: "polygon(62% 0, 100% 0, 100% 100%, 26% 100%)" }}
+              style={{ clipPath: "polygon(62% 0, 100% 0, 100% 100%, 38% 100%)" }}
             >
               <StockImg
-                src="/img/cliente/3.webp"
+                src="/img/cliente/02.webp"
                 alt="Detalle de planchas de cartón ondulado"
                 w={1200}
                 q={85}
+                labelPos="top-1 right-1"
               />
             </div>
             {/* Filo fino color paper sobre la diagonal, para un corte limpio */}
             <div
               aria-hidden
               className="absolute inset-0 pointer-events-none bg-paper"
-              style={{ clipPath: "polygon(62% 0, 63.4% 0, 27.4% 100%, 26% 100%)" }}
+              style={{ clipPath: "polygon(62% 0, 63.4% 0, 39.4% 100%, 38% 100%)" }}
             />
             <Badge className="absolute z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-28 md:w-32 lg:w-36 aspect-square" />
           </div>

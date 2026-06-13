@@ -173,7 +173,7 @@ export default function AboutFacts() {
       <dl className="hidden md:grid grid-cols-2 mt-12 border-t border-border">
         {facts.map((f, i) => {
           const classes = [
-            "py-7 text-left",
+            "py-5 text-left",
             i % 2 !== 0 ? "border-l border-border pl-8" : "",
             i % 2 === 0 ? "pr-8" : "",
             i >= 2 ? "border-t border-border" : "",
@@ -182,7 +182,7 @@ export default function AboutFacts() {
             .join(" ");
           return (
             <div key={f.k} className={classes}>
-              <dt className="text-[10px] uppercase tracking-[0.22em] text-inkSoft mb-4">
+              <dt className="text-[10px] uppercase tracking-[0.22em] text-inkSoft mb-3">
                 {f.k}
               </dt>
               <dd className="font-display font-medium text-base tracking-tight leading-[1.2] text-ink text-balance">

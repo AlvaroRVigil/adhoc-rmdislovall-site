@@ -23,7 +23,8 @@ const items = [
       "Distintos canales y calidades",
     ],
     closer: "El embalaje adecuado para cada producto.",
-    img: "/img/cliente/5.webp",
+    img: "/img/cliente/04.webp",
+    imgMobile: "/img/cliente/04-mobile.webp",
     alt: "Caja de cartón ondulado a medida",
     modified: true,
     sticker: { text: "SERVICIO MÁS VENDIDO ·  ", color: "#9B2F23", icon: "box" },
@@ -49,7 +50,8 @@ const items = [
       title: "¿Necesitáis más espacio de almacenaje?",
       body: "Gestionamos stock y entregas programadas de material de embalaje, tanto propio como suministrado por el cliente.",
     },
-    img: "/img/cliente/6.webp",
+    img: "/img/cliente/05.webp",
+    imgMobile: "/img/cliente/05-mobile.webp",
     alt: "Almacén con palets de cajas",
   },
   {
@@ -60,7 +62,8 @@ const items = [
       "Flota propia para entregas en Cataluña y red logística para el resto del territorio. Cobertura regional como base, con capacidad de respuesta cuando el material está disponible.",
     tags: ["Flota propia", "Cobertura regional", "Red logística complementaria", "Capacidad de respuesta"],
     closer: "Si está en stock, puede salir el mismo día.",
-    img: "/img/cliente/7.webp",
+    img: "/img/cliente/06.webp",
+    imgMobile: "/img/cliente/06-mobile.webp",
     alt: "Carretilla y entregas",
   },
   {
@@ -79,7 +82,8 @@ const items = [
       "Paletizado y enfardado",
     ],
     closer: "El material llega listo para usar.",
-    img: "/img/cliente/8.webp",
+    img: "/img/cliente/07.webp",
+    imgMobile: "/img/cliente/07-mobile.webp",
     alt: "Procesos de manipulado de cartón",
   },
   {
@@ -90,7 +94,8 @@ const items = [
       "Precinto, film estirable, fleje y consumibles para cierre, paletizado y expedición. Material complementario para centralizar el suministro en un solo proveedor.",
     tags: ["Precinto", "Film estirable", "Fleje", "Consumibles"],
     closer: "Un solo proveedor para embalaje y material auxiliar.",
-    img: "/img/cliente/9.webp",
+    img: "/img/cliente/08.webp",
+    imgMobile: "/img/cliente/08-mobile.webp",
     modified: true,
     alt: "Material auxiliar para embalaje",
   },
@@ -465,7 +470,7 @@ export default function Services() {
                       <source src={`${it.video}.mp4`} type="video/mp4" />
                     </video>
                   ) : (
-                    <StockImg src={it.img} alt={it.alt} w={1400} />
+                    <StockImg src={it.img} srcMobile={it.imgMobile} mobileMax={1279} alt={it.alt} w={1400} />
                   )}
 
                   {/* Overlay editorial sólo en móvil/tablet: número + título sobre la imagen

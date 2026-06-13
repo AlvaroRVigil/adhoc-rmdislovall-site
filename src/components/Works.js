@@ -8,7 +8,8 @@ const works = [
     title: "Cajas troqueladas y automontables",
     body:
       "Formatos adaptados para almacenaje, protección y expedición de producto alimentario.",
-    src: "/img/cliente/11.webp",
+    src: "/img/cliente/10.webp",
+    srcMobile: "/img/cliente/10-mobile.webp",
     alt: "Caja troquelada para producto alimentario",
   },
   {
@@ -16,7 +17,8 @@ const works = [
     title: "Box industrial y protección interior",
     body:
       "Canal doble con interiores troquelados y formatos resistentes para piezas y componentes.",
-    src: "/img/cliente/12.webp",
+    src: "/img/cliente/11.webp",
+    srcMobile: "/img/cliente/11-mobile.webp",
     modified: true,
     alt: "Embalaje industrial con interiores troquelados",
   },
@@ -25,7 +27,8 @@ const works = [
     title: "Stock y entregas programadas",
     body:
       "Gestión de stock y suministro recurrente adaptado a la operativa de cada cliente.",
-    src: "/img/cliente/13.webp",
+    src: "/img/cliente/12.webp",
+    srcMobile: "/img/cliente/12-mobile.webp",
     alt: "Almacén con palets etiquetados",
   },
 ];
@@ -55,7 +58,7 @@ export default function Works() {
           {works.map((w, i) => (
             <article key={w.title} className="space-y-4">
               <div className="relative aspect-[16/10] md:aspect-[4/5] bg-paperDeep overflow-hidden">
-                <StockImg src={w.src} alt={w.alt} w={1100} />
+                <StockImg src={w.src} srcMobile={w.srcMobile} alt={w.alt} w={1100} />
               </div>
               <div className="flex items-baseline text-[10px] uppercase tracking-[0.22em] text-inkSoft">
                 <span>{w.sector}</span>

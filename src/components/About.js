@@ -41,7 +41,7 @@ export default function About() {
       {/* Imagen (izquierda en desktop, arriba en móvil) — a media pantalla */}
       <div className="relative bg-paperDeep h-[42vh] max-h-[480px] min-h-[300px] mx-section-x desk:mx-0 desk:h-full desk:max-h-none desk:min-h-[280px] overflow-hidden order-1">
         <StockImg
-          src="/img/cliente/4.webp"
+          src="/img/cliente/03.webp"
           alt="Fachada de la nave de RM Dislovall en Sentmenat"
           w={1400}
           q={85}
