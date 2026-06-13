@@ -309,12 +309,7 @@ export default function Services() {
     // gsap.matchMedia monta y revierte la animación de forma limpia al cruzar
     // el breakpoint — sin transform residual que desborde en vertical.
     const mm = gsap.matchMedia();
-    // El pin + scroll horizontal solo se monta cuando hay ancho desktop Y
-    // altura suficiente para el modo "pantalla completa" (mismo umbral que el
-    // breakpoint `tall` de Tailwind). Por debajo de 900px de alto, el carrusel
-    // cae a scroll horizontal normal y el pin no debe existir (si no, clava una
-    // sección que ya no mide 100vh y "salta").
-    mm.add("(min-width: 1280px) and (min-height: 900px)", () => {
+    mm.add("(min-width: 1280px)", () => {
       const track = trackRef.current;
       if (!track) return;
 
@@ -390,7 +385,7 @@ export default function Services() {
       ref={sectionRef}
       className="relative bg-paper overflow-hidden"
     >
-      <div className="tall:desk:h-screen desk:flex desk:flex-col">
+      <div className="desk:h-screen desk:flex desk:flex-col">
         <Container className="pt-section-y md:pt-20 pb-2">
           <div className="grid grid-cols-12 gap-x-4 md:gap-x-8 gap-y-6 items-end">
             <div className="col-span-12 desk:col-span-7 space-y-3 text-center desk:text-left">
@@ -406,14 +401,14 @@ export default function Services() {
           </div>
         </Container>
 
-        <div className="relative desk:flex-1 desk:flex desk:items-center desk:overflow-hidden tall:desk:pb-[2vh] pb-10 pt-8 desk:pt-6">
+        <div className="relative desk:flex-1 desk:flex desk:items-center desk:overflow-hidden desk:pb-[2vh] pb-10 pt-8 desk:pt-6">
           {/* Pasadores laterales (solo móvil/tablet): navegan el carrusel. */}
           <button
             type="button"
             onClick={() => goTo(activeIndex - 1)}
             disabled={activeIndex === 0}
             aria-label="Servicio anterior"
-            className="tall:desk:hidden absolute left-2 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-paper/90 backdrop-blur-sm border border-ink/15 shadow-md text-ink flex items-center justify-center transition disabled:opacity-0 disabled:pointer-events-none active:scale-95"
+            className="desk:hidden absolute left-2 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-paper/90 backdrop-blur-sm border border-ink/15 shadow-md text-ink flex items-center justify-center transition disabled:opacity-0 disabled:pointer-events-none active:scale-95"
           >
             <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
               <path d="m15 18-6-6 6-6" />
@@ -424,7 +419,7 @@ export default function Services() {
             onClick={() => goTo(activeIndex + 1)}
             disabled={activeIndex === items.length - 1}
             aria-label="Servicio siguiente"
-            className="tall:desk:hidden absolute right-2 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-paper/90 backdrop-blur-sm border border-ink/15 shadow-md text-ink flex items-center justify-center transition disabled:opacity-0 disabled:pointer-events-none active:scale-95"
+            className="desk:hidden absolute right-2 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-paper/90 backdrop-blur-sm border border-ink/15 shadow-md text-ink flex items-center justify-center transition disabled:opacity-0 disabled:pointer-events-none active:scale-95"
           >
             <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
               <path d="m9 18 6-6-6-6" />
@@ -433,17 +428,17 @@ export default function Services() {
           <div
             ref={scrollerRef}
             onScroll={handleScroll}
-            className="w-full overflow-x-auto snap-x snap-mandatory scroll-pl-section-x scroll-pr-section-x tall:desk:snap-none tall:desk:overflow-visible tall:desk:scroll-pl-0 tall:desk:scroll-pr-0 overscroll-x-contain [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+            className="w-full overflow-x-auto snap-x snap-mandatory scroll-pl-section-x scroll-pr-section-x desk:snap-none desk:overflow-visible desk:scroll-pl-0 desk:scroll-pr-0 overscroll-x-contain [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
           >
           <div
             ref={trackRef}
-            className="flex flex-row items-stretch gap-4 md:gap-6 desk:gap-8 px-section-x desk:px-0 desk:pl-section-x desk:pr-section-x tall:desk:h-[72vh] will-change-transform"
+            className="flex flex-row items-stretch gap-4 md:gap-6 desk:gap-8 px-section-x desk:px-0 desk:pl-section-x desk:pr-section-x desk:h-[72vh] will-change-transform"
           >
             {items.map((it, idx) => (
               <article
                 key={it.n}
                 data-card-idx={idx}
-                className={`snap-start relative shrink-0 w-full sm:w-[74%] md:w-[64%] tall:desk:h-full bg-paperSoft border border-border flex flex-col desk:grid desk:grid-cols-2 ${
+                className={`snap-start relative shrink-0 w-full sm:w-[74%] md:w-[64%] desk:h-full bg-paperSoft border border-border flex flex-col desk:grid desk:grid-cols-2 ${
                   it.wide ? "desk:w-[80vw]" : "desk:w-[56vw]"
                 }`}
               >
@@ -541,7 +536,7 @@ export default function Services() {
           </div>
         </div>
 
-        <div className="tall:desk:hidden px-section-x pb-section-y">
+        <div className="desk:hidden px-section-x pb-section-y">
           <div className="flex items-center justify-center gap-2" role="tablist" aria-label="Servicios">
             {items.map((it, i) => (
               <button
