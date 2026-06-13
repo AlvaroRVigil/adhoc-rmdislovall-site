@@ -15,6 +15,12 @@ module.exports = {
       // todo portátil estándar (1366, 1280, 1536...) sin caer a tablet.
       screens: {
         desk: "1280px",
+        // Altura mínima para el modo "pantalla completa con pin" de Servicios.
+        // El carrusel de desktop fija la sección a 100vh y desplaza el track en
+        // horizontal con el scroll; eso exige que la tarjeta más alta (7 ítems)
+        // quepa en el viewport, lo que pide ~900px. Por debajo, la sección
+        // desactiva el pin y pasa a un carrusel horizontal normal (ver Services).
+        tall: { raw: "(min-height: 900px)" },
       },
       colors: {
         paper: "#ECEBE3",

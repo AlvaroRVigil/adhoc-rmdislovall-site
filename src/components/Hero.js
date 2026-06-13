@@ -75,7 +75,7 @@ export default function Hero() {
       className="hero-parallax relative bg-paper overflow-hidden desk:min-h-[calc(100svh-5rem)] desk:flex desk:flex-col"
     >
       <Container className="pt-10 md:pt-12 pb-10 desk:pb-6 desk:flex-1 desk:flex desk:flex-col desk:justify-center">
-        <div className="grid grid-cols-12 gap-x-4 md:gap-x-8 gap-y-8 md:gap-y-12 items-start">
+        <div className="grid grid-cols-12 gap-x-4 md:gap-x-8 gap-y-8 md:gap-y-12 items-start desk:items-stretch">
           <div className="col-span-12 desk:col-span-5 space-y-5 md:space-y-7 text-center desk:text-left">
             <p className="eyebrow">
               Soluciones de embalaje · Logística · Gestión de stock
@@ -107,7 +107,7 @@ export default function Hero() {
             </div>
           </div>
 
-          <div className="col-span-12 desk:col-span-7 desk:col-start-6 relative aspect-[4/3] sm:aspect-[16/10] desk:aspect-auto desk:h-[76vh] overflow-hidden">
+          <div className="col-span-12 desk:col-span-7 desk:col-start-6 relative aspect-[4/3] sm:aspect-[16/10] desk:aspect-auto desk:h-auto desk:min-h-[76vh] overflow-hidden">
             {/* Imagen base: nave (llena todo el bloque) */}
             <div className="absolute inset-0 overflow-hidden">
               <StockImg

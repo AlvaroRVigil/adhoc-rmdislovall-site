@@ -244,7 +244,7 @@ function StarSticker({ text, color, icon = "box" }) {
     <div
       aria-hidden
       style={{ animation: "sticker-pulse 2.6s ease-in-out infinite" }}
-      className="absolute z-30 top-4 right-4 desk:-top-4 desk:-right-4 w-20 h-20 md:w-24 md:h-24 desk:w-28 desk:h-28 pointer-events-none"
+      className="absolute z-30 top-4 right-4 desk:left-4 desk:right-auto w-16 h-16 md:w-20 md:h-20 desk:w-24 desk:h-24 pointer-events-none"
     >
       <svg viewBox="0 0 200 200" className="w-full h-full">
         <circle cx="100" cy="100" r="96" fill="#ECEBE3" stroke={color} strokeWidth="7" />
@@ -309,7 +309,12 @@ export default function Services() {
     // gsap.matchMedia monta y revierte la animación de forma limpia al cruzar
     // el breakpoint — sin transform residual que desborde en vertical.
     const mm = gsap.matchMedia();
-    mm.add("(min-width: 1280px)", () => {
+    // El pin + scroll horizontal solo se monta cuando hay ancho desktop Y
+    // altura suficiente para el modo "pantalla completa" (mismo umbral que el
+    // breakpoint `tall` de Tailwind). Por debajo de 900px de alto, el carrusel
+    // cae a scroll horizontal normal y el pin no debe existir (si no, clava una
+    // sección que ya no mide 100vh y "salta").
+    mm.add("(min-width: 1280px) and (min-height: 900px)", () => {
       const track = trackRef.current;
       if (!track) return;
 
@@ -385,8 +390,8 @@ export default function Services() {
       ref={sectionRef}
       className="relative bg-paper overflow-hidden"
     >
-      <div className="desk:h-screen desk:flex desk:flex-col">
-        <Container className="pt-section-y md:pt-28 pb-2">
+      <div className="tall:desk:h-screen desk:flex desk:flex-col">
+        <Container className="pt-section-y md:pt-20 pb-2">
           <div className="grid grid-cols-12 gap-x-4 md:gap-x-8 gap-y-6 items-end">
             <div className="col-span-12 desk:col-span-7 space-y-3 text-center desk:text-left">
               <p className="eyebrow">Servicios</p>
@@ -401,14 +406,14 @@ export default function Services() {
           </div>
         </Container>
 
-        <div className="relative desk:flex-1 desk:flex desk:items-center desk:overflow-hidden desk:pb-[2vh] pb-10 pt-8 desk:pt-0">
+        <div className="relative desk:flex-1 desk:flex desk:items-center desk:overflow-hidden tall:desk:pb-[2vh] pb-10 pt-8 desk:pt-6">
           {/* Pasadores laterales (solo móvil/tablet): navegan el carrusel. */}
           <button
             type="button"
             onClick={() => goTo(activeIndex - 1)}
             disabled={activeIndex === 0}
             aria-label="Servicio anterior"
-            className="desk:hidden absolute left-2 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-paper/90 backdrop-blur-sm border border-ink/15 shadow-md text-ink flex items-center justify-center transition disabled:opacity-0 disabled:pointer-events-none active:scale-95"
+            className="tall:desk:hidden absolute left-2 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-paper/90 backdrop-blur-sm border border-ink/15 shadow-md text-ink flex items-center justify-center transition disabled:opacity-0 disabled:pointer-events-none active:scale-95"
           >
             <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
               <path d="m15 18-6-6 6-6" />
@@ -419,7 +424,7 @@ export default function Services() {
             onClick={() => goTo(activeIndex + 1)}
             disabled={activeIndex === items.length - 1}
             aria-label="Servicio siguiente"
-            className="desk:hidden absolute right-2 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-paper/90 backdrop-blur-sm border border-ink/15 shadow-md text-ink flex items-center justify-center transition disabled:opacity-0 disabled:pointer-events-none active:scale-95"
+            className="tall:desk:hidden absolute right-2 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-paper/90 backdrop-blur-sm border border-ink/15 shadow-md text-ink flex items-center justify-center transition disabled:opacity-0 disabled:pointer-events-none active:scale-95"
           >
             <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
               <path d="m9 18 6-6-6-6" />
@@ -428,17 +433,17 @@ export default function Services() {
           <div
             ref={scrollerRef}
             onScroll={handleScroll}
-            className="w-full overflow-x-auto snap-x snap-mandatory scroll-pl-section-x scroll-pr-section-x desk:snap-none desk:overflow-visible desk:scroll-pl-0 desk:scroll-pr-0 overscroll-x-contain [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+            className="w-full overflow-x-auto snap-x snap-mandatory scroll-pl-section-x scroll-pr-section-x tall:desk:snap-none tall:desk:overflow-visible tall:desk:scroll-pl-0 tall:desk:scroll-pr-0 overscroll-x-contain [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
           >
           <div
             ref={trackRef}
-            className="flex flex-row items-stretch gap-4 md:gap-6 desk:gap-8 px-section-x desk:px-0 desk:pl-section-x desk:pr-section-x desk:h-[72vh] will-change-transform"
+            className="flex flex-row items-stretch gap-4 md:gap-6 desk:gap-8 px-section-x desk:px-0 desk:pl-section-x desk:pr-section-x tall:desk:h-[72vh] will-change-transform"
           >
             {items.map((it, idx) => (
               <article
                 key={it.n}
                 data-card-idx={idx}
-                className={`snap-start relative shrink-0 w-full sm:w-[74%] md:w-[64%] desk:h-full bg-paperSoft border border-border flex flex-col desk:grid desk:grid-cols-2 ${
+                className={`snap-start relative shrink-0 w-full sm:w-[74%] md:w-[64%] tall:desk:h-full bg-paperSoft border border-border flex flex-col desk:grid desk:grid-cols-2 ${
                   it.wide ? "desk:w-[80vw]" : "desk:w-[56vw]"
                 }`}
               >
@@ -473,10 +478,7 @@ export default function Services() {
                       debajo. En desktop el grid 2 columnas mantiene número y título
                       en la mitad derecha como hasta ahora. */}
                   <div className="desk:hidden absolute inset-x-0 bottom-0 pt-16 pb-5 px-6 bg-gradient-to-t from-black/75 via-black/45 to-transparent">
-                    <span className="font-mono text-[11px] tracking-widest text-paper/80">
-                      {it.n}
-                    </span>
-                    <h3 className="mt-1 font-display font-medium text-paper text-2xl leading-[1] tracking-tighter text-balance">
+                    <h3 className="font-display font-medium text-paper text-xl leading-[1] tracking-tighter text-balance">
                       {it.title}
                     </h3>
                   </div>
@@ -485,16 +487,13 @@ export default function Services() {
                 <div className="p-6 md:p-8 flex flex-col gap-4 desk:overflow-y-auto desk:min-h-0 [scrollbar-width:thin] [scrollbar-color:#CDBFAA_transparent]">
                   {/* Número + título sólo visibles en desktop (en móvil viven sobre la imagen).
                       Se alinean en la misma línea base para ahorrar altura. */}
-                  <h3 className="hidden desk:flex items-baseline gap-3 font-display font-medium text-2xl md:text-3xl leading-[1] tracking-tighter text-balance">
-                    <span className="font-mono font-normal text-xs tracking-widest text-inkSoft">
-                      {it.n}
-                    </span>
-                    <span>{it.title}</span>
+                  <h3 className="hidden desk:block font-display font-medium text-xl md:text-2xl leading-[1] tracking-tighter text-balance">
+                    {it.title}
                   </h3>
 
                   <p
                     style={{ lineHeight: 1.2 }}
-                    className="text-sm md:text-base text-inkSoft text-pretty"
+                    className="text-sm text-inkSoft text-pretty"
                   >
                     {it.body}
                   </p>
@@ -503,7 +502,7 @@ export default function Services() {
                     {it.tags.map((t) => (
                       <li
                         key={t}
-                        className="flex items-start gap-3 py-2 md:py-2.5 border-b border-border/60 last:border-b-0 text-[15px] md:text-base font-normal"
+                        className="flex items-start gap-3 py-2 md:py-2.5 border-b border-border/60 last:border-b-0 text-sm font-normal"
                       >
                         <it.Icon />
                         <span className="leading-[1.25]">{t}</span>
@@ -542,7 +541,7 @@ export default function Services() {
           </div>
         </div>
 
-        <div className="desk:hidden px-section-x pb-section-y">
+        <div className="tall:desk:hidden px-section-x pb-section-y">
           <div className="flex items-center justify-center gap-2" role="tablist" aria-label="Servicios">
             {items.map((it, i) => (
               <button
