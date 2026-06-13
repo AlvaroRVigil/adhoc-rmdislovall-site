@@ -21,6 +21,17 @@ html, body {
   color: var(--ink);
 }
 
+/* Escalado en monitores grandes (QHD/2K+). Por debajo de 1920px no cambia
+   nada (FHD y portátil quedan igual). A partir de ahí sube el font-size raíz
+   de forma suave; como casi todo el sistema está en rem (tipografía,
+   espaciados, gaps), escala el conjunto de forma proporcional. Topa en 18px
+   (~+12,5%) para que ultrawide/4K no se vaya de madre. */
+@media (min-width: 1920px) {
+  :root {
+    font-size: clamp(16px, 0.3125vw + 10px, 18px);
+  }
+}
+
 :where(section[id]) {
   scroll-margin-top: 5rem;
 }
