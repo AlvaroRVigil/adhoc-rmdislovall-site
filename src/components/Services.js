@@ -215,7 +215,28 @@ function RollIcon() {
 // Sello giratorio reutilizable: texto curvo + icono central, color configurable.
 function StarSticker({ text, color, icon = "box" }) {
   const rotRef = useRef(null);
+  const textRef = useRef(null);
   const arcId = "sticker-" + useId().replace(/[^a-z0-9]/gi, "");
+
+  // El texto debe rellenar toda la circunferencia del sello. `textLength` en un
+  // <textPath> NO lo respeta Safari (el texto se amontona arriba), así que
+  // repartimos el espacio sobrante como letter-spacing — soportado en todos los
+  // navegadores. Se recalcula al cargar la fuente para medir con la real.
+  useEffect(() => {
+    const el = textRef.current;
+    if (!el || typeof el.getComputedTextLength !== "function") return;
+    const CIRC = 2 * Math.PI * 70; // circunferencia del arco (r=70)
+    const fit = () => {
+      el.setAttribute("letter-spacing", "0");
+      const natural = el.getComputedTextLength();
+      if (!natural || natural >= CIRC || !text.length) return;
+      el.setAttribute("letter-spacing", String((CIRC - natural) / text.length));
+    };
+    fit();
+    if (typeof document !== "undefined" && document.fonts?.ready) {
+      document.fonts.ready.then(fit).catch(() => {});
+    }
+  }, [text]);
 
   useEffect(() => {
     // La rotación por scroll vertical solo tiene sentido en desktop, donde
@@ -262,9 +283,8 @@ function StarSticker({ text, color, icon = "box" }) {
         </defs>
         <g ref={rotRef} transform="rotate(0 100 100)" style={{ willChange: "transform" }}>
           <text
+            ref={textRef}
             fill={color}
-            textLength="439"
-            lengthAdjust="spacing"
             xmlSpace="preserve"
             style={{
               fontFamily: "var(--font-sans), system-ui, sans-serif",
