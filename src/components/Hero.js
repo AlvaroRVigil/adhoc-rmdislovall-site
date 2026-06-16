@@ -42,6 +42,7 @@ function HeroFactsTrack({ ariaHidden = false }) {
 
 export default function Hero() {
   const sectionRef = useRef(null);
+  const card2Ref = useRef(null);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -67,6 +68,26 @@ export default function Hero() {
           },
         });
       });
+
+      // Parallax de scroll sutil para la tarjeta secundaria (02): se desplaza
+      // un poco más que el resto al hacer scroll, dando profundidad sobre la
+      // imagen principal.
+      if (card2Ref.current) {
+        gsap.fromTo(
+          card2Ref.current,
+          { yPercent: 20 },
+          {
+            yPercent: -20,
+            ease: "none",
+            scrollTrigger: {
+              trigger: sectionRef.current,
+              start: "top bottom",
+              end: "bottom top",
+              scrub: 0.6,
+            },
+          }
+        );
+      }
     }, sectionRef);
 
     return () => ctx.revert();
@@ -110,36 +131,34 @@ export default function Hero() {
             </div>
           </div>
 
-          <div className="col-span-12 desk:col-span-7 desk:col-start-6 relative aspect-[4/3] sm:aspect-[16/10] desk:aspect-auto desk:h-auto desk:min-h-[76vh] overflow-hidden">
-            {/* Imagen base: nave (llena todo el bloque) */}
+          <div className="col-span-12 desk:col-span-7 desk:col-start-6 relative aspect-[4/3] sm:aspect-[16/10] desk:aspect-auto desk:h-auto desk:min-h-[70vh]">
+            {/* Imagen principal: nave (grande, arriba-izquierda).
+                object-right: el contenido importante está a la derecha, así el
+                recorte responsive se come el lado izquierdo y nunca la derecha. */}
             <div className="absolute inset-0 overflow-hidden">
               <StockImg
                 src="/img/cliente/01.webp"
                 alt="Nave de RM Dislovall con palets envueltos en Sentmenat"
+                className="object-right-bottom"
                 w={1400}
                 q={85}
               />
             </div>
-            {/* Cuña diagonal: cartón ondulado en primer plano, encima */}
-            <div
-              className="absolute inset-0 overflow-hidden"
-              style={{ clipPath: "polygon(62% 0, 100% 0, 100% 100%, 38% 100%)" }}
-            >
-              <StockImg
-                src="/img/cliente/02.webp"
-                alt="Detalle de planchas de cartón ondulado"
-                w={1200}
-                q={85}
-                labelPos="top-1 right-1"
-              />
+            {/* Imagen secundaria: cartón ondulado, superpuesta abajo-derecha,
+                sobresaliendo por la derecha y por abajo. */}
+            <div ref={card2Ref} className="absolute right-[4%] desk:right-[-2%] bottom-[-6%] w-[34%] aspect-square">
+              <div className="absolute inset-0 overflow-hidden shadow-[0_24px_55px_-18px_rgba(48,39,29,0.5)]">
+                <StockImg
+                  src="/img/cliente/02.webp"
+                  alt="Detalle de planchas de cartón ondulado"
+                  w={1200}
+                  q={85}
+                  labelPos="top-1 right-1"
+                />
+              </div>
+              {/* Badge: su centro va siempre en la esquina superior izquierda de la 02 */}
+              <Badge className="absolute z-20 top-0 left-0 -translate-x-1/2 -translate-y-1/2 w-20 md:w-24 lg:w-28 aspect-square" />
             </div>
-            {/* Filo fino color paper sobre la diagonal, para un corte limpio */}
-            <div
-              aria-hidden
-              className="absolute inset-0 pointer-events-none bg-paper"
-              style={{ clipPath: "polygon(62% 0, 63.4% 0, 39.4% 100%, 38% 100%)" }}
-            />
-            <Badge className="absolute z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-28 md:w-32 lg:w-36 aspect-square" />
           </div>
         </div>
 
