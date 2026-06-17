@@ -57,8 +57,14 @@ export default function Works() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-x-6 gap-y-10 md:gap-y-12">
           {works.map((w, i) => (
             <article key={w.title} className="space-y-4">
-              <div className="relative aspect-[16/10] md:aspect-[4/5] bg-paperDeep overflow-hidden">
-                <StockImg src={w.src} srcMobile={w.srcMobile} alt={w.alt} w={1100} />
+              <div className="relative aspect-[16/10] md:aspect-[4/5] bg-paperDeep overflow-hidden max-[767px]:!aspect-auto">
+                <StockImg
+                  src={w.src}
+                  srcMobile={w.srcMobile}
+                  className="max-[767px]:!static max-[767px]:!h-auto max-[767px]:!block"
+                  alt={w.alt}
+                  w={1100}
+                />
               </div>
               <div className="flex items-baseline text-[10px] uppercase tracking-[0.22em] text-inkSoft">
                 <span>{w.sector}</span>

@@ -96,11 +96,11 @@ export default function Material() {
         </div>
       </div>
 
-      <div className="relative bg-wood h-[42vh] max-h-[480px] min-h-[300px] mx-section-x desk:mx-0 desk:h-full desk:max-h-none desk:min-h-[280px] overflow-hidden order-1 min-[768px]:max-[1279px]:h-auto min-[768px]:max-[1279px]:max-h-none min-[768px]:max-[1279px]:min-h-0 min-[768px]:max-[1279px]:bg-transparent">
+      <div className="relative bg-wood h-[42vh] max-h-[480px] min-h-[300px] mx-section-x desk:mx-0 desk:h-full desk:max-h-none desk:min-h-[280px] overflow-hidden order-1 max-[1279px]:!h-auto max-[1279px]:!max-h-none max-[1279px]:!min-h-0 max-[1279px]:bg-transparent">
         <StockImg
           src="/img/cliente/09.webp"
           srcTablet="/img/cliente/09-tablet.webp"
-          className="min-[768px]:max-[1279px]:!static min-[768px]:max-[1279px]:!h-auto min-[768px]:max-[1279px]:block"
+          className="max-[1279px]:!static max-[1279px]:!h-auto max-[1279px]:!block"
           alt="Almacén logístico con estanterías de cajas de cartón"
           w={1800}
           q={85}
