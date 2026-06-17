@@ -49,7 +49,7 @@ export default function Hero() {
     gsap.registerPlugin(ScrollTrigger);
 
     const ctx = gsap.context(() => {
-      const items = gsap.utils.toArray(".hero-parallax img");
+      const items = gsap.utils.toArray(".hero-parallax img:not(.no-parallax)");
       items.forEach((img, i) => {
         // Recorrido pequeño + escala mínima para que el parallax no recorte
         // (haga "zoom") las fotos. La escala solo necesita cubrir el viaje:
@@ -152,6 +152,7 @@ export default function Hero() {
                 <StockImg
                   src="/img/cliente/02.webp"
                   alt="Detalle de planchas de cartón ondulado"
+                  className="no-parallax"
                   w={1200}
                   q={85}
                   labelPos="top-1 right-1"
