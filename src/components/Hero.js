@@ -138,6 +138,7 @@ export default function Hero() {
             <div className="absolute inset-0 overflow-hidden">
               <StockImg
                 src="/img/cliente/01.webp"
+                srcTablet="/img/cliente/01-tablet.webp"
                 alt="Nave de RM Dislovall con palets envueltos en Sentmenat"
                 className="object-right-bottom"
                 w={1400}
