@@ -100,6 +100,7 @@ export default function Material() {
         <StockImg
           src="/img/cliente/09.webp"
           srcTablet="/img/cliente/09-tablet.webp"
+          className="min-[768px]:max-[1279px]:!object-contain"
           alt="Almacén logístico con estanterías de cajas de cartón"
           w={1800}
           q={85}
