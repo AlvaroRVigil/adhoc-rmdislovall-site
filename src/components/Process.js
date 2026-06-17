@@ -52,7 +52,7 @@ export default function Process() {
         </div>
       </Container>
 
-      <ol className="border-t border-border">
+      <ol className="border-t border-border mx-auto w-full max-w-container">
         {steps.map((s) => (
           <li
             key={s.n}

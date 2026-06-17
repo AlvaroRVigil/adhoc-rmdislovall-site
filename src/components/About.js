@@ -5,7 +5,7 @@ export default function About() {
   return (
     <section
       id="nosotros"
-      className="grid grid-cols-1 desk:grid-cols-2 desk:min-h-[100svh] items-stretch"
+      className="grid grid-cols-1 desk:grid-cols-2 desk:min-h-[100svh] items-stretch bg-paperSoft"
     >
       {/* Texto (derecha en desktop, debajo de la imagen en móvil) */}
       <div className="bg-paperSoft text-ink flex items-center px-section-x py-section-y md:py-16 order-2 overflow-y-auto">
@@ -39,7 +39,7 @@ export default function About() {
       </div>
 
       {/* Imagen (izquierda en desktop, arriba en móvil) — a media pantalla */}
-      <div className="relative bg-paperDeep h-[42vh] max-h-[480px] min-h-[300px] mx-section-x desk:mx-0 desk:h-full desk:max-h-none desk:min-h-[280px] overflow-hidden order-1">
+      <div className="relative bg-paperSoft h-[42vh] max-h-[480px] min-h-[300px] mx-section-x desk:mx-0 desk:h-full desk:max-h-none desk:min-h-[280px] overflow-hidden order-1">
         <StockImg
           src="/img/cliente/03.webp"
           srcTablet="/img/cliente/03-tablet.webp"

@@ -29,7 +29,7 @@ export default function Sectors() {
   return (
     <section
       aria-label="Sectores en los que trabajamos"
-      className="relative border-y border-border py-5 md:py-6 overflow-hidden"
+      className="relative bg-paperSoft border-y border-border py-5 md:py-6 overflow-hidden"
     >
       <div className="relative overflow-hidden">
         <div className="marquee-track">
@@ -38,11 +38,11 @@ export default function Sectors() {
         </div>
         <div
           aria-hidden
-          className="pointer-events-none absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-paper to-transparent"
+          className="pointer-events-none absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-paperSoft to-transparent"
         />
         <div
           aria-hidden
-          className="pointer-events-none absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-paper to-transparent"
+          className="pointer-events-none absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-paperSoft to-transparent"
         />
       </div>
     </section>
