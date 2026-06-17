@@ -1,16 +1,16 @@
 import ImageTrail from "./ImageTrail";
 
-const TRAIL_PARAMS = "?w=400&q=80&auto=format&fit=crop";
+// Fotos propias del cliente (cuadradas) para el trail del cursor.
 const trailItems = [
-  `https://images.unsplash.com/photo-1773125929765-99d4d67e831d${TRAIL_PARAMS}`,
-  `https://images.unsplash.com/photo-1591648241334-ce4ae86f3e9c${TRAIL_PARAMS}`,
-  `https://images.unsplash.com/photo-1587293852726-70cdb56c2866${TRAIL_PARAMS}`,
-  `https://images.unsplash.com/photo-1553413077-190dd305871c${TRAIL_PARAMS}`,
-  `https://images.unsplash.com/photo-1771848194068-169d817a1d6f${TRAIL_PARAMS}`,
-  `https://images.unsplash.com/photo-1772920908589-d6264e5d987f${TRAIL_PARAMS}`,
-  `https://images.unsplash.com/photo-1709804945989-c8be542e04db${TRAIL_PARAMS}`,
-  `https://images.unsplash.com/photo-1672552226380-486fe900b322${TRAIL_PARAMS}`,
-  `https://images.unsplash.com/photo-1645736315000-6f788915923b${TRAIL_PARAMS}`,
+  "/img/trail/1.webp",
+  "/img/trail/2.webp",
+  "/img/trail/3.webp",
+  "/img/trail/4.webp",
+  "/img/trail/5.webp",
+  "/img/trail/6.webp",
+  "/img/trail/7.webp",
+  "/img/trail/8.webp",
+  "/img/trail/9.webp",
 ];
 
 function Icon({ children }) {
