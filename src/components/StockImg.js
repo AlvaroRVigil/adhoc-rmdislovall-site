@@ -9,11 +9,15 @@ import { useEffect, useRef } from "react";
 // para poder decir cosas como "en el área 1 va la foto cliente/3".
 const DEBUG_LABELS = true;
 
-// `srcMobile`: ruta de la versión recortada para móvil/tablet. Si se pasa,
-// se sirve por debajo de `mobileMax` px y la versión `src` (desktop) por encima.
-// `mobileMax` se ajusta al breakpoint donde el contenedor cambia de formato
-// (p.ej. 1279 para las tarjetas de Servicios, 767 para la rejilla de Trabajos).
-export default function StockImg({ src, srcMobile = null, mobileMax = 767, alt, className = "", w = 1200, q = 80, labelPos = "top-1 left-1" }) {
+// Sistema de 3 tiers por franjas fijas:
+//   - `src` (normal): base, se usa en todas las pantallas salvo override.
+//   - `srcTablet`: sustituye SOLO en tablet (768–1279 px).
+//   - `srcMobile`: sustituye SOLO en mobile (<768 px).
+// Un tier sin variante cae a `src`. P.ej. normal+tablet ⇒ en mobile vuelve a normal.
+const MOBILE_MAX = 767; // < 768 = mobile
+const TABLET_MIN = 768;
+const TABLET_MAX = 1279; // 768–1279 = tablet ; ≥1280 = desktop
+export default function StockImg({ src, srcTablet = null, srcMobile = null, alt, className = "", w = 1200, q = 80, labelPos = "top-1 left-1" }) {
   const isLocal = src.startsWith("/") || src.startsWith("./");
   const finalSrc = isLocal ? src : `${src}?w=${w}&q=${q}&auto=format&fit=crop`;
 
@@ -51,9 +55,17 @@ export default function StockImg({ src, srcMobile = null, mobileMax = 767, alt, 
 
   return (
     <>
-      {srcMobile ? (
+      {srcTablet || srcMobile ? (
         <picture>
-          <source media={`(max-width: ${mobileMax}px)`} srcSet={srcMobile} />
+          {srcMobile && (
+            <source media={`(max-width: ${MOBILE_MAX}px)`} srcSet={srcMobile} />
+          )}
+          {srcTablet && (
+            <source
+              media={`(min-width: ${TABLET_MIN}px) and (max-width: ${TABLET_MAX}px)`}
+              srcSet={srcTablet}
+            />
+          )}
           {imgEl}
         </picture>
       ) : (
