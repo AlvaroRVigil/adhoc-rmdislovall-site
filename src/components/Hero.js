@@ -79,7 +79,7 @@ export default function Hero() {
             </div>
           </div>
 
-          <div className="col-span-12 desk:col-span-7 desk:col-start-6 relative aspect-[3/2] max-[767px]:aspect-square desk:aspect-square desk:w-[min(100%,calc(95svh-11rem))] desk:justify-self-end overflow-hidden">
+          <div className="col-span-12 desk:col-span-7 desk:col-start-6 relative aspect-[3/2] max-[767px]:aspect-square desk:aspect-auto desk:w-full desk:h-[calc(95svh-11rem)] overflow-hidden">
             {/* Imagen base: nave. Su caja es SOLO el rectángulo que envuelve su
                 cuña izquierda (de 0 a 68% del ancho), no el bloque entero, para
                 que object-cover no gaste foto bajo la máscara del cartón.
