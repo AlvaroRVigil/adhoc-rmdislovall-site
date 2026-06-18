@@ -46,7 +46,7 @@ export default function Hero() {
       ref={sectionRef}
       className="hero-parallax relative bg-paper overflow-hidden desk:min-h-[calc(100svh-5rem)] desk:flex desk:flex-col"
     >
-      <Container className="pt-10 md:pt-12 pb-10 desk:pb-6 desk:flex-1 desk:flex desk:flex-col desk:justify-center">
+      <Container className="pt-[20px] desk:pt-8 pb-10 desk:pb-6 desk:flex-1 desk:flex desk:flex-col desk:justify-start">
         <div className="grid grid-cols-12 gap-x-4 md:gap-x-8 gap-y-8 md:gap-y-12 items-start">
           <div className="col-span-12 desk:col-span-5 space-y-5 md:space-y-7 text-center desk:text-left">
             <p className="eyebrow">
