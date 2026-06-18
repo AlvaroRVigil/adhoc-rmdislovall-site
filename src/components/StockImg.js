@@ -7,7 +7,7 @@ import { useEffect, useRef } from "react";
 //   [ Nº de ÁREA (negro) ] [ archivo actual (lima) ]
 // El nº de área es la posición del hueco en la página (estable por recarga),
 // para poder decir cosas como "en el área 1 va la foto cliente/3".
-const DEBUG_LABELS = true;
+const DEBUG_LABELS = false;
 
 // Sistema de 3 tiers por franjas fijas:
 //   - `src` (normal): base, se usa en todas las pantallas salvo override.
