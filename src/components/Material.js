@@ -29,7 +29,7 @@ export default function Material() {
       <p className="eyebrow">
         Forma de trabajar
       </p>
-      <h2 className="heading-section">
+      <h2 className="heading-section text-[2.125rem] md:text-display-md">
         Adaptación, respuesta
         <span className="block italic text-wood">y relación continua.</span>
       </h2>
@@ -45,11 +45,11 @@ export default function Material() {
   return (
     <section className="grid grid-cols-1 desk:grid-cols-2 desk:min-h-[100svh] items-stretch">
       {/* Intro solo en móvil/tablet: por encima de la imagen 09 */}
-      <div className="desk:hidden order-1 px-section-x pt-section-y md:pt-16">
+      <div className="desk:hidden order-1 px-section-x py-12 md:py-16">
         {intro}
       </div>
 
-      <div className="bg-paperSoft text-ink flex items-center px-section-x py-section-y md:py-16 order-3 desk:order-2 overflow-y-auto">
+      <div className="bg-paperSoft text-ink flex items-center px-section-x pt-8 pb-section-y md:py-16 order-3 desk:order-2 overflow-y-auto">
         <div className="w-full max-w-xl mx-auto space-y-8">
           <div className="hidden desk:block">{intro}</div>
 
