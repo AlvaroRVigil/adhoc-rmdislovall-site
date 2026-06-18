@@ -117,7 +117,7 @@ export default function Hero() {
               className="absolute inset-0 pointer-events-none bg-paper"
               style={{ clipPath: "polygon(68% 0, 69% 0, 51% 100%, 50% 100%)" }}
             />
-            <Badge className="absolute z-10 bottom-5 right-5 md:bottom-7 md:right-7 w-28 md:w-32 lg:w-36 aspect-square" />
+            <Badge className="absolute z-10 top-[77%] left-[54%] -translate-x-1/2 -translate-y-1/2 w-28 md:w-32 lg:w-36 aspect-square" />
           </div>
         </div>
 
