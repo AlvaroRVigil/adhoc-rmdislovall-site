@@ -1,8 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useRef } from "react";
 import Container from "./Container";
 import PillButton from "./PillButton";
 import StockImg from "./StockImg";
@@ -42,56 +40,6 @@ function HeroFactsTrack({ ariaHidden = false }) {
 
 export default function Hero() {
   const sectionRef = useRef(null);
-  const card2Ref = useRef(null);
-
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    gsap.registerPlugin(ScrollTrigger);
-
-    const ctx = gsap.context(() => {
-      const items = gsap.utils.toArray(".hero-parallax img:not(.no-parallax)");
-      items.forEach((img, i) => {
-        // Recorrido pequeño + escala mínima para que el parallax no recorte
-        // (haga "zoom") las fotos. La escala solo necesita cubrir el viaje:
-        // overflow por lado = (scale-1)/2 ≥ range% · scale.
-        const range = 2 + (i % 3) * 1;
-        const dir = i % 2 === 0 ? 1 : -1;
-        gsap.set(img, { scale: 1.08, yPercent: -range * dir });
-        gsap.to(img, {
-          yPercent: range * dir,
-          ease: "none",
-          scrollTrigger: {
-            trigger: img.parentElement,
-            start: "top bottom",
-            end: "bottom top",
-            scrub: 0.6,
-          },
-        });
-      });
-
-      // Parallax de scroll sutil para la tarjeta secundaria (02): se desplaza
-      // un poco más que el resto al hacer scroll, dando profundidad sobre la
-      // imagen principal.
-      if (card2Ref.current) {
-        gsap.fromTo(
-          card2Ref.current,
-          { yPercent: 20 },
-          {
-            yPercent: -20,
-            ease: "none",
-            scrollTrigger: {
-              trigger: sectionRef.current,
-              start: "top bottom",
-              end: "bottom top",
-              scrub: 0.6,
-            },
-          }
-        );
-      }
-    }, sectionRef);
-
-    return () => ctx.revert();
-  }, []);
 
   return (
     <section
@@ -99,7 +47,7 @@ export default function Hero() {
       className="hero-parallax relative bg-paper overflow-hidden desk:min-h-[calc(100svh-5rem)] desk:flex desk:flex-col"
     >
       <Container className="pt-10 md:pt-12 pb-10 desk:pb-6 desk:flex-1 desk:flex desk:flex-col desk:justify-center">
-        <div className="grid grid-cols-12 gap-x-4 md:gap-x-8 gap-y-8 md:gap-y-12 items-start desk:items-stretch">
+        <div className="grid grid-cols-12 gap-x-4 md:gap-x-8 gap-y-8 md:gap-y-12 items-start">
           <div className="col-span-12 desk:col-span-5 space-y-5 md:space-y-7 text-center desk:text-left">
             <p className="eyebrow">
               Soluciones de embalaje · Logística · Gestión de stock
@@ -131,36 +79,45 @@ export default function Hero() {
             </div>
           </div>
 
-          <div className="col-span-12 desk:col-span-7 desk:col-start-6 relative aspect-[4/3] sm:aspect-[16/10] desk:aspect-auto desk:h-auto desk:min-h-[70vh]">
-            {/* Imagen principal: nave (grande, arriba-izquierda).
-                object-right: el contenido importante está a la derecha, así el
-                recorte responsive se come el lado izquierdo y nunca la derecha. */}
-            <div className="absolute inset-0 overflow-hidden">
+          <div className="col-span-12 desk:col-span-7 desk:col-start-6 relative aspect-[3/2] max-[767px]:aspect-square desk:aspect-square overflow-hidden">
+            {/* Imagen base: nave. Su caja es SOLO el rectángulo que envuelve su
+                cuña izquierda (de 0 a 68% del ancho), no el bloque entero, para
+                que object-cover no gaste foto bajo la máscara del cartón.
+                El clip va relativo a esa caja del 68%. */}
+            <div
+              className="absolute left-0 top-0 h-full w-[68%] overflow-hidden"
+              style={{ clipPath: "polygon(0 0, 100% 0, 73.5% 100%, 0 100%)" }}
+            >
               <StockImg
                 src="/img/cliente/01.webp"
                 srcTablet="/img/cliente/01-tablet.webp"
                 alt="Nave de RM Dislovall con palets envueltos en Sentmenat"
-                className="object-right-bottom"
+                className="object-right"
                 w={1400}
                 q={85}
               />
             </div>
-            {/* Imagen secundaria: cartón ondulado, superpuesta abajo-derecha,
-                sobresaliendo por la derecha y por abajo. */}
-            <div ref={card2Ref} className="absolute right-[4%] desk:right-[-2%] bottom-[-6%] w-[34%] aspect-square">
-              <div className="absolute inset-0 overflow-hidden shadow-[0_24px_55px_-18px_rgba(48,39,29,0.5)]">
-                <StockImg
-                  src="/img/cliente/02.webp"
-                  alt="Detalle de planchas de cartón ondulado"
-                  className="no-parallax"
-                  w={1200}
-                  q={85}
-                  labelPos="top-1 right-1"
-                />
-              </div>
-              {/* Badge: su centro va siempre en la esquina superior izquierda de la 02 */}
-              <Badge className="absolute z-20 top-0 left-0 -translate-x-1/2 -translate-y-1/2 w-20 md:w-24 lg:w-28 aspect-square" />
+            {/* Cuña diagonal: cartón ondulado. Caja = rectángulo de su cuña
+                derecha (de 50% a 100% del ancho). Clip relativo a esa caja. */}
+            <div
+              className="absolute right-0 top-0 h-full w-[50%] overflow-hidden"
+              style={{ clipPath: "polygon(36% 0, 100% 0, 100% 100%, 0 100%)" }}
+            >
+              <StockImg
+                src="/img/cliente/02.webp"
+                alt="Detalle de planchas de cartón ondulado"
+                className="object-center"
+                w={1200}
+                q={85}
+              />
             </div>
+            {/* Filo fino color paper sobre la diagonal, para un corte limpio */}
+            <div
+              aria-hidden
+              className="absolute inset-0 pointer-events-none bg-paper"
+              style={{ clipPath: "polygon(68% 0, 69% 0, 51% 100%, 50% 100%)" }}
+            />
+            <Badge className="absolute z-10 bottom-5 right-5 md:bottom-7 md:right-7 w-28 md:w-32 lg:w-36 aspect-square" />
           </div>
         </div>
 

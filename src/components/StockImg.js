@@ -17,7 +17,7 @@ const DEBUG_LABELS = true;
 const MOBILE_MAX = 767; // < 768 = mobile
 const TABLET_MIN = 768;
 const TABLET_MAX = 1279; // 768–1279 = tablet ; ≥1280 = desktop
-export default function StockImg({ src, srcTablet = null, srcMobile = null, alt, className = "", w = 1200, q = 80, labelPos = "top-1 left-1" }) {
+export default function StockImg({ src, srcTablet = null, srcMobile = null, alt, className = "", w = 1200, q = 80, labelPos = "top-1 left-1", contain = false, fitHeight = false }) {
   const isLocal = src.startsWith("/") || src.startsWith("./");
   const finalSrc = isLocal ? src : `${src}?w=${w}&q=${q}&auto=format&fit=crop`;
 
@@ -43,13 +43,25 @@ export default function StockImg({ src, srcTablet = null, srcMobile = null, alt,
     });
   }, []);
 
-  const imgEl = (
+  // fitHeight: la imagen se ajusta por ALTURA (h-full, ancho natural), así no
+  // se recorta nunca por arriba/abajo; el sobrante se va por los lados. El
+  // `className` controla la alineación horizontal (p.ej. left-0, inset-x-0
+  // mx-auto). En modo normal llena la caja con object-cover/contain.
+  const imgEl = fitHeight ? (
     <img
       src={finalSrc}
       alt={alt}
       loading="lazy"
       decoding="async"
-      className={`absolute inset-0 w-full h-full object-cover ${className}`}
+      className={`absolute top-0 bottom-0 h-full w-auto max-w-none ${className}`}
+    />
+  ) : (
+    <img
+      src={finalSrc}
+      alt={alt}
+      loading="lazy"
+      decoding="async"
+      className={`absolute inset-0 w-full h-full ${contain ? "object-contain" : "object-cover"} ${className}`}
     />
   );
 

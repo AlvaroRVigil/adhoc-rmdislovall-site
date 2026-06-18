@@ -24,25 +24,34 @@ const items = [
 export default function Material() {
   const [openIndex, setOpenIndex] = useState(-1);
 
+  const intro = (
+    <div className="space-y-4 text-center desk:text-left">
+      <p className="eyebrow">
+        Forma de trabajar
+      </p>
+      <h2 className="heading-section">
+        Adaptación, respuesta
+        <span className="block italic text-wood">y relación continua.</span>
+      </h2>
+      <p className="text-base text-inkSoft text-pretty max-w-md pt-2 leading-[1.45] mx-auto desk:mx-0">
+        Cada empresa trabaja con necesidades distintas de producción,
+        almacenaje y expedición. El servicio se plantea desde la
+        continuidad, la capacidad de adaptación y una atención cercana
+        durante todo el suministro.
+      </p>
+    </div>
+  );
+
   return (
     <section className="grid grid-cols-1 desk:grid-cols-2 desk:min-h-[100svh] items-stretch">
-      <div className="bg-paperSoft text-ink flex items-center px-section-x py-section-y md:py-16 order-2 overflow-y-auto">
+      {/* Intro solo en móvil/tablet: por encima de la imagen 09 */}
+      <div className="desk:hidden order-1 px-section-x pt-section-y md:pt-16">
+        {intro}
+      </div>
+
+      <div className="bg-paperSoft text-ink flex items-center px-section-x py-section-y md:py-16 order-3 desk:order-2 overflow-y-auto">
         <div className="w-full max-w-xl mx-auto space-y-8">
-          <div className="space-y-4 text-center desk:text-left">
-            <p className="eyebrow">
-              Forma de trabajar
-            </p>
-            <h2 className="heading-section">
-              Adaptación, respuesta
-              <span className="block italic text-wood">y relación continua.</span>
-            </h2>
-            <p className="text-base text-inkSoft text-pretty max-w-md pt-2 leading-[1.45] mx-auto desk:mx-0">
-              Cada empresa trabaja con necesidades distintas de producción,
-              almacenaje y expedición. El servicio se plantea desde la
-              continuidad, la capacidad de adaptación y una atención cercana
-              durante todo el suministro.
-            </p>
-          </div>
+          <div className="hidden desk:block">{intro}</div>
 
           <ul>
             {items.map((it, i) => {
@@ -96,7 +105,7 @@ export default function Material() {
         </div>
       </div>
 
-      <div className="relative bg-wood h-[42vh] max-h-[480px] min-h-[300px] mx-section-x desk:mx-0 desk:h-full desk:max-h-none desk:min-h-[280px] overflow-hidden order-1 max-[1279px]:!h-auto max-[1279px]:!max-h-none max-[1279px]:!min-h-0 max-[1279px]:bg-transparent">
+      <div className="relative bg-wood h-[42vh] max-h-[480px] min-h-[300px] mx-section-x desk:mx-0 desk:h-full desk:max-h-none desk:min-h-[280px] overflow-hidden order-2 desk:order-1 max-[1279px]:!h-auto max-[1279px]:!max-h-none max-[1279px]:!min-h-0 max-[1279px]:bg-transparent">
         <StockImg
           src="/img/cliente/09.webp"
           srcTablet="/img/cliente/09-tablet.webp"
