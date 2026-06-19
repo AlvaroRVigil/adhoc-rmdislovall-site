@@ -1,0 +1,5 @@
+User-Agent: *
+Allow: /
+
+Host: https://rmdislovall.com
+Sitemap: https://rmdislovall.com/sitemap.xml
