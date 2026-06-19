@@ -4,11 +4,16 @@ import AboutFacts from "./AboutFacts";
 export default function About() {
   return (
     <section
-      id="nosotros"
       className="grid grid-cols-1 desk:grid-cols-2 desk:min-h-[100svh] items-stretch bg-paperSoft"
     >
-      {/* Texto (derecha en desktop, debajo de la imagen en móvil) */}
-      <div className="bg-paperSoft text-ink flex items-center px-section-x py-section-y md:py-16 order-2 overflow-y-auto">
+      {/* Texto (derecha en desktop, debajo de la imagen en móvil). El ancla
+          #nosotros va aquí (no en la sección) para que en móvil el enlace de la
+          navbar aterrice en el texto, saltando la imagen superior; scroll-mt
+          compensa la altura de la navbar fija. */}
+      <div
+        id="nosotros"
+        className="scroll-mt-20 bg-paperSoft text-ink flex items-center px-section-x py-section-y md:py-16 order-2 overflow-y-auto"
+      >
         <div className="w-full max-w-xl mx-auto space-y-8 text-center desk:text-left">
           <div className="space-y-4">
             <p className="eyebrow">Quiénes somos</p>
