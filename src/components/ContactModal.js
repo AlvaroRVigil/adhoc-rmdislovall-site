@@ -2,30 +2,46 @@
 
 import { useEffect, useState } from "react";
 
+// Endpoint propio en el hosting de la clienta (Plesk/ANW). El correo se envía
+// con el servidor de la propia web, sin servicios externos. Mismo dominio, así
+// que no hay CORS. Ver public/contact.php.
+const FORM_ENDPOINT = "/contact.php";
+
 export default function ContactModal({ open, onClose }) {
   const [copied, setCopied] = useState(false);
+  // idle | sending | sent | error
+  const [status, setStatus] = useState("idle");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const data = new FormData(e.currentTarget);
+    const form = e.currentTarget;
+    const data = new FormData(form);
     const nombre = (data.get("nombre") || "").toString().trim();
     const empresa = (data.get("empresa") || "").toString().trim();
     const telefono = (data.get("telefono") || "").toString().trim();
     const email = (data.get("email") || "").toString().trim();
     const mensaje = (data.get("mensaje") || "").toString().trim();
-    const lines = [
-      `Nombre: ${nombre}`,
-      empresa ? `Empresa: ${empresa}` : null,
-      `Teléfono: ${telefono}`,
-      `Email: ${email}`,
-      "",
-      "Mensaje:",
-      mensaje,
-    ].filter(Boolean);
-    const subject = "Nueva solicitud web — RM Dislovall";
-    const body = lines.join("\n");
-    const href = `mailto:info@rmdislovall.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    window.location.href = href;
+
+    setStatus("sending");
+    try {
+      const res = await fetch(FORM_ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          nombre,
+          empresa,
+          telefono,
+          email,
+          mensaje,
+          website: (data.get("website") || "").toString(), // honeypot
+        }),
+      });
+      if (!res.ok) throw new Error("bad status");
+      setStatus("sent");
+      form.reset();
+    } catch (err) {
+      setStatus("error");
+    }
   };
 
   const copyPhone = async () => {
@@ -49,6 +65,7 @@ export default function ContactModal({ open, onClose }) {
   useEffect(() => {
     if (typeof document === "undefined") return;
     if (open) {
+      setStatus("idle");
       const previous = document.body.style.overflow;
       document.body.style.overflow = "hidden";
       const onKey = (e) => {
@@ -113,6 +130,15 @@ export default function ContactModal({ open, onClose }) {
               </div>
 
               <form className="space-y-5 md:space-y-6" onSubmit={handleSubmit}>
+                {/* Honeypot anti-spam: oculto a usuarios, lo rellenan los bots */}
+                <input
+                  type="text"
+                  name="website"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  aria-hidden="true"
+                  className="hidden"
+                />
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1">
                   <label className="block">
                     <span className="sr-only">Nombre</span>
@@ -147,10 +173,31 @@ export default function ContactModal({ open, onClose }) {
                 </p>
                 <button
                   type="submit"
-                  className="btn-light w-full h-14 text-base font-medium"
+                  disabled={status === "sending" || status === "sent"}
+                  className="btn-light w-full h-14 text-base font-medium disabled:opacity-60 disabled:pointer-events-none"
                 >
-                  Enviar solicitud
+                  {status === "sending"
+                    ? "Enviando…"
+                    : status === "sent"
+                    ? "Solicitud enviada ✓"
+                    : "Enviar solicitud"}
                 </button>
+
+                {status === "sent" && (
+                  <p aria-live="polite" className="text-sm text-woodSoft text-center leading-[1.5]">
+                    ¡Gracias! Hemos recibido tu solicitud y te responderemos en
+                    menos de 24 horas laborables.
+                  </p>
+                )}
+                {status === "error" && (
+                  <p aria-live="polite" className="text-sm text-wood text-center leading-[1.5]">
+                    No se ha podido enviar. Inténtalo de nuevo o escríbenos a{" "}
+                    <a href="mailto:info@rmdislovall.com" className="underline">
+                      info@rmdislovall.com
+                    </a>
+                    .
+                  </p>
+                )}
               </form>
 
               <div className="mt-8 md:mt-10 pt-6 md:pt-8 border-t border-woodSoft/15 text-center">
