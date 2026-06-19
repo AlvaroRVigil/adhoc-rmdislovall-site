@@ -507,7 +507,7 @@ export default function Services() {
                   />
                 )}
 
-                <div className="relative bg-paperDeep h-[22vh] min-h-[150px] max-h-[230px] sm:h-[26vh] md:h-[30vh] desk:h-auto desk:min-h-0 desk:max-h-none overflow-hidden">
+                <div className="relative bg-paperDeep h-[22vh] min-h-[150px] max-h-[230px] sm:h-[26vh] md:h-[40vh] md:max-h-[360px] desk:h-auto desk:min-h-0 desk:max-h-none overflow-hidden">
                   {it.video ? (
                     <video
                       className="absolute inset-0 w-full h-full object-cover"
