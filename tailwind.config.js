@@ -15,6 +15,9 @@ module.exports = {
       // todo portátil estándar (1366, 1280, 1536...) sin caer a tablet.
       screens: {
         desk: "1280px",
+        // Breakpoint propio del carrusel de Servicios: a partir de 900px usa el
+        // layout horizontal con pin; por debajo, versión móvil (tarjeta full).
+        serv: "900px",
       },
       colors: {
         paper: "#ECEBE3",
