@@ -522,7 +522,7 @@ export default function Services() {
                       <source src={`${it.video}.mp4`} type="video/mp4" />
                     </video>
                   ) : (
-                    <StockImg src={it.img} srcMobile={it.imgMobile} alt={it.alt} w={1400} />
+                    <StockImg src={it.img} srcMobile={it.imgMobile} srcTablet={it.imgMobile} alt={it.alt} w={1400} />
                   )}
 
                   {/* Overlay editorial sólo en móvil/tablet: número + título sobre la imagen
