@@ -338,8 +338,17 @@ export default function Services() {
       const track = trackRef.current;
       if (!track) return;
 
-      const getDistance = () =>
-        Math.max(0, track.scrollWidth - window.innerWidth);
+      // Distancia del pin = hasta que el borde derecho de la última tarjeta
+      // (más su margen derecho, que Chrome no incluye en scrollWidth) llega al
+      // borde del viewport. Se calcula desde la propia tarjeta, no de scrollWidth.
+      const getDistance = () => {
+        const cards = track.querySelectorAll("[data-card-idx]");
+        const last = cards[cards.length - 1];
+        if (!last) return Math.max(0, track.scrollWidth - window.innerWidth);
+        const marginRight = parseFloat(getComputedStyle(track).paddingRight) || 0;
+        const lastRight = last.offsetLeft - track.offsetLeft + last.offsetWidth;
+        return Math.max(0, lastRight + marginRight - window.innerWidth);
+      };
 
       gsap.to(track, {
         x: () => -getDistance(),
@@ -359,7 +368,17 @@ export default function Services() {
       const refresh = () => ScrollTrigger.refresh();
       refresh();
       window.addEventListener("load", refresh);
-      return () => window.removeEventListener("load", refresh);
+
+      // El ancho del track depende de imágenes/fuentes y de los breakpoints; si
+      // cambia tras el primer cálculo, la distancia del pin quedaría obsoleta y
+      // se soltaría antes de mostrar la última tarjeta. Lo observamos.
+      const ro = new ResizeObserver(refresh);
+      ro.observe(track);
+
+      return () => {
+        window.removeEventListener("load", refresh);
+        ro.disconnect();
+      };
     });
 
     return () => mm.revert();
@@ -478,9 +497,7 @@ export default function Services() {
               <article
                 key={it.n}
                 data-card-idx={idx}
-                className={`${idx === items.length - 1 ? "snap-end" : "snap-start"} relative shrink-0 w-full desk:h-full bg-paperSoft border border-border flex flex-col desk:grid desk:grid-cols-2 ${
-                  it.wide ? "desk:w-[80vw]" : "desk:w-[56vw]"
-                }`}
+                className={`${idx === items.length - 1 ? "snap-end" : "snap-start"} relative shrink-0 w-full desk:w-[80vw] desk:h-full bg-paperSoft border border-border flex flex-col desk:grid desk:grid-cols-2`}
               >
                 {it.sticker && (
                   <StarSticker
