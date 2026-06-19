@@ -7,9 +7,9 @@ import Loader from "@/components/Loader";
 const SITE_URL = "https://rmdislovall.com";
 const SITE_NAME = "RM Dislovall";
 const TITLE_DEFAULT =
-  "RM Dislovall — Soluciones de embalaje, logística y gestión de stock.";
+  "RM Dislovall | Embalaje de cartón ondulado y soluciones de suministro.";
 const DESCRIPTION =
-  "Embalaje de cartón ondulado a medida, manipulado, almacenaje y transporte. Todo tu suministro en un solo proveedor.";
+  "Ayudamos a empresas industriales y logísticas a optimizar su embalaje y su suministro con soluciones a medida de cada producto y cada operativa.";
 
 /*
   PENDIENTES DE ACTIVOS DEL CLIENTE
